@@ -1,13 +1,148 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
-generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
-}
+// Yerel dev için SQLite kullanılıyor. Production PostgreSQL'e geçiş için:
+// 1. provider = "postgresql" yap
+// 2. gallery ve techStack alanlarını String -> String[] yap (PostgreSQL array)
+// 3. DATABASE_URL'i PostgreSQL connection string'e çevir
+// 4. pnpm prisma migrate dev
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         String   @default("admin")
+  createdAt    DateTime @default(now())
+}
+
+model Banner {
+  id        String   @id @default(cuid())
+  title     String
+  subtitle  String?
+  imageUrl  String
+  ctaText   String?
+  ctaUrl    String?
+  order     Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Page {
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  title          String
+  subtitle       String?
+  heroImageUrl   String?
+  content        String // TipTap HTML
+  seoTitle       String?
+  seoDescription String?
+  updatedAt      DateTime @updatedAt
+}
+
+model Service {
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  title          String
+  shortDesc      String
+  icon           String?
+  coverImage     String?
+  content        String
+  order          Int      @default(0)
+  isActive       Boolean  @default(true)
+  seoTitle       String?
+  seoDescription String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Project {
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  title          String
+  client         String?
+  category       String
+  shortDesc      String
+  content        String
+  coverImage     String
+  // SQLite'ta array yok — JSON string olarak saklanır, helper'larla parse edilir
+  gallery        String   @default("[]")
+  techStack      String   @default("[]")
+  liveUrl        String?
+  year           Int?
+  isFeatured     Boolean  @default(false)
+  order          Int      @default(0)
+  seoTitle       String?
+  seoDescription String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([category])
+  @@index([isFeatured])
+}
+
+model Career {
+  id         String   @id @default(cuid())
+  slug       String   @unique
+  title      String
+  department String
+  location   String
+  type       String
+  shortDesc  String
+  content    String
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Media {
+  id        String   @id @default(cuid())
+  filename  String
+  path      String
+  mimeType  String
+  size      Int
+  width     Int?
+  height    Int?
+  alt       String?
+  createdAt DateTime @default(now())
+}
+
+model SiteSetting {
+  id              String   @id @default("singleton")
+  siteName        String   @default("i-grup")
+  logoUrl         String?
+  faviconUrl      String?
+  tagline         String?
+  email           String?
+  phone           String?
+  address         String?
+  whatsapp        String?
+  linkedinUrl     String?
+  instagramUrl    String?
+  xUrl            String?
+  footerText      String?
+  defaultSeoTitle String?
+  defaultSeoDesc  String?
+  gtmId           String?
+  statProjects    Int      @default(15)
+  statClients     Int      @default(40)
+  statYears       Int      @default(8)
+  updatedAt       DateTime @updatedAt
 }
