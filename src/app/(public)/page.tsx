@@ -7,9 +7,21 @@ import { ProjectCard } from "@/components/public/ProjectCard";
 import { MiniContactForm } from "@/components/public/MiniContactForm";
 import { Container } from "@/components/shared/Container";
 import { Button } from "@/components/ui/button";
+import { JsonLd, organizationSchema } from "@/components/shared/SeoJsonLd";
 import { ArrowRight, Store, Sparkles, Building2, Truck, ShoppingBag } from "lucide-react";
 
 export const revalidate = 3600;
+
+export async function generateMetadata() {
+  const s = await getSiteSettings();
+  return {
+    title: s.defaultSeoTitle ?? `${s.siteName} — Dijital Dönüşüm Çözümleri`,
+    description:
+      s.defaultSeoDesc ??
+      s.tagline ??
+      "Pazaryeri, e-ticaret ve B2B platformları geliştiren yazılım grubu.",
+  };
+}
 
 const CATEGORY_BANNERS = [
   {
@@ -60,8 +72,22 @@ export default async function HomePage() {
     getSiteSettings(),
   ]);
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const orgSchema = organizationSchema({
+    name: settings.siteName,
+    url: siteUrl,
+    logo: settings.logoUrl ? `${siteUrl}${settings.logoUrl}` : null,
+    email: settings.email,
+    phone: settings.phone,
+    address: settings.address,
+    sameAs: [settings.linkedinUrl, settings.instagramUrl, settings.xUrl].filter(
+      (u): u is string => !!u
+    ),
+  });
+
   return (
     <>
+      <JsonLd data={orgSchema} />
       <HeroSlider
         banners={banners.map((b) => ({
           id: b.id,

@@ -3,6 +3,8 @@ import { prisma } from "@/lib/db";
 import { Container } from "@/components/shared/Container";
 import { Badge } from "@/components/ui/badge";
 import { CareerApplicationForm } from "@/components/public/CareerApplicationForm";
+import { JsonLd, jobPostingSchema } from "@/components/shared/SeoJsonLd";
+import { getSiteSettings } from "@/lib/site";
 import { MapPin, Briefcase } from "lucide-react";
 
 export const revalidate = 3600;
@@ -35,11 +37,26 @@ export default async function CareerDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const c = await prisma.career.findUnique({ where: { slug } });
+  const [c, settings] = await Promise.all([
+    prisma.career.findUnique({ where: { slug } }),
+    getSiteSettings(),
+  ]);
   if (!c || !c.isActive) notFound();
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const schema = jobPostingSchema({
+    title: c.title,
+    description: c.content.replace(/<[^>]+>/g, " ").slice(0, 300),
+    datePosted: c.createdAt.toISOString(),
+    url: `${siteUrl}/kariyer/${c.slug}`,
+    location: c.location,
+    employmentType: c.type,
+    hiringOrganization: { name: settings.siteName, url: siteUrl },
+  });
 
   return (
     <Container className="py-12 md:py-16 max-w-4xl">
+      <JsonLd data={schema} />
       <header className="mb-10">
         <div className="flex flex-wrap items-center gap-2 mb-3">
           <Badge variant="secondary">{c.department}</Badge>
