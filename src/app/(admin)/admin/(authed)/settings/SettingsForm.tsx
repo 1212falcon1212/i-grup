@@ -28,8 +28,28 @@ type Values = {
   defaultSeoDesc: string;
   gtmId: string;
   statProjects: number;
-  statClients: number;
+  statSectors: number;
   statYears: number;
+  statEndUsers: string;
+  teamSize: number;
+  foundedYear: number;
+  heroHeading: string;
+  heroHighlight: string;
+  heroSubtitle: string;
+  heroStatusText: string;
+  heroImageUrl: string;
+  aboutHeading: string;
+  aboutLead: string;
+  aboutImage1: string;
+  aboutImage2: string;
+  aboutImage3: string;
+  careersHeading: string;
+  careersLead: string;
+  careersImage: string;
+  contactHeading: string;
+  contactHighlight: string;
+  contactLead: string;
+  officeHours: string;
 };
 
 export function SettingsForm({ initial }: { initial: Values }) {
@@ -54,7 +74,7 @@ export function SettingsForm({ initial }: { initial: Values }) {
     });
   }
 
-  const Field = ({
+  const TextField = ({
     label,
     k,
     type = "text",
@@ -90,6 +110,16 @@ export function SettingsForm({ initial }: { initial: Values }) {
     </div>
   );
 
+  const ImageField = ({ label, k }: { label: string; k: keyof Values }) => (
+    <div className="space-y-2">
+      <Label>{label}</Label>
+      <MediaPicker
+        value={String(v[k] ?? "")}
+        onChange={(url) => set(k, (url ?? "") as Values[typeof k])}
+      />
+    </div>
+  );
+
   return (
     <form onSubmit={submit} className="space-y-8 max-w-3xl">
       <section className="space-y-4">
@@ -97,24 +127,12 @@ export function SettingsForm({ initial }: { initial: Values }) {
           Genel
         </h2>
         <div className="grid md:grid-cols-2 gap-4">
-          <Field label="Site adı" k="siteName" />
-          <Field label="Tagline" k="tagline" />
+          <TextField label="Site adı" k="siteName" />
+          <TextField label="Tagline" k="tagline" />
         </div>
         <div className="grid md:grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label>Logo</Label>
-            <MediaPicker
-              value={v.logoUrl}
-              onChange={(url) => set("logoUrl", url ?? "")}
-            />
-          </div>
-          <div className="space-y-2">
-            <Label>Favicon</Label>
-            <MediaPicker
-              value={v.faviconUrl}
-              onChange={(url) => set("faviconUrl", url ?? "")}
-            />
-          </div>
+          <ImageField label="Logo" k="logoUrl" />
+          <ImageField label="Favicon" k="faviconUrl" />
         </div>
       </section>
 
@@ -123,10 +141,11 @@ export function SettingsForm({ initial }: { initial: Values }) {
           İletişim
         </h2>
         <div className="grid md:grid-cols-2 gap-4">
-          <Field label="E-posta" k="email" type="email" />
-          <Field label="Telefon" k="phone" />
-          <Field label="WhatsApp" k="whatsapp" />
-          <Field label="Adres" k="address" />
+          <TextField label="E-posta" k="email" type="email" />
+          <TextField label="Telefon" k="phone" />
+          <TextField label="WhatsApp" k="whatsapp" />
+          <TextField label="Adres" k="address" />
+          <TextField label="Çalışma saatleri" k="officeHours" />
         </div>
       </section>
 
@@ -135,20 +154,64 @@ export function SettingsForm({ initial }: { initial: Values }) {
           Sosyal Medya
         </h2>
         <div className="grid md:grid-cols-3 gap-4">
-          <Field label="LinkedIn URL" k="linkedinUrl" />
-          <Field label="Instagram URL" k="instagramUrl" />
-          <Field label="X (Twitter) URL" k="xUrl" />
+          <TextField label="LinkedIn URL" k="linkedinUrl" />
+          <TextField label="Instagram URL" k="instagramUrl" />
+          <TextField label="X (Twitter) URL" k="xUrl" />
         </div>
       </section>
 
       <section className="space-y-4">
         <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
-          İstatistik Rakamları
+          Hero Bölümü
         </h2>
-        <div className="grid md:grid-cols-3 gap-4">
-          <Field label="Proje sayısı" k="statProjects" type="number" />
-          <Field label="Müşteri sayısı" k="statClients" type="number" />
-          <Field label="Yıl tecrübe" k="statYears" type="number" />
+        <div className="grid gap-4">
+          <TextField label="Status metni (hero üst rozet)" k="heroStatusText" />
+          <TextField label="Hero başlığı" k="heroHeading" textarea rows={2} />
+          <TextField
+            label="Vurgu (başlığın içinden tam kelime/cümle)"
+            k="heroHighlight"
+          />
+          <TextField label="Hero altı paragraf" k="heroSubtitle" textarea rows={3} />
+          <ImageField label="Hero görseli (sağ portrait)" k="heroImageUrl" />
+        </div>
+        <div className="grid md:grid-cols-4 gap-4">
+          <TextField label="Stat: proje" k="statProjects" type="number" />
+          <TextField label="Stat: sektör" k="statSectors" type="number" />
+          <TextField label="Stat: yıl" k="statYears" type="number" />
+          <TextField label="Stat: son kullanıcı" k="statEndUsers" />
+        </div>
+        <div className="grid md:grid-cols-2 gap-4">
+          <TextField label="Ekip büyüklüğü" k="teamSize" type="number" />
+          <TextField label="Kuruluş yılı" k="foundedYear" type="number" />
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+          Hakkımızda
+        </h2>
+        <div className="grid gap-4">
+          <TextField label="Başlık" k="aboutHeading" textarea rows={2} />
+          <TextField label="Lead paragraf" k="aboutLead" textarea rows={3} />
+          <div className="grid md:grid-cols-3 gap-4">
+            <ImageField label="Görsel 1 (geniş)" k="aboutImage1" />
+            <ImageField label="Görsel 2 (kare)" k="aboutImage2" />
+            <ImageField label="Görsel 3 (kare)" k="aboutImage3" />
+          </div>
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+          Kariyer & İletişim
+        </h2>
+        <div className="grid gap-4">
+          <TextField label="Kariyer başlığı" k="careersHeading" />
+          <TextField label="Kariyer lead" k="careersLead" textarea rows={2} />
+          <ImageField label="Kariyer görseli" k="careersImage" />
+          <TextField label="İletişim başlığı" k="contactHeading" textarea rows={2} />
+          <TextField label="İletişim vurgu (başlık içinden)" k="contactHighlight" />
+          <TextField label="İletişim lead" k="contactLead" textarea rows={3} />
         </div>
       </section>
 
@@ -157,17 +220,17 @@ export function SettingsForm({ initial }: { initial: Values }) {
           SEO & Analytics
         </h2>
         <div className="grid md:grid-cols-2 gap-4">
-          <Field label="Varsayılan SEO başlık" k="defaultSeoTitle" />
-          <Field label="Varsayılan SEO açıklama" k="defaultSeoDesc" />
+          <TextField label="Varsayılan SEO başlık" k="defaultSeoTitle" />
+          <TextField label="Varsayılan SEO açıklama" k="defaultSeoDesc" />
         </div>
-        <Field label="GTM ID (Google Tag Manager)" k="gtmId" />
+        <TextField label="GTM ID (Google Tag Manager)" k="gtmId" />
       </section>
 
       <section className="space-y-4">
         <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
           Footer
         </h2>
-        <Field label="Footer metni" k="footerText" textarea rows={3} />
+        <TextField label="Footer metni" k="footerText" textarea rows={3} />
       </section>
 
       <div className="flex justify-end">

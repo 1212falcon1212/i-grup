@@ -67,11 +67,13 @@ model Project {
   slug           String   @unique
   title          String
   client         String?
-  category       String
+  category       String // tag — "Pazaryeri", "B2B", "Mobil", "E-ticaret", "ERP", "Platform", "Uygulama"
+  sector         String? // "Eczane", "Kozmetik", "Kurumsal", "Hırdavat", "Aksesuar" ...
+  status         String   @default("Yayında") // "Yayında" | "Beta" | "Yakında"
+  hue            Int? // decorative color hue for gradient placeholders (0-360)
   shortDesc      String
   content        String
   coverImage     String
-  // SQLite'ta array yok — JSON string olarak saklanır, helper'larla parse edilir
   gallery        String   @default("[]")
   techStack      String   @default("[]")
   liveUrl        String?
@@ -84,16 +86,59 @@ model Project {
   updatedAt      DateTime @updatedAt
 
   @@index([category])
+  @@index([sector])
   @@index([isFeatured])
+}
+
+model Sector {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  name      String
+  detail    String
+  // count alanı projelere bakılarak da türetilebilir ama admin'in override edebilmesi için
+  countOverride Int?
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Post {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  tag         String // "Ürün" | "Sektör" | "Kültür"
+  title       String
+  excerpt     String
+  content     String // TipTap HTML
+  coverImage  String?
+  publishedAt DateTime @default(now())
+  isPublished Boolean  @default(true)
+  seoTitle       String?
+  seoDescription String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isPublished])
+  @@index([publishedAt])
+}
+
+model Client {
+  id        String   @id @default(cuid())
+  name      String
+  logoUrl   String?
+  websiteUrl String?
+  order     Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Career {
   id         String   @id @default(cuid())
   slug       String   @unique
   title      String
-  department String
+  department String // team (e.g. "i-eczane", "merkez")
   location   String
-  type       String
+  type       String // "Tam Zamanlı" | "Yarı Zamanlı"
   shortDesc  String
   content    String
   isActive   Boolean  @default(true)
@@ -106,6 +151,7 @@ model ContactMessage {
   name      String
   email     String
   phone     String?
+  company   String?
   subject   String
   message   String
   isRead    Boolean  @default(false)
@@ -126,7 +172,7 @@ model Media {
 
 model SiteSetting {
   id              String   @id @default("singleton")
-  siteName        String   @default("i-grup")
+  siteName        String   @default("i-group")
   logoUrl         String?
   faviconUrl      String?
   tagline         String?
@@ -141,8 +187,30 @@ model SiteSetting {
   defaultSeoTitle String?
   defaultSeoDesc  String?
   gtmId           String?
-  statProjects    Int      @default(15)
-  statClients     Int      @default(40)
-  statYears       Int      @default(8)
+  // Kurumsal stats
+  statProjects    Int      @default(13)
+  statSectors     Int      @default(6)
+  statYears       Int      @default(10)
+  statEndUsers    String   @default("120K")
+  teamSize        Int      @default(38)
+  foundedYear     Int      @default(2014)
+  // Hero & About kopyaları
+  heroHeading       String? // "Eczane, kozmetik ve B2B için ürün geliştiriyoruz."
+  heroHighlight     String? // "ürün geliştiriyoruz." kısmı
+  heroSubtitle      String?
+  heroStatusText    String? // "İstanbul merkezli ürün stüdyosu · 2014'ten beri"
+  heroImageUrl      String?
+  aboutHeading      String?
+  aboutLead         String?
+  aboutImage1       String?
+  aboutImage2       String?
+  aboutImage3       String?
+  careersHeading    String?
+  careersLead       String?
+  careersImage      String?
+  contactHeading    String? // "Bir proje mi düşünüyorsunuz?"
+  contactHighlight  String? // "proje"
+  contactLead       String?
+  officeHours       String? // "Pazartesi – Cuma · 09:30 – 18:30"
   updatedAt       DateTime @updatedAt
 }

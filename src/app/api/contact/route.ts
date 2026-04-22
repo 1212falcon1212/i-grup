@@ -40,6 +40,7 @@ export async function POST(request: Request) {
       name: data.name,
       email: data.email,
       phone: data.phone || null,
+      company: data.company || null,
       subject: data.subject,
       message: data.message,
     },
@@ -49,12 +50,13 @@ export async function POST(request: Request) {
   await sendMail({
     to: adminEmail,
     replyTo: data.email,
-    subject: `[i-grup] Yeni iletişim: ${data.subject}`,
+    subject: `[i-group] ${data.subject}`,
     html: `
       <h2>Yeni iletişim mesajı</h2>
       <p><strong>Ad Soyad:</strong> ${escapeHtml(data.name)}</p>
       <p><strong>E-posta:</strong> ${escapeHtml(data.email)}</p>
       ${data.phone ? `<p><strong>Telefon:</strong> ${escapeHtml(data.phone)}</p>` : ""}
+      ${data.company ? `<p><strong>Şirket:</strong> ${escapeHtml(data.company)}</p>` : ""}
       <p><strong>Konu:</strong> ${escapeHtml(data.subject)}</p>
       <p><strong>Mesaj:</strong></p>
       <p>${escapeHtml(data.message).replace(/\n/g, "<br>")}</p>

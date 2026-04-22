@@ -8,323 +8,397 @@ const filePath = url.startsWith("file:") ? url.slice("file:".length) : url;
 const adapter = new PrismaBetterSqlite3({ url: filePath });
 const prisma = new PrismaClient({ adapter });
 
-const lorem = (title: string) => `
-<h2>${title}</h2>
-<p>i-grup, kurumsal ölçekte dijital dönüşüm projeleri geliştiren bir yazılım grubudur. Pazaryeri, e-ticaret, kozmetik, kurye operasyonları ve B2B platformları alanlarında uzmanlaşmış ekibiyle müşterilerine uçtan uca çözümler sunmaktadır.</p>
-<p>Yaklaşımımızın temelinde; teknolojiyi iş süreçleriyle birleştirerek ölçülebilir değer yaratmak vardır. Ürün geliştirme, mimari danışmanlık, DevOps ve destek hizmetlerini tek çatı altında sunuyoruz.</p>
-<h3>Neden i-grup?</h3>
+// Unsplash helper (handoff spec)
+const U = (id: string, w = 1600, h = 900) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&h=${h}&q=80`;
+
+const IMG = {
+  heroOffice: U("photo-1497366216548-37526070297c", 1200, 1500),
+  aboutOffice: U("photo-1497215842964-222b430dc094", 1400, 900),
+  aboutTeam: U("photo-1522071820081-009f0129c71c", 1000, 1000),
+  officeFloor: U("photo-1604328698692-f76ea9498e76", 1000, 1000),
+  careersOffice: U("photo-1600880292203-757bb62b4baf", 1400, 1050),
+  newsProduct: U("photo-1555421689-491a97ff2040", 1400, 800),
+  newsSector: U("photo-1587854692152-cbe660dbde88", 1400, 800),
+  newsCulture: U("photo-1529070538774-1843cb3265df", 1400, 800),
+  newsInci: U("photo-1556228720-195a672e8a03", 1400, 800),
+};
+
+const PROJECT_IMG: Record<string, string> = {
+  "i-eczane": U("photo-1587854692152-cbe660dbde88", 1400, 900),
+  "i-depo": U("photo-1631549916768-4119b2e5f926", 1400, 900),
+  "i-kozmo": U("photo-1522337360788-8b13dee7a37e", 1400, 900),
+  istanbulvitamin: U("photo-1571781926291-c477ebfd024b", 1400, 900),
+  specialwhey: U("photo-1579722821273-0f6c1b5a9b39", 1400, 900),
+  "i-hesap": U("photo-1554224155-6726b3ff858f", 1400, 900),
+  "i-hirdavat": U("photo-1581783898377-1c85bf937427", 1400, 900),
+  "i-bijuteri": U("photo-1611591437281-460bfbe1220a", 1400, 900),
+  "i-kirtasiye": U("photo-1513542789411-b6a5d4f31634", 1400, 900),
+  "i-nalbur": U("photo-1581092160607-ee22621dd758", 1400, 900),
+  "i-zeruj": U("photo-1488459716781-31db52582fe9", 1400, 900),
+  memnuniyetimvar: U("photo-1556761175-5973dc0f32e7", 1400, 900),
+  "i-kira": U("photo-1560520653-9e0e4c89eb11", 1400, 900),
+};
+
+const blogContent = (title: string, excerpt: string) => `
+<p>${excerpt}</p>
+<h2>${title} — detaylı bakış</h2>
+<p>i-group olarak geliştirdiğimiz ürünler ve üzerinde çalıştığımız sektörlerden önemli notları burada paylaşıyoruz. Her yazı; saha gözlemlerimizden, veri analizlerimizden ve ekip kültürümüzden beslenir.</p>
+<h3>Neden önemli?</h3>
 <ul>
-  <li>Kurumsal ölçekte deneyim ve referanslar</li>
-  <li>Uçtan uca teslim: tasarım, geliştirme, devreye alma</li>
-  <li>Bakım ve büyüme süreçlerinde sürekli destek</li>
+  <li>Müşterilerimizin ihtiyaçlarının arkasındaki sebepleri anlamak</li>
+  <li>Ürün-pazar uyumunu dinamik olarak ölçmek</li>
+  <li>Ekip içi bilgi paylaşımı ve süreç iyileştirmesi</li>
 </ul>
-<p>Projenizi birlikte planlamak için ekibimizle iletişime geçebilirsiniz.</p>
+<p>Bu yazı serisiyle birlikte, hem teknik ekibimizin hem de ürün yöneticilerimizin gündelik deneyimlerini aktarmaya devam edeceğiz.</p>
 `.trim();
 
-async function seedAdminUser() {
-  const email = process.env.ADMIN_EMAIL ?? "admin@i-grup.com";
+const projectContent = (name: string, desc: string, sector: string) => `
+<h2>${name}</h2>
+<p>${desc}</p>
+<h3>Ne yapıyor?</h3>
+<p><strong>${sector}</strong> sektöründe faaliyet gösteren bu ürün, kullanıcılarına uçtan uca dijital deneyim sağlar. Stratejik planlamadan lansman sonrası sürdürme süreçlerine kadar her aşamada i-group ekibi devrededir.</p>
+<h3>Öne çıkan özellikler</h3>
+<ul>
+  <li>Modüler mimari — hızlı iterasyon ve genişleme</li>
+  <li>Kurumsal ölçek performans ve güvenlik</li>
+  <li>Veri odaklı karar destek ekranları</li>
+  <li>Uçtan uca operasyonel izleme</li>
+</ul>
+`.trim();
+
+async function seedAdmin() {
+  const email = process.env.ADMIN_EMAIL ?? "admin@i-group.com.tr";
   const password = process.env.ADMIN_PASSWORD ?? "admin123";
   const name = process.env.ADMIN_NAME ?? "Admin";
   const passwordHash = await bcrypt.hash(password, 10);
-  const user = await prisma.user.upsert({
+  await prisma.user.upsert({
     where: { email },
     update: { passwordHash, name },
     create: { email, name, passwordHash, role: "admin" },
   });
-  console.log(`✓ Admin user: ${user.email}`);
+  console.log(`✓ Admin: ${email}`);
 }
 
-async function seedSiteSettings() {
-  const setting = await prisma.siteSetting.upsert({
-    where: { id: "singleton" },
-    update: {},
-    create: {
-      id: "singleton",
-      siteName: "i-grup",
-      tagline: "Kurumsal ölçekte dijital dönüşüm çözümleri",
-      email: "info@i-grup.com",
+async function seedSettings() {
+  const data = {
+    siteName: "i-group",
+      tagline:
+        "İstanbul merkezli ürün stüdyosu. Pazaryerleri, B2B tedarik, mobil uygulamalar, ERP ve tüketici platformları geliştiriyoruz.",
+      email: "merhaba@i-group.com.tr",
       phone: "+90 212 000 00 00",
       whatsapp: "+905000000000",
-      address: "Maslak Mah. Büyükdere Cd. No:000, Sarıyer / İstanbul",
-      linkedinUrl: "https://www.linkedin.com/company/i-grup",
-      instagramUrl: "https://www.instagram.com/igrup",
-      xUrl: "https://x.com/igrup",
+      address: "Maslak No.1 Plaza, Sarıyer / İstanbul",
+      linkedinUrl: "https://www.linkedin.com/company/i-group",
+      instagramUrl: "https://www.instagram.com/i-group",
+      xUrl: "https://x.com/igroup",
       footerText:
-        "i-grup, pazaryeri ve e-ticaret yazılımı alanında uzmanlaşmış bir teknoloji grubudur.",
+        "İstanbul merkezli ürün stüdyosu. Eczane, kozmetik, B2B ve kurumsal yazılım için uçtan uca ürün geliştirir ve işletir.",
       defaultSeoTitle:
-        "i-grup — Pazaryeri, e-ticaret ve B2B yazılım çözümleri",
+        "i-group — Eczane, kozmetik ve B2B için ürün geliştiriyoruz",
       defaultSeoDesc:
-        "Kurumsal ölçekte pazaryeri, e-ticaret, kozmetik, kurye ve B2B platformları geliştiren yazılım grubu.",
-      statProjects: 15,
-      statClients: 42,
-      statYears: 8,
-    },
+        "Pazaryerleri, B2B tedarik ağları, mobil uygulamalar, kurumsal muhasebe yazılımı ve tüketici platformlarında uçtan uca ürün üretir ve işletir.",
+      statProjects: 13,
+      statSectors: 6,
+      statYears: 10,
+      statEndUsers: "120K",
+      teamSize: 38,
+      foundedYear: 2014,
+      heroHeading: "Eczane, kozmetik ve B2B için ürün geliştiriyoruz.",
+      heroHighlight: "ürün geliştiriyoruz.",
+      heroSubtitle:
+        "i-group; pazaryerleri, B2B tedarik ağları, mobil uygulamalar, kurumsal muhasebe yazılımı ve tüketici platformlarında uçtan uca ürün üretir ve işletir.",
+      heroStatusText: "İstanbul merkezli ürün stüdyosu · 2014'ten beri",
+      heroImageUrl: IMG.heroOffice,
+      aboutHeading: "Bir yazılım stüdyosu; fikirden canlı ürüne.",
+      aboutLead:
+        "2014'te İstanbul'da üç kişilik bir ekiple kuruldu. Bugün 38 kişilik ekibimizle 13 aktif ürünü yayınlıyor, işletiyor ve büyütüyoruz. Ürünü kurmak kadar, ayakta tutmak ve ölçeklendirmek de işimizin bir parçası.",
+      aboutImage1: IMG.aboutOffice,
+      aboutImage2: IMG.aboutTeam,
+      aboutImage3: IMG.officeFloor,
+      careersHeading: "Ekibimize katılın.",
+      careersLead:
+        "Uzak ya da İstanbul, tercih sizin. Uçtan uca ürün geliştirdiğimiz 13 ürüne doğrudan dokunacaksınız.",
+      careersImage: IMG.careersOffice,
+      contactHeading: "Bir proje mi düşünüyorsunuz?",
+      contactHighlight: "proje",
+      contactLead:
+        "Kısa bir brief bırakın; 24 saat içinde size özel geri dönelim. Her talep ekibimizde doğrudan bir ürün yöneticisine gider.",
+    officeHours: "Pazartesi – Cuma · 09:30 – 18:30",
+  };
+  await prisma.siteSetting.upsert({
+    where: { id: "singleton" },
+    update: data,
+    create: { id: "singleton", ...data },
   });
-  console.log(`✓ SiteSetting: ${setting.siteName}`);
+  console.log("✓ SiteSetting");
 }
 
 async function seedPages() {
   const pages = [
-    { slug: "hakkimizda", title: "Hakkımızda", subtitle: "Kurumsal yazılım deneyimi" },
-    { slug: "misyonumuz", title: "Misyonumuz", subtitle: "Teknolojiyle değer yaratmak" },
     {
-      slug: "hizmetlerimiz",
-      title: "Hizmetlerimiz",
-      subtitle: "Uçtan uca dijital çözümler",
+      slug: "hakkimizda",
+      title: "Hakkımızda",
+      subtitle: "2014'ten beri ürün üreten ekibimiz.",
     },
     {
-      slug: "kariyer",
-      title: "Kariyer",
-      subtitle: "Ekibimize katılmak ister misin?",
+      slug: "misyonumuz",
+      title: "Misyonumuz",
+      subtitle: "Kurduğumuz ürünleri ayakta tutmak ve büyütmek.",
     },
     {
       slug: "kvkk",
       title: "KVKK Aydınlatma Metni",
-      subtitle: "Kişisel verilerin korunması",
+      subtitle: "Kişisel verilerin korunması.",
     },
     {
       slug: "gizlilik-politikasi",
       title: "Gizlilik Politikası",
-      subtitle: "Çerezler ve veri işleme",
+      subtitle: "Çerezler ve veri işleme politikaları.",
     },
   ];
-
   for (const p of pages) {
     await prisma.page.upsert({
       where: { slug: p.slug },
       update: {},
       create: {
         ...p,
-        content: lorem(p.title),
-        seoTitle: `${p.title} | i-grup`,
-        seoDescription: p.subtitle ?? null,
+        content: `<p>${p.subtitle}</p><p>Bu sayfanın içeriği admin panelinden yönetilebilir. Detayları buradan düzenleyebilirsiniz.</p>`,
+        seoTitle: `${p.title} | i-group`,
+        seoDescription: p.subtitle,
       },
     });
   }
-  console.log(`✓ Pages: ${pages.length}`);
-}
-
-async function seedServices() {
-  const services = [
-    {
-      slug: "pazaryeri-gelistirme",
-      title: "Pazaryeri Geliştirme",
-      shortDesc:
-        "Multi-vendor pazaryeri platformlarını sıfırdan kurgular, büyütür ve ölçekleriz.",
-      icon: "Store",
-      order: 1,
-    },
-    {
-      slug: "e-ticaret-siteleri",
-      title: "E-Ticaret Siteleri",
-      shortDesc:
-        "Yüksek dönüşüm odaklı, entegrasyonları hazır e-ticaret sitelerini hayata geçiririz.",
-      icon: "ShoppingBag",
-      order: 2,
-    },
-    {
-      slug: "kozmetik-dermokozmetik-platformlari",
-      title: "Kozmetik & Dermokozmetik Platformları",
-      shortDesc:
-        "Eczane, marka ve distribütör iş modellerine uygun dermokozmetik platformları.",
-      icon: "Sparkles",
-      order: 3,
-    },
-    {
-      slug: "b2b-kapali-pazaryeri",
-      title: "B2B Kapalı Pazaryeri",
-      shortDesc:
-        "Bayi, distribütör ve tedarikçi ağları için kapalı B2B pazaryeri çözümleri.",
-      icon: "Building2",
-      order: 4,
-    },
-    {
-      slug: "kurye-saha-operasyonu",
-      title: "Kurye & Saha Operasyonu Uygulamaları",
-      shortDesc:
-        "Son-kilometre teslimat ve saha ekipleri için mobil takip uygulamaları.",
-      icon: "Truck",
-      order: 5,
-    },
-  ];
-
-  for (const s of services) {
-    await prisma.service.upsert({
-      where: { slug: s.slug },
-      update: {},
-      create: {
-        ...s,
-        coverImage: `https://picsum.photos/seed/${s.slug}/1200/800`,
-        content: lorem(s.title),
-        isActive: true,
-        seoTitle: `${s.title} | i-grup`,
-        seoDescription: s.shortDesc,
-      },
-    });
-  }
-  console.log(`✓ Services: ${services.length}`);
+  console.log(`✓ Pages (${pages.length})`);
 }
 
 async function seedProjects() {
-  const categories: Record<string, string> = {
-    pazaryeri: "Pazaryeri",
-    eticaret: "E-Ticaret",
-    kozmetik: "Kozmetik",
-    b2b: "B2B",
-    kurye: "Kurye & Saha",
-  };
+  // Clear existing if count mismatch
+  const existing = await prisma.project.count();
+  if (existing > 0) {
+    await prisma.project.deleteMany();
+  }
 
   const projects = [
-    { slug: "omni-pazaryeri", title: "OmniPazar — Kurumsal Multi-Vendor", cat: "pazaryeri", year: 2025, featured: true },
-    { slug: "eczane-plus", title: "Eczane+ Dermokozmetik Pazaryeri", cat: "kozmetik", year: 2025, featured: true },
-    { slug: "b2b-tedarik", title: "B2B Tedarik Portalı", cat: "b2b", year: 2024, featured: true },
-    { slug: "kargom-lite", title: "Kargom Lite Son-Kilometre", cat: "kurye", year: 2024, featured: true },
-    { slug: "fashion-hub", title: "Fashion Hub Moda E-Ticaret", cat: "eticaret", year: 2024, featured: true },
-    { slug: "fresh-market", title: "Fresh Market Hızlı Market", cat: "eticaret", year: 2023, featured: true },
-    { slug: "bayipanel", title: "BayiPanel B2B Portal", cat: "b2b", year: 2023, featured: false },
-    { slug: "kozmetik-ithalat", title: "KozmetikIthalat Distribütör Paneli", cat: "kozmetik", year: 2023, featured: false },
-    { slug: "servis-atolyesi", title: "Servis Atölyesi Saha Uygulaması", cat: "kurye", year: 2023, featured: false },
-    { slug: "emlak-vitrin", title: "Emlak Vitrin Çok Kullanıcılı Site", cat: "pazaryeri", year: 2022, featured: false },
-    { slug: "market-express", title: "Market Express Hızlı Teslimat", cat: "eticaret", year: 2022, featured: false },
-    { slug: "saglik-asistan", title: "Sağlık Asistan Dermokozmetik", cat: "kozmetik", year: 2022, featured: false },
-    { slug: "lojistik-takip", title: "Lojistik Takip Saha Uygulaması", cat: "kurye", year: 2022, featured: false },
-    { slug: "endustriyel-b2b", title: "Endüstriyel B2B Satış Portalı", cat: "b2b", year: 2022, featured: false },
-    { slug: "ikinci-el-pazari", title: "İkinciEl Pazarı C2C Platform", cat: "pazaryeri", year: 2021, featured: false },
+    { id: "i-eczane", name: "i-eczane", tag: "Pazaryeri", sector: "Eczane", desc: "Dermokozmetik eczane pazaryeri. Eczacılar ve markalar arası doğrudan stok ve sipariş akışı.", status: "Yayında", year: 2023, hue: 264 },
+    { id: "i-depo", name: "i-depo", tag: "B2B", sector: "Eczane", desc: "B2B kapalı dermokozmetik pazaryeri. Distribütör-eczane arasında davetli tedarik ağı.", status: "Yayında", year: 2023, hue: 272 },
+    { id: "i-kozmo", name: "i-kozmo", tag: "Mobil", sector: "Kozmetik", desc: "Kozmetik ürün tanıtım ve yorumlama mobil uygulaması. INCI okuma, topluluk ve rutin takibi.", status: "Yayında", year: 2024, hue: 296 },
+    { id: "istanbulvitamin", name: "istanbulvitamin", tag: "E-ticaret", sector: "Kozmetik", desc: "Kişisel kozmetik e-ticaret sitesi. Cilt tipine göre kürasyon ve abonelik.", status: "Yayında", year: 2022, hue: 310 },
+    { id: "specialwhey", name: "specialwhey", tag: "E-ticaret", sector: "Kozmetik", desc: "Kişiye özel protein mix. Hedef/diyete göre formülasyon ve tekrar-siparişli abonelik.", status: "Yayında", year: 2024, hue: 320 },
+    { id: "i-hesap", name: "i-hesap", tag: "ERP", sector: "Kurumsal", desc: "Muhasebe ERP programı. KOBİ odaklı, e-belge entegre, çoklu şirket.", status: "Yayında", year: 2021, hue: 252 },
+    { id: "i-hirdavat", name: "i-hırdavat", tag: "B2B", sector: "Hırdavat", desc: "B2B hırdavat pazaryeri. Toptancı-bayi arası kalem bazlı sipariş ve cari.", status: "Yayında", year: 2024, hue: 240 },
+    { id: "i-bijuteri", name: "i-bijuteri", tag: "B2B", sector: "Aksesuar", desc: "B2B bijuteri pazaryeri. Üretici-perakendeci arası koli bazlı sipariş akışı.", status: "Yayında", year: 2024, hue: 304 },
+    { id: "i-kirtasiye", name: "i-kırtasiye", tag: "B2B", sector: "Kırtasiye", desc: "B2B kırtasiye pazaryeri. Okul/ofis tedarik kanalı, kampanya ve liste siparişi.", status: "Yayında", year: 2024, hue: 228 },
+    { id: "i-nalbur", name: "i-nalbur", tag: "B2B", sector: "Yapı", desc: "B2B nalbur pazaryeri. Yapı-hırdavat ihtiyaçlarında bölgesel tedarik.", status: "Beta", year: 2025, hue: 216 },
+    { id: "i-zeruj", name: "i-zeruj", tag: "B2B", sector: "Gıda", desc: "B2B zerzevat pazaryeri. Hal-restoran arası günlük sipariş.", status: "Beta", year: 2025, hue: 148 },
+    { id: "memnuniyetimvar", name: "memnuniyetimvar", tag: "Platform", sector: "Tüketici", desc: "Şikayet platformlarının aksine memnuniyet odaklı. Markalara olumlu deneyim akışı.", status: "Yakında", year: 2026, hue: 288 },
+    { id: "i-kira", name: "i-kira", tag: "Uygulama", sector: "Emlak", desc: "Kiracı ve ev sahibi anlaşma uygulaması. Sözleşme, ödeme, demirbaş ve teslim akışı.", status: "Yakında", year: 2026, hue: 200 },
   ];
-
-  const techStacks: Record<string, string[]> = {
-    pazaryeri: ["Next.js", "PostgreSQL", "Redis", "Elasticsearch", "AWS"],
-    eticaret: ["Next.js", "Stripe", "PostgreSQL", "Tailwind", "Vercel"],
-    kozmetik: ["Laravel", "MySQL", "Vue.js", "Redis", "S3"],
-    b2b: ["Next.js", "Prisma", "PostgreSQL", "NextAuth", "SendGrid"],
-    kurye: ["React Native", "Expo", "Node.js", "PostgreSQL", "Firebase"],
-  };
 
   let i = 0;
   for (const p of projects) {
-    await prisma.project.upsert({
-      where: { slug: p.slug },
-      update: {},
-      create: {
-        slug: p.slug,
-        title: p.title,
-        client: i % 3 === 0 ? "Özel sektör müşterisi" : `Kurumsal Müşteri ${i + 1}`,
-        category: categories[p.cat],
-        shortDesc: `${p.title} için geliştirdiğimiz, uçtan uca dijital dönüşüm projesi.`,
-        content: lorem(p.title),
-        coverImage: `https://picsum.photos/seed/${p.slug}/1600/900`,
-        gallery: JSON.stringify([
-          `https://picsum.photos/seed/${p.slug}-1/1600/900`,
-          `https://picsum.photos/seed/${p.slug}-2/1600/900`,
-          `https://picsum.photos/seed/${p.slug}-3/1600/900`,
-        ]),
-        techStack: JSON.stringify(techStacks[p.cat]),
+    await prisma.project.create({
+      data: {
+        slug: p.id,
+        title: p.name,
+        client: null,
+        category: p.tag,
+        sector: p.sector,
+        status: p.status,
+        hue: p.hue,
+        shortDesc: p.desc,
+        content: projectContent(p.name, p.desc, p.sector),
+        coverImage: PROJECT_IMG[p.id],
         liveUrl: null,
         year: p.year,
-        isFeatured: p.featured,
+        isFeatured: i % 5 === 0,
         order: i,
-        seoTitle: `${p.title} | i-grup`,
-        seoDescription: `${p.title} — ${categories[p.cat]} kategorisinde ${p.year} yılında geliştirilmiş proje.`,
+        seoTitle: `${p.name} | i-group`,
+        seoDescription: p.desc,
       },
     });
     i++;
   }
-  console.log(`✓ Projects: ${projects.length}`);
+  console.log(`✓ Projects (${projects.length})`);
+}
+
+async function seedSectors() {
+  const existing = await prisma.sector.count();
+  if (existing > 0) await prisma.sector.deleteMany();
+
+  const sectors = [
+    { slug: "ecza", name: "Eczane & Dermokozmetik", detail: "Pazaryeri ve B2B tedarik" },
+    { slug: "kozmetik", name: "Kozmetik & Kişisel Bakım", detail: "Mobil, e-ticaret, kürasyon" },
+    { slug: "b2b", name: "B2B Pazaryerleri", detail: "Hırdavat · Nalbur · Zerzevat · Bijuteri · Kırtasiye" },
+    { slug: "erp", name: "Kurumsal Yazılım / ERP", detail: "Muhasebe, e-belge, çoklu şirket" },
+    { slug: "tuketici", name: "Tüketici Platformları", detail: "Memnuniyet, kira anlaşması" },
+  ];
+
+  for (let i = 0; i < sectors.length; i++) {
+    await prisma.sector.create({ data: { ...sectors[i], order: i } });
+  }
+  console.log(`✓ Sectors (${sectors.length})`);
+}
+
+async function seedPosts() {
+  const existing = await prisma.post.count();
+  if (existing > 0) await prisma.post.deleteMany();
+
+  const posts = [
+    {
+      slug: "i-kira-ozel-beta-erisimi",
+      tag: "Ürün",
+      title: "i-kira özel beta erişimi başladı",
+      excerpt:
+        "Kiracı ve ev sahipleri için dijital sözleşme ve ödeme takibi; ilk 500 kullanıcıya özel.",
+      date: "2026-04-12",
+      cover: IMG.newsProduct,
+    },
+    {
+      slug: "dermokozmetikte-kapali-pazaryeri",
+      tag: "Sektör",
+      title: "Dermokozmetikte kapalı pazaryeri neden önemli?",
+      excerpt:
+        "i-depo deneyiminden hareketle: davetli tedarik, fiyat dengesi ve marka koruma üzerine not.",
+      date: "2026-04-04",
+      cover: IMG.newsSector,
+    },
+    {
+      slug: "ekipce-calisma-ritmimiz",
+      tag: "Kültür",
+      title: "Ekipçe çalışma ritmimiz: 4+1 hafta",
+      excerpt:
+        "Dört hafta ürün, bir hafta bakım ve yenilenme — neden işe yarıyor, hangi istisnalar var.",
+      date: "2026-03-21",
+      cover: IMG.newsCulture,
+    },
+    {
+      slug: "i-kozmo-inci-2",
+      tag: "Ürün",
+      title: "i-kozmo için INCI 2.0 yayında",
+      excerpt:
+        "Bileşen listelerini fotoğraftan okuyan yeni motor; cilt tipi uyumluluğu %37 daha doğru.",
+      date: "2026-03-02",
+      cover: IMG.newsInci,
+    },
+  ];
+
+  for (const p of posts) {
+    await prisma.post.create({
+      data: {
+        slug: p.slug,
+        tag: p.tag,
+        title: p.title,
+        excerpt: p.excerpt,
+        content: blogContent(p.title, p.excerpt),
+        coverImage: p.cover,
+        publishedAt: new Date(p.date),
+        isPublished: true,
+        seoTitle: `${p.title} | i-group`,
+        seoDescription: p.excerpt,
+      },
+    });
+  }
+  console.log(`✓ Posts (${posts.length})`);
+}
+
+async function seedClients() {
+  const existing = await prisma.client.count();
+  if (existing > 0) await prisma.client.deleteMany();
+
+  const clients = [
+    "Dermopharma",
+    "VitaLab",
+    "KozmoPlus",
+    "MavenHealth",
+    "Nöropa",
+    "Tekno Ecza",
+    "Harmoni Group",
+    "Kentpark",
+    "Örnek AVM",
+    "Fatih Kimya",
+  ];
+
+  for (let i = 0; i < clients.length; i++) {
+    await prisma.client.create({
+      data: { name: clients[i], order: i, isActive: true },
+    });
+  }
+  console.log(`✓ Clients (${clients.length})`);
 }
 
 async function seedCareers() {
+  const existing = await prisma.career.count();
+  if (existing > 0) await prisma.career.deleteMany();
+
   const careers = [
     {
-      slug: "senior-fullstack-developer",
-      title: "Senior Full-Stack Developer",
-      department: "Yazılım",
+      slug: "kidemli-frontend-muhendisi",
+      title: "Kıdemli Frontend Mühendisi",
+      department: "i-eczane",
       location: "İstanbul / Uzaktan",
       type: "Tam Zamanlı",
       shortDesc:
-        "Next.js ve PostgreSQL tabanlı kurumsal projelerde tasarımdan üretime kadar sorumluluk alacak senior geliştiriciler arıyoruz.",
+        "i-eczane ürününde React/Next.js tabanlı ön-yüz çalışmaları; ölçek ve performans odaklı mimari kararlar.",
     },
     {
-      slug: "product-designer",
-      title: "Product Designer",
-      department: "Tasarım",
+      slug: "urun-tasarimcisi",
+      title: "Ürün Tasarımcısı",
+      department: "i-kozmo",
       location: "İstanbul",
       type: "Tam Zamanlı",
       shortDesc:
-        "Kullanıcı araştırmalarından prototiplemeye tüm tasarım sürecini yönetecek ürün tasarımcısı arıyoruz.",
+        "i-kozmo mobil uygulamasında kullanıcı araştırmasından prototiplemeye kadar tüm süreç.",
     },
     {
-      slug: "devops-engineer",
-      title: "DevOps Engineer",
-      department: "Altyapı",
+      slug: "backend-muhendisi-go",
+      title: "Backend Mühendisi (Go)",
+      department: "i-hesap",
       location: "Uzaktan",
       type: "Tam Zamanlı",
       shortDesc:
-        "Kurumsal projelerin CI/CD, izleme ve güvenlik süreçlerini kurgulayacak DevOps mühendisi arıyoruz.",
+        "i-hesap ERP ekibinde Go tabanlı servis mimarisi, çoklu şirket ve yüksek hacimli veri işleme.",
+    },
+    {
+      slug: "buyume-pazarlama-uzmani",
+      title: "Büyüme Pazarlama Uzmanı",
+      department: "merkez",
+      location: "İstanbul",
+      type: "Tam Zamanlı",
+      shortDesc:
+        "Tüm ürün portföyümüz genelinde kanal testi, içerik ve performans takibi.",
     },
   ];
 
   for (const c of careers) {
-    await prisma.career.upsert({
-      where: { slug: c.slug },
-      update: {},
-      create: {
+    await prisma.career.create({
+      data: {
         ...c,
-        content: lorem(c.title),
+        content: `<p>${c.shortDesc}</p><h2>Beklentiler</h2><ul><li>Benzer pozisyonda 3+ yıl deneyim</li><li>Ekip içi işbirliği ve etkili iletişim</li><li>Ürün mindset'i ve analitik düşünce</li></ul><h2>Sunduklarımız</h2><ul><li>Uzak ve hibrit çalışma seçenekleri</li><li>Yıllık profesyonel gelişim bütçesi</li><li>İstanbul'da modern merkez ofis</li></ul>`,
         isActive: true,
       },
     });
   }
-  console.log(`✓ Careers: ${careers.length}`);
+  console.log(`✓ Careers (${careers.length})`);
 }
 
 async function seedBanners() {
-  const banners = [
-    {
-      id: "banner-1",
-      title: "Kurumsal Pazaryeri Çözümleri",
-      subtitle: "15+ projeyi canlıya aldık, şimdi sırada sizin işiniz var.",
-      imageUrl: "https://picsum.photos/seed/banner-1/1920/900",
-      ctaText: "Teklif Al",
-      ctaUrl: "/iletisim",
-      order: 0,
-    },
-    {
-      id: "banner-2",
-      title: "Eczane & Dermokozmetik",
-      subtitle: "Niche iş modellerine özel, yasal uyumlu e-ticaret platformları.",
-      imageUrl: "https://picsum.photos/seed/banner-2/1920/900",
-      ctaText: "Projelerimiz",
-      ctaUrl: "/projelerimiz",
-      order: 1,
-    },
-    {
-      id: "banner-3",
-      title: "Kurye & Saha Operasyonu",
-      subtitle: "Son-kilometre teslimatta mobil çözümlerimizle kazanın.",
-      imageUrl: "https://picsum.photos/seed/banner-3/1920/900",
-      ctaText: "Hizmetlerimiz",
-      ctaUrl: "/hizmetlerimiz",
-      order: 2,
-    },
-  ];
-
-  for (const b of banners) {
-    await prisma.banner.upsert({
-      where: { id: b.id },
-      update: {},
-      create: { ...b, isActive: true },
-    });
-  }
-  console.log(`✓ Banners: ${banners.length}`);
+  // Mevcut yapıda Banner tablosunu yalnızca hero background için kullanıyorduk.
+  // Tek-sayfa design'ında hero DB alanlarından (heroImageUrl, heroHeading) besleniyor.
+  // Banner'ı boş bırak (veya admin'de gerekirse yönet).
+  await prisma.banner.deleteMany();
+  console.log("✓ Banners (0 — hero artık SiteSetting'den)");
 }
 
 async function main() {
-  console.log("→ Seeding database...");
-  await seedAdminUser();
-  await seedSiteSettings();
+  console.log("→ Seeding i-group database…");
+  await seedAdmin();
+  await seedSettings();
   await seedPages();
-  await seedServices();
   await seedProjects();
+  await seedSectors();
+  await seedPosts();
+  await seedClients();
   await seedCareers();
   await seedBanners();
   console.log("✔ Seed complete.");

@@ -2,6 +2,8 @@ import Link from "next/link";
 import { prisma } from "@/lib/db";
 import { Container } from "@/components/shared/Container";
 import { ProjectCard } from "@/components/public/ProjectCard";
+import { Reveal, RevealStagger, RevealItem } from "@/components/motion/Reveal";
+import { GridBackground } from "@/components/motion/GridBackground";
 import { cn } from "@/lib/utils";
 
 export const revalidate = 3600;
@@ -29,48 +31,67 @@ export default async function ProjectsListPage({
 
   return (
     <>
-      <Container className="py-12 md:py-20">
-        <header className="max-w-3xl mb-8 md:mb-12">
-          <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
-            Projelerimiz
-          </h1>
-          <p className="text-muted-foreground mt-3 text-base md:text-lg">
-            Farklı dikeylerde kurumsal ölçekte geliştirdiğimiz projelerden bir
-            seçki.
-          </p>
-        </header>
+      <section className="relative border-b border-border bg-muted/30 overflow-hidden">
+        <GridBackground />
+        <Container className="relative py-16 md:py-24">
+          <Reveal>
+            <div className="eyebrow mb-4">
+              <span className="num-badge">01</span> Portföy
+            </div>
+            <h1 className="text-4xl md:text-6xl font-semibold tracking-[-0.02em] leading-[1.05] max-w-3xl">
+              Farklı dikeylerde{" "}
+              <span className="serif-accent text-gradient">
+                hayata geçirdiğimiz
+              </span>{" "}
+              projeler.
+            </h1>
+            <p className="text-muted-foreground mt-5 text-base md:text-lg max-w-2xl">
+              Toplam <span className="font-mono text-foreground">{projects.length}</span> proje
+              {params.kategori ? (
+                <>
+                  {" "}— <span className="font-mono text-foreground">{params.kategori}</span> kategorisinde
+                </>
+              ) : null}
+              .
+            </p>
+          </Reveal>
 
-        <div className="flex flex-wrap items-center gap-2 mb-8">
-          <FilterChip
-            href="/projelerimiz"
-            active={!params.kategori}
-            label="Tümü"
-          />
-          {categories.map((c) => (
-            <FilterChip
-              key={c}
-              href={`/projelerimiz?kategori=${encodeURIComponent(c)}`}
-              active={params.kategori === c}
-              label={c}
-            />
-          ))}
-        </div>
+          <Reveal delay={0.1}>
+            <div className="flex flex-wrap items-center gap-2 mt-10">
+              <FilterChip href="/projelerimiz" active={!params.kategori} label="Tümü" />
+              {categories.map((c) => (
+                <FilterChip
+                  key={c}
+                  href={`/projelerimiz?kategori=${encodeURIComponent(c)}`}
+                  active={params.kategori === c}
+                  label={c}
+                />
+              ))}
+            </div>
+          </Reveal>
+        </Container>
+      </section>
 
+      <Container className="py-16 md:py-24">
         {projects.length === 0 ? (
           <p className="text-muted-foreground py-12">Proje bulunamadı.</p>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <RevealStagger
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
+            stagger={0.05}
+          >
             {projects.map((p) => (
-              <ProjectCard
-                key={p.id}
-                slug={p.slug}
-                title={p.title}
-                category={p.category}
-                coverImage={p.coverImage}
-                year={p.year}
-              />
+              <RevealItem key={p.id}>
+                <ProjectCard
+                  slug={p.slug}
+                  title={p.title}
+                  category={p.category}
+                  coverImage={p.coverImage}
+                  year={p.year}
+                />
+              </RevealItem>
             ))}
-          </div>
+          </RevealStagger>
         )}
       </Container>
     </>
@@ -90,10 +111,10 @@ function FilterChip({
     <Link
       href={href}
       className={cn(
-        "text-sm px-3.5 py-1.5 rounded-full border transition-colors",
+        "text-sm px-4 py-1.5 rounded-full border transition-all duration-200",
         active
-          ? "bg-primary text-primary-foreground border-primary"
-          : "border-border bg-background hover:bg-muted"
+          ? "bg-foreground text-background border-foreground"
+          : "border-border bg-background hover:border-foreground/40 hover:bg-muted"
       )}
     >
       {label}
