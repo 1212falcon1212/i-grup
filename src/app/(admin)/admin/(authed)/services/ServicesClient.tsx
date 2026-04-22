@@ -27,7 +27,7 @@ import {
   reorderServices,
   toggleServiceActive,
 } from "@/actions/services";
-import { iconByName } from "@/components/admin/IconPicker";
+import { iconByName } from "@/components/shared/icons";
 
 interface Svc {
   id: string;
