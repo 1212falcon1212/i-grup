@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function RootError({
@@ -29,7 +30,7 @@ export default function RootError({
         <div className="flex gap-3 justify-center mt-6">
           <Button onClick={reset}>Yeniden dene</Button>
           <Button asChild variant="outline">
-            <a href="/">Ana Sayfa</a>
+            <Link href="/">Ana Sayfa</Link>
           </Button>
         </div>
       </div>

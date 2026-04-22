@@ -5,14 +5,20 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
-  // Override default ignores of eslint-config-next.
   globalIgnores([
-    // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    rules: {
+      // Stable aliases from static maps (iconByName, Field helper) — we want
+      // the variable pattern for ergonomics; the component reference itself is
+      // stable across renders.
+      "react-hooks/static-components": "off",
+    },
+  },
 ]);
 
 export default eslintConfig;

@@ -63,6 +63,9 @@ export function MediaPicker({
   }
 
   useEffect(() => {
+    // Open-change'de media'yı tazele (dialog açıldığında); ihmal edilebilir
+    // cascading render uyarısı dialog UX'i için gerekli.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (open) load();
   }, [open]);
 
