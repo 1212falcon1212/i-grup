@@ -53,10 +53,7 @@ export default async function BlogDetailPage({
   return (
     <>
       <article>
-        <header
-          className="bg-bg2"
-          style={{ padding: "64px 0 48px" }}
-        >
+        <header className="bg-bg2 pt-16 md:pt-20 pb-10 md:pb-12">
           <div className="max-w-[880px] mx-auto px-5 md:px-10">
             <Link
               href="/blog"
@@ -95,17 +92,15 @@ export default async function BlogDetailPage({
         </header>
 
         {post.coverImage ? (
-          <div className="max-w-[880px] mx-auto px-5 md:px-10">
-            <div className="-mt-10 md:-mt-14 relative z-10">
-              <Shot
-                src={post.coverImage}
-                aspect="16/9"
-                radius={16}
-                label={post.tag}
-                priority
-                sizes="(min-width: 900px) 800px, 100vw"
-              />
-            </div>
+          <div className="max-w-[880px] mx-auto px-5 md:px-10 pt-10 md:pt-14">
+            <Shot
+              src={post.coverImage}
+              aspect="16/9"
+              radius={16}
+              label={post.tag}
+              priority
+              sizes="(min-width: 900px) 800px, 100vw"
+            />
           </div>
         ) : null}
 
