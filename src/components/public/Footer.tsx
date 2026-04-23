@@ -59,7 +59,7 @@ export function Footer({
             >
               <li><Link href="/#sirket" className="hover:text-white transition-colors">Hakkımızda</Link></li>
               <li><Link href="/#kariyer" className="hover:text-white transition-colors">Kariyer</Link></li>
-              <li><Link href="/#blog" className="hover:text-white transition-colors">Blog</Link></li>
+              <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
               <li><Link href="/#referanslar" className="hover:text-white transition-colors">Referanslar</Link></li>
             </ul>
           </div>

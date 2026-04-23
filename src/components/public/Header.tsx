@@ -10,7 +10,7 @@ const nav = [
   { href: "/#projeler", label: "Projeler" },
   { href: "/#sektorler", label: "Sektörler" },
   { href: "/#referanslar", label: "Referanslar" },
-  { href: "/#blog", label: "Blog" },
+  { href: "/blog", label: "Blog" },
   { href: "/#kariyer", label: "Kariyer" },
 ];
 

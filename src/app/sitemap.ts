@@ -12,11 +12,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/projelerimiz",
     "/kariyer",
     "/iletisim",
+    "/blog",
     "/kvkk",
     "/gizlilik-politikasi",
   ];
 
-  const [services, projects, careers] = await Promise.all([
+  const [services, projects, careers, posts] = await Promise.all([
     prisma.service.findMany({
       where: { isActive: true },
       select: { slug: true, updatedAt: true },
@@ -26,6 +27,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }),
     prisma.career.findMany({
       where: { isActive: true },
+      select: { slug: true, updatedAt: true },
+    }),
+    prisma.post.findMany({
+      where: { isPublished: true },
       select: { slug: true, updatedAt: true },
     }),
   ]);
@@ -57,6 +62,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: c.updatedAt,
       changeFrequency: "weekly" as const,
       priority: 0.5,
+    })),
+    ...posts.map((p) => ({
+      url: `${base}/blog/${p.slug}`,
+      lastModified: p.updatedAt,
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
     })),
   ];
 }

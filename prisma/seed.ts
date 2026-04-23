@@ -164,7 +164,7 @@ async function seedPages() {
       create: {
         ...p,
         content: `<p>${p.subtitle}</p><p>Bu sayfanın içeriği admin panelinden yönetilebilir. Detayları buradan düzenleyebilirsiniz.</p>`,
-        seoTitle: `${p.title} | i-group`,
+        seoTitle: p.title,
         seoDescription: p.subtitle,
       },
     });
@@ -213,7 +213,7 @@ async function seedProjects() {
         year: p.year,
         isFeatured: i % 5 === 0,
         order: i,
-        seoTitle: `${p.name} | i-group`,
+        seoTitle: p.name,
         seoDescription: p.desc,
       },
     });
@@ -294,7 +294,7 @@ async function seedPosts() {
         coverImage: p.cover,
         publishedAt: new Date(p.date),
         isPublished: true,
-        seoTitle: `${p.title} | i-group`,
+        seoTitle: p.title,
         seoDescription: p.excerpt,
       },
     });

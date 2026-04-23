@@ -117,6 +117,15 @@ export function Blog({ posts }: { posts: PostItem[] }) {
             ))}
           </div>
         </div>
+        <div className="flex justify-center mt-12">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 text-[14px] font-semibold text-ink px-6 py-3 rounded-full bg-bg border transition-colors hover:bg-bg3"
+            style={{ borderColor: "var(--rule)" }}
+          >
+            Tüm yazılar <span className="arrow">→</span>
+          </Link>
+        </div>
       </div>
     </section>
   );
