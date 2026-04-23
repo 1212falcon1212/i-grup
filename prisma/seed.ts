@@ -227,11 +227,36 @@ async function seedSectors() {
   if (existing > 0) await prisma.sector.deleteMany();
 
   const sectors = [
-    { slug: "ecza", name: "Eczane & Dermokozmetik", detail: "Pazaryeri ve B2B tedarik" },
-    { slug: "kozmetik", name: "Kozmetik & Kişisel Bakım", detail: "Mobil, e-ticaret, kürasyon" },
-    { slug: "b2b", name: "B2B Pazaryerleri", detail: "Hırdavat · Nalbur · Zerzevat · Bijuteri · Kırtasiye" },
-    { slug: "erp", name: "Kurumsal Yazılım / ERP", detail: "Muhasebe, e-belge, çoklu şirket" },
-    { slug: "tuketici", name: "Tüketici Platformları", detail: "Memnuniyet, kira anlaşması" },
+    {
+      slug: "ecza",
+      name: "Eczane & Dermokozmetik",
+      detail:
+        "Türkiye'nin önde gelen eczane zincirleri ve dermokozmetik markaları için çok-satıcılı pazaryerleri ve kapalı B2B tedarik platformları geliştiriyoruz. Ürün tanıtımından sipariş akışına, stok yönetiminden bayi ilişkilerine kadar sektöre özel mevzuatla uyumlu, uçtan uca dijital çözümler.",
+    },
+    {
+      slug: "kozmetik",
+      name: "Kozmetik & Kişisel Bakım",
+      detail:
+        "Kozmetik ve kişisel bakım markalarının son kullanıcıya ulaşmasını kolaylaştıran mobil uygulamalar, e-ticaret siteleri ve cilt tipine göre kürasyon platformları üretiyoruz. INCI bileşen analizi, topluluk etkileşimi ve kişiye özel abonelik modelleriyle dönüşüm odaklı deneyimler tasarlıyoruz.",
+    },
+    {
+      slug: "b2b",
+      name: "B2B Pazaryerleri",
+      detail:
+        "Hırdavat, nalbur, zerzevat, bijuteri ve kırtasiye dikeylerinde toptancı–bayi arasında kapalı B2B pazaryeri çözümleri kurguluyoruz. Davetli ağ yapısı, kategori bazlı fiyat yönetimi, koli/kalem sipariş akışı ve cari takibini tek platformda bir araya getiren kurumsal sistemler.",
+    },
+    {
+      slug: "erp",
+      name: "Kurumsal Yazılım / ERP",
+      detail:
+        "KOBİ ve orta ölçekli işletmeler için e-belge entegre, çoklu şirket destekli muhasebe ERP çözümü üretiyoruz. Muhasebe kaydından finansal raporlamaya, bordro süreçlerinden bütçe planlamasına kadar işletmenin tüm finansal akışını tek panelden yönetilebilir hale getiriyoruz.",
+    },
+    {
+      slug: "tuketici",
+      name: "Tüketici Platformları",
+      detail:
+        "Günlük hayatı kolaylaştıran tüketici odaklı platformlar geliştiriyoruz — marka memnuniyet bildirim sistemleri ve kiracı–ev sahibi anlaşma uygulamaları gibi. Sözleşme yönetimi, dijital ödeme takibi ve sürtünmesiz kullanıcı deneyimini merkeze alan ürünler.",
+    },
   ];
 
   for (let i = 0; i < sectors.length; i++) {
