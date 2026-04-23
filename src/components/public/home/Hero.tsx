@@ -129,7 +129,7 @@ export function Hero({
             src={heroImageUrl}
             aspect="4/5"
             radius={12}
-            label="i-group merkez ofis"
+            label="i-Grup merkez ofis"
             priority
             sizes="(min-width: 768px) 40vw, 100vw"
           />

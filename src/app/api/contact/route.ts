@@ -50,7 +50,7 @@ export async function POST(request: Request) {
   await sendMail({
     to: adminEmail,
     replyTo: data.email,
-    subject: `[i-group] ${data.subject}`,
+    subject: `[i-Grup] ${data.subject}`,
     html: `
       <h2>Yeni iletişim mesajı</h2>
       <p><strong>Ad Soyad:</strong> ${escapeHtml(data.name)}</p>

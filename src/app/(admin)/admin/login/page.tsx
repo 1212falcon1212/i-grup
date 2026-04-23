@@ -19,7 +19,7 @@ export default async function LoginPage({
       <div className="w-full max-w-sm bg-background border border-border rounded-xl p-8 shadow-sm">
         <div className="mb-6 text-center">
           <h1 className="text-2xl font-semibold tracking-tight">
-            i-grup <span className="text-primary">admin</span>
+            i-Grup <span className="text-primary">admin</span>
           </h1>
           <p className="text-sm text-muted-foreground mt-1">
             Yönetici paneline erişmek için giriş yapın.

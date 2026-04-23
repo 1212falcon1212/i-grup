@@ -48,7 +48,7 @@ export function Contact({
       name: f.name,
       email: f.email,
       company: f.company,
-      subject: "Proje brief — i-group",
+      subject: "Proje brief — i-Grup",
       message: f.brief,
       kvkkConsent: true as const,
     };

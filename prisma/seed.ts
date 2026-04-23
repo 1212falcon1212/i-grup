@@ -43,7 +43,7 @@ const PROJECT_IMG: Record<string, string> = {
 const blogContent = (title: string, excerpt: string) => `
 <p>${excerpt}</p>
 <h2>${title} — detaylı bakış</h2>
-<p>i-group olarak geliştirdiğimiz ürünler ve üzerinde çalıştığımız sektörlerden önemli notları burada paylaşıyoruz. Her yazı; saha gözlemlerimizden, veri analizlerimizden ve ekip kültürümüzden beslenir.</p>
+<p>i-Grup olarak geliştirdiğimiz ürünler ve üzerinde çalıştığımız sektörlerden önemli notları burada paylaşıyoruz. Her yazı; saha gözlemlerimizden, veri analizlerimizden ve ekip kültürümüzden beslenir.</p>
 <h3>Neden önemli?</h3>
 <ul>
   <li>Müşterilerimizin ihtiyaçlarının arkasındaki sebepleri anlamak</li>
@@ -57,7 +57,7 @@ const projectContent = (name: string, desc: string, sector: string) => `
 <h2>${name}</h2>
 <p>${desc}</p>
 <h3>Ne yapıyor?</h3>
-<p><strong>${sector}</strong> sektöründe faaliyet gösteren bu ürün, kullanıcılarına uçtan uca dijital deneyim sağlar. Stratejik planlamadan lansman sonrası sürdürme süreçlerine kadar her aşamada i-group ekibi devrededir.</p>
+<p><strong>${sector}</strong> sektöründe faaliyet gösteren bu ürün, kullanıcılarına uçtan uca dijital deneyim sağlar. Stratejik planlamadan lansman sonrası sürdürme süreçlerine kadar her aşamada i-Grup ekibi devrededir.</p>
 <h3>Öne çıkan özellikler</h3>
 <ul>
   <li>Modüler mimari — hızlı iterasyon ve genişleme</li>
@@ -68,7 +68,7 @@ const projectContent = (name: string, desc: string, sector: string) => `
 `.trim();
 
 async function seedAdmin() {
-  const email = process.env.ADMIN_EMAIL ?? "admin@i-group.com.tr";
+  const email = process.env.ADMIN_EMAIL ?? "admin@i-grup.com.tr";
   const password = process.env.ADMIN_PASSWORD ?? "admin123";
   const name = process.env.ADMIN_NAME ?? "Admin";
   const passwordHash = await bcrypt.hash(password, 10);
@@ -82,20 +82,20 @@ async function seedAdmin() {
 
 async function seedSettings() {
   const data = {
-    siteName: "i-group",
+    siteName: "i-Grup",
       tagline:
         "İstanbul merkezli ürün stüdyosu. Pazaryerleri, B2B tedarik, mobil uygulamalar, ERP ve tüketici platformları geliştiriyoruz.",
-      email: "merhaba@i-group.com.tr",
+      email: "merhaba@i-grup.com.tr",
       phone: "+90 212 000 00 00",
       whatsapp: "+905000000000",
       address: "Maslak No.1 Plaza, Sarıyer / İstanbul",
-      linkedinUrl: "https://www.linkedin.com/company/i-group",
-      instagramUrl: "https://www.instagram.com/i-group",
+      linkedinUrl: "https://www.linkedin.com/company/i-Grup",
+      instagramUrl: "https://www.instagram.com/i-Grup",
       xUrl: "https://x.com/igroup",
       footerText:
         "İstanbul merkezli ürün stüdyosu. Eczane, kozmetik, B2B ve kurumsal yazılım için uçtan uca ürün geliştirir ve işletir.",
       defaultSeoTitle:
-        "i-group — Eczane, kozmetik ve B2B için ürün geliştiriyoruz",
+        "i-Grup — Eczane, kozmetik ve B2B için ürün geliştiriyoruz",
       defaultSeoDesc:
         "Pazaryerleri, B2B tedarik ağları, mobil uygulamalar, kurumsal muhasebe yazılımı ve tüketici platformlarında uçtan uca ürün üretir ve işletir.",
       statProjects: 13,
@@ -107,7 +107,7 @@ async function seedSettings() {
       heroHeading: "Eczane, kozmetik ve B2B için ürün geliştiriyoruz.",
       heroHighlight: "ürün geliştiriyoruz.",
       heroSubtitle:
-        "i-group; pazaryerleri, B2B tedarik ağları, mobil uygulamalar, kurumsal muhasebe yazılımı ve tüketici platformlarında uçtan uca ürün üretir ve işletir.",
+        "i-Grup; pazaryerleri, B2B tedarik ağları, mobil uygulamalar, kurumsal muhasebe yazılımı ve tüketici platformlarında uçtan uca ürün üretir ve işletir.",
       heroStatusText: "İstanbul merkezli ürün stüdyosu · 2014'ten beri",
       heroImageUrl: IMG.heroOffice,
       aboutHeading: "Bir yazılım stüdyosu; fikirden canlı ürüne.",
@@ -180,19 +180,19 @@ async function seedProjects() {
   }
 
   const projects = [
-    { id: "i-eczane", name: "i-eczane", tag: "Pazaryeri", sector: "Eczane", desc: "Dermokozmetik eczane pazaryeri. Eczacılar ve markalar arası doğrudan stok ve sipariş akışı.", status: "Yayında", year: 2023, hue: 264 },
-    { id: "i-depo", name: "i-depo", tag: "B2B", sector: "Eczane", desc: "B2B kapalı dermokozmetik pazaryeri. Distribütör-eczane arasında davetli tedarik ağı.", status: "Yayında", year: 2023, hue: 272 },
-    { id: "i-kozmo", name: "i-kozmo", tag: "Mobil", sector: "Kozmetik", desc: "Kozmetik ürün tanıtım ve yorumlama mobil uygulaması. INCI okuma, topluluk ve rutin takibi.", status: "Yayında", year: 2024, hue: 296 },
-    { id: "istanbulvitamin", name: "istanbulvitamin", tag: "E-ticaret", sector: "Kozmetik", desc: "Kişisel kozmetik e-ticaret sitesi. Cilt tipine göre kürasyon ve abonelik.", status: "Yayında", year: 2022, hue: 310 },
-    { id: "specialwhey", name: "specialwhey", tag: "E-ticaret", sector: "Kozmetik", desc: "Kişiye özel protein mix. Hedef/diyete göre formülasyon ve tekrar-siparişli abonelik.", status: "Yayında", year: 2024, hue: 320 },
-    { id: "i-hesap", name: "i-hesap", tag: "ERP", sector: "Kurumsal", desc: "Muhasebe ERP programı. KOBİ odaklı, e-belge entegre, çoklu şirket.", status: "Yayında", year: 2021, hue: 252 },
-    { id: "i-hirdavat", name: "i-hırdavat", tag: "B2B", sector: "Hırdavat", desc: "B2B hırdavat pazaryeri. Toptancı-bayi arası kalem bazlı sipariş ve cari.", status: "Yayında", year: 2024, hue: 240 },
-    { id: "i-bijuteri", name: "i-bijuteri", tag: "B2B", sector: "Aksesuar", desc: "B2B bijuteri pazaryeri. Üretici-perakendeci arası koli bazlı sipariş akışı.", status: "Yayında", year: 2024, hue: 304 },
-    { id: "i-kirtasiye", name: "i-kırtasiye", tag: "B2B", sector: "Kırtasiye", desc: "B2B kırtasiye pazaryeri. Okul/ofis tedarik kanalı, kampanya ve liste siparişi.", status: "Yayında", year: 2024, hue: 228 },
-    { id: "i-nalbur", name: "i-nalbur", tag: "B2B", sector: "Yapı", desc: "B2B nalbur pazaryeri. Yapı-hırdavat ihtiyaçlarında bölgesel tedarik.", status: "Beta", year: 2025, hue: 216 },
-    { id: "i-zeruj", name: "i-zeruj", tag: "B2B", sector: "Gıda", desc: "B2B zerzevat pazaryeri. Hal-restoran arası günlük sipariş.", status: "Beta", year: 2025, hue: 148 },
-    { id: "memnuniyetimvar", name: "memnuniyetimvar", tag: "Platform", sector: "Tüketici", desc: "Şikayet platformlarının aksine memnuniyet odaklı. Markalara olumlu deneyim akışı.", status: "Yakında", year: 2026, hue: 288 },
-    { id: "i-kira", name: "i-kira", tag: "Uygulama", sector: "Emlak", desc: "Kiracı ve ev sahibi anlaşma uygulaması. Sözleşme, ödeme, demirbaş ve teslim akışı.", status: "Yakında", year: 2026, hue: 200 },
+    { id: "i-eczane", name: "i-Eczane", tag: "Pazaryeri", sector: "Eczane", desc: "Dermokozmetik eczane pazaryeri. Eczacılar ve markalar arası doğrudan stok ve sipariş akışı.", status: "Yayında", year: 2023, hue: 264 },
+    { id: "i-depo", name: "i-Depo", tag: "B2B", sector: "Eczane", desc: "B2B kapalı dermokozmetik pazaryeri. Distribütör-eczane arasında davetli tedarik ağı.", status: "Yayında", year: 2023, hue: 272 },
+    { id: "i-kozmo", name: "i-Kozmo", tag: "Mobil", sector: "Kozmetik", desc: "Kozmetik ürün tanıtım ve yorumlama mobil uygulaması. INCI okuma, topluluk ve rutin takibi.", status: "Yayında", year: 2024, hue: 296 },
+    { id: "istanbulvitamin", name: "İstanbulVitamin", tag: "E-ticaret", sector: "Kozmetik", desc: "Kişisel kozmetik e-ticaret sitesi. Cilt tipine göre kürasyon ve abonelik.", status: "Yayında", year: 2022, hue: 310 },
+    { id: "specialwhey", name: "SpecialWhey", tag: "E-ticaret", sector: "Kozmetik", desc: "Kişiye özel protein mix. Hedef/diyete göre formülasyon ve tekrar-siparişli abonelik.", status: "Yayında", year: 2024, hue: 320 },
+    { id: "i-hesap", name: "i-Hesap", tag: "ERP", sector: "Kurumsal", desc: "Muhasebe ERP programı. KOBİ odaklı, e-belge entegre, çoklu şirket.", status: "Yayında", year: 2021, hue: 252 },
+    { id: "i-hirdavat", name: "i-Hırdavat", tag: "B2B", sector: "Hırdavat", desc: "B2B hırdavat pazaryeri. Toptancı-bayi arası kalem bazlı sipariş ve cari.", status: "Yayında", year: 2024, hue: 240 },
+    { id: "i-bijuteri", name: "i-Bijuteri", tag: "B2B", sector: "Aksesuar", desc: "B2B bijuteri pazaryeri. Üretici-perakendeci arası koli bazlı sipariş akışı.", status: "Yayında", year: 2024, hue: 304 },
+    { id: "i-kirtasiye", name: "i-Kırtasiye", tag: "B2B", sector: "Kırtasiye", desc: "B2B kırtasiye pazaryeri. Okul/ofis tedarik kanalı, kampanya ve liste siparişi.", status: "Yayında", year: 2024, hue: 228 },
+    { id: "i-nalbur", name: "i-Nalbur", tag: "B2B", sector: "Yapı", desc: "B2B nalbur pazaryeri. Yapı-hırdavat ihtiyaçlarında bölgesel tedarik.", status: "Beta", year: 2025, hue: 216 },
+    { id: "i-zeruj", name: "i-Zeruj", tag: "B2B", sector: "Gıda", desc: "B2B zerzevat pazaryeri. Hal-restoran arası günlük sipariş.", status: "Beta", year: 2025, hue: 148 },
+    { id: "memnuniyetimvar", name: "MemnuniyetimVar", tag: "Platform", sector: "Tüketici", desc: "Şikayet platformlarının aksine memnuniyet odaklı. Markalara olumlu deneyim akışı.", status: "Yakında", year: 2026, hue: 288 },
+    { id: "i-kira", name: "i-Kira", tag: "Uygulama", sector: "Emlak", desc: "Kiracı ve ev sahibi anlaşma uygulaması. Sözleşme, ödeme, demirbaş ve teslim akışı.", status: "Yakında", year: 2026, hue: 200 },
   ];
 
   let i = 0;
@@ -316,7 +316,7 @@ async function seedPosts() {
     {
       slug: "i-kira-ozel-beta-erisimi",
       tag: "Ürün",
-      title: "i-kira özel beta erişimi başladı",
+      title: "i-Kira özel beta erişimi başladı",
       excerpt:
         "Kiracı ve ev sahipleri için dijital sözleşme ve ödeme takibi; ilk 500 kullanıcıya özel.",
       date: "2026-04-12",
@@ -327,7 +327,7 @@ async function seedPosts() {
       tag: "Sektör",
       title: "Dermokozmetikte kapalı pazaryeri neden önemli?",
       excerpt:
-        "i-depo deneyiminden hareketle: davetli tedarik, fiyat dengesi ve marka koruma üzerine not.",
+        "i-Depo deneyiminden hareketle: davetli tedarik, fiyat dengesi ve marka koruma üzerine not.",
       date: "2026-04-04",
       cover: IMG.newsSector,
     },
@@ -343,7 +343,7 @@ async function seedPosts() {
     {
       slug: "i-kozmo-inci-2",
       tag: "Ürün",
-      title: "i-kozmo için INCI 2.0 yayında",
+      title: "i-Kozmo için INCI 2.0 yayında",
       excerpt:
         "Bileşen listelerini fotoğraftan okuyan yeni motor; cilt tipi uyumluluğu %37 daha doğru.",
       date: "2026-03-02",
@@ -403,34 +403,34 @@ async function seedCareers() {
     {
       slug: "kidemli-frontend-muhendisi",
       title: "Kıdemli Frontend Mühendisi",
-      department: "i-eczane",
+      department: "i-Eczane",
       location: "İstanbul / Uzaktan",
       type: "Tam Zamanlı",
       shortDesc:
-        "i-eczane ürününde React/Next.js tabanlı ön-yüz çalışmaları; ölçek ve performans odaklı mimari kararlar.",
+        "i-Eczane ürününde React/Next.js tabanlı ön-yüz çalışmaları; ölçek ve performans odaklı mimari kararlar.",
     },
     {
       slug: "urun-tasarimcisi",
       title: "Ürün Tasarımcısı",
-      department: "i-kozmo",
+      department: "i-Kozmo",
       location: "İstanbul",
       type: "Tam Zamanlı",
       shortDesc:
-        "i-kozmo mobil uygulamasında kullanıcı araştırmasından prototiplemeye kadar tüm süreç.",
+        "i-Kozmo mobil uygulamasında kullanıcı araştırmasından prototiplemeye kadar tüm süreç.",
     },
     {
       slug: "backend-muhendisi-go",
       title: "Backend Mühendisi (Go)",
-      department: "i-hesap",
+      department: "i-Hesap",
       location: "Uzaktan",
       type: "Tam Zamanlı",
       shortDesc:
-        "i-hesap ERP ekibinde Go tabanlı servis mimarisi, çoklu şirket ve yüksek hacimli veri işleme.",
+        "i-Hesap ERP ekibinde Go tabanlı servis mimarisi, çoklu şirket ve yüksek hacimli veri işleme.",
     },
     {
       slug: "buyume-pazarlama-uzmani",
       title: "Büyüme Pazarlama Uzmanı",
-      department: "merkez",
+      department: "Merkez",
       location: "İstanbul",
       type: "Tam Zamanlı",
       shortDesc:
@@ -459,7 +459,7 @@ async function seedBanners() {
 }
 
 async function main() {
-  console.log("→ Seeding i-group database…");
+  console.log("→ Seeding i-Grup database…");
   await seedAdmin();
   await seedSettings();
   await seedPages();

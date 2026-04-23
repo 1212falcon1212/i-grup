@@ -9,7 +9,7 @@ export const revalidate = 3600;
 export const metadata = {
   title: "Blog & Haberler",
   description:
-    "i-group blog — ürünlerimiz, sektörlerimiz ve ekibimizden notlar.",
+    "i-Grup blog — ürünlerimiz, sektörlerimiz ve ekibimizden notlar.",
 };
 
 const dateStr = (d: Date) => format(d, "d MMM yyyy", { locale: tr });

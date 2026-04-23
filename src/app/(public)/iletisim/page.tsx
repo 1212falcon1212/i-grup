@@ -8,7 +8,7 @@ export const revalidate = 3600;
 export const metadata = {
   title: "İletişim",
   description:
-    "i-grup ile iletişime geçin: adres, telefon, e-posta ve iletişim formu.",
+    "i-Grup ile iletişime geçin: adres, telefon, e-posta ve iletişim formu.",
 };
 
 export default async function IletisimPage() {
