@@ -12,6 +12,7 @@ const nav = [
   { href: "/#referanslar", label: "Referanslar" },
   { href: "/blog", label: "Blog" },
   { href: "/#kariyer", label: "Kariyer" },
+  { href: "/iletisim", label: "İletişim" },
 ];
 
 function Logo({ className }: { className?: string }) {
@@ -70,7 +71,7 @@ export function Header({ siteName }: { siteName: string }) {
 
         <div className="flex items-center gap-2">
           <Link
-            href="/#iletisim"
+            href="/iletisim"
             className="hidden sm:inline-flex items-center gap-2 text-sm font-medium px-[18px] py-[10px] rounded-full bg-ink text-[#F7F5F0] hover:opacity-90 transition-opacity"
           >
             İletişime geç <span className="text-base leading-none">→</span>
@@ -99,7 +100,7 @@ export function Header({ siteName }: { siteName: string }) {
               </Link>
             ))}
             <Link
-              href="/#iletisim"
+              href="/iletisim"
               onClick={() => setOpen(false)}
               className="mt-2 text-center text-sm font-medium px-[18px] py-[12px] rounded-full bg-ink text-[#F7F5F0]"
             >
