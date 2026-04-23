@@ -14,6 +14,7 @@ interface Props {
   sizes?: string;
   priority?: boolean;
   className?: string;
+  fit?: "cover" | "contain";
 }
 
 const aspectClass = {
@@ -36,6 +37,7 @@ export function Shot({
   sizes = "(min-width: 1024px) 800px, 100vw",
   priority = false,
   className,
+  fit = "cover",
 }: Props) {
   const [failed, setFailed] = useState(!src);
 
@@ -59,7 +61,7 @@ export function Shot({
           sizes={sizes}
           priority={priority}
           onError={() => setFailed(true)}
-          className="object-cover"
+          className={fit === "contain" ? "object-contain" : "object-cover"}
         />
       ) : (
         <>

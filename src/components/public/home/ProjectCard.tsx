@@ -44,8 +44,9 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
         <Shot
           src={p.coverImage}
           hue={p.hue ?? 260}
-          aspect="4/3"
+          aspect="16/10"
           radius={0}
+          fit="cover"
           label={`${p.title} · ekran görüntüsü`}
           sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
         />

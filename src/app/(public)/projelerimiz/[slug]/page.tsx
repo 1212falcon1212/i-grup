@@ -57,33 +57,36 @@ export default async function ProjectDetailPage({
   return (
     <>
       <header className="border-b border-border bg-muted/20">
-        <div className="relative h-72 md:h-[28rem]">
-          <Image
-            src={project.coverImage}
-            alt={project.title}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-          <Container className="absolute inset-x-0 bottom-8 text-white">
-            <Badge className="bg-white/15 text-white backdrop-blur">
+        <Container className="pt-12 md:pt-16 pb-8 md:pb-10">
+          <div className="max-w-3xl">
+            <Badge variant="outline" className="rounded-full">
               {project.category}
             </Badge>
-            <h1 className="text-3xl md:text-5xl font-semibold tracking-tight mt-3">
+            <h1 className="text-3xl md:text-5xl font-semibold tracking-tight mt-4">
               {project.title}
             </h1>
-            <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-white/85 text-sm">
+            <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1 text-muted-foreground text-sm">
               {project.client ? <span>Müşteri: {project.client}</span> : null}
               {project.year ? <span>Yıl: {project.year}</span> : null}
             </div>
-          </Container>
-        </div>
+          </div>
+        </Container>
       </header>
 
       <Container className="py-10 md:py-16 grid lg:grid-cols-3 gap-10">
         <div className="lg:col-span-2">
+          <figure className="mb-8 md:mb-10">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-muted border border-border">
+              <Image
+                src={project.coverImage}
+                alt={project.title}
+                fill
+                priority
+                sizes="(min-width: 1024px) 760px, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </figure>
           <p className="text-lg text-foreground/80 mb-6">{project.shortDesc}</p>
           <article
             className="prose-content"

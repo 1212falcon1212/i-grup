@@ -251,75 +251,220 @@ const PROJECT_CONTENT: Record<string, string> = {
 
 // Her blog yazısı için özel SEO içeriği
 const POST_CONTENT: Record<string, string> = {
-  "i-kira-ozel-beta-erisimi": `
-<p>Uzun süredir üzerinde çalıştığımız <strong>i-Kira uygulaması</strong> bugün ilk 500 kullanıcıya özel beta erişimi ile yayında. Kiracı ve ev sahibi arasındaki süreci baştan sona dijitalleştiren bir uygulama üzerinde çalışıyoruz — bu yazıda nereye odaklandığımızı ve bundan sonra ne gelecek paylaşıyoruz.</p>
-<h2>Neden bu ürün?</h2>
-<p>Kira sözleşmesi, depozito, demirbaş teslimi, aylık ödeme, çıkış prosedürü — her aşamada ayrı bir form, ayrı bir belge, ayrı bir muhatap. İki arkadaş olarak kendi kira deneyimlerimizi dijitalleştirme fikriyle başladık; son iki yıldır bu fikri bireysel ev sahipleri ve kiracılarla test ettik.</p>
-<h2>Beta sürümünde neler var?</h2>
+  "eczane-pazaryeri-yazilimi-rehberi": `
+<p>Türkiye'de dermokozmetik ürün satan eczacıların yüzlerce markayla çalışması, her birinin farklı stok, iade, kampanya ve iskonto süreçlerine sahip olması sektörün en büyük operasyonel yüklerinden biri. Bu yazıda <strong>eczane pazaryeri yazılımı</strong> nedir, hangi sorunları çözer ve doğru çözümü seçerken nelere dikkat edilmelidir; i-Eczane deneyiminden hareketle detaylı olarak anlatıyoruz.</p>
+
+<h2>Eczane pazaryeri yazılımı nedir?</h2>
+<p><strong>Eczane pazaryeri yazılımı</strong>; eczacıların dermokozmetik, takviye edici gıda ve kişisel bakım ürünlerini tek bir dijital platformdan sipariş etmesini, markaların ürünlerini doğrudan eczacılarla buluşturmasını ve distribütörlerin tedarik ağını şeffaf yönetmesini sağlayan <em>çok satıcılı (multi-vendor)</em> dijital altyapıdır. Geleneksel e-ticaret sitelerinden farklı olarak;</p>
 <ul>
-  <li><strong>Dijital kira sözleşmesi:</strong> İki tarafın onayıyla, saklı ve paylaşılabilir.</li>
-  <li><strong>Otomatik aylık tahsilat:</strong> Makbuz kaydı otomatik oluşur.</li>
-  <li><strong>Fotoğraflı demirbaş listesi:</strong> Teslim sırasındaki durum bir dokunuşla arşivlenir.</li>
-  <li><strong>Bildirim merkezi:</strong> Yenileme, zam, ödeme günü hatırlatmaları.</li>
+  <li>Eczacıya özel <strong>KDV ve iskonto yapıları</strong> desteklenir.</li>
+  <li>Dermokozmetik ürünler için <strong>cilt tipi, endikasyon, INCI bileşenleri</strong> gibi sektörel filtreler yerleşiktir.</li>
+  <li>Marka ve distribütör kendi mağazasını, fiyat politikasını ve kampanyalarını bağımsız yönetir.</li>
+  <li>İade süreçleri <strong>barkod doğrulamalı</strong>, mutabakat otomatikleştirilmiştir.</li>
 </ul>
-<h2>Neleri daha sonraya bıraktık?</h2>
-<p>İlk 500 kullanıcıya özel olarak; noter entegrasyonu, çıkış prosedürü ve zam pazarlığı akışları beta ikinci fazda geliyor. Bu sürümü test eden kullanıcılardan gelen gerçek kullanım verisi sonraki özelliklerin önceliğini belirleyecek.</p>
-<h2>Katılmak için</h2>
-<p>Erişim davet kodu ile veriliyor. Siz de katılmak istiyorsanız iletişim formundan bize yazın; uygun kullanıcılarımıza bir sonraki parti ile davet gönderiyoruz.</p>
+
+<h2>Eczacının günlük operasyonundaki sorunlar</h2>
+<p>Saha verilerinden bildiğimiz üzere bağımsız bir eczane günde 30 ila 70 dermokozmetik siparişi yönetir. Her siparişin arkasında;</p>
+<ul>
+  <li>Marka ile telefon veya WhatsApp trafiği,</li>
+  <li>Farklı iskonto oranları için kafada tutulan bilgi,</li>
+  <li>Teslim geciktiğinde tedarikçi–distribütör arasındaki takip,</li>
+  <li>İade sürecinde belge yığını,</li>
+</ul>
+<p>yer alır. i-Eczane gibi bir <strong>dermokozmetik pazaryeri yazılımı</strong>, bu dağınık iletişimi tek bir panelde toplar; sipariş, iade, iskonto, kampanya ve cari hesap aynı ekranda görünür hale gelir.</p>
+
+<h2>Marka tarafında ne değişir?</h2>
+<p>Dermokozmetik markası için pazaryeri sadece "bir satış kanalı daha" değildir — aynı zamanda <strong>doğrudan eczacı erişimi</strong> demektir. Pazaryeri yazılımı markaya şunları sağlar:</p>
+<ul>
+  <li><strong>Kendi mağazası, kendi stoku:</strong> Marka kataloğu doğrudan kendi envanterine bağlanır.</li>
+  <li><strong>Kampanya merkezi:</strong> Sezon indirimleri, kombo ürünler ve eczacıya özel kampanyalar merkezi panelden yönetilir.</li>
+  <li><strong>Sipariş verisi:</strong> Hangi bölgede, hangi ürünün, hangi eczacı tarafından ne kadar satıldığı anında görünür.</li>
+  <li><strong>Fiyat disiplini:</strong> MSRP ihlali yapan kanallara karşı görünürlük.</li>
+</ul>
+
+<h2>Distribütör için şeffaflık</h2>
+<p>Dermokozmetik distribütörü için en kritik kaygı fiyat erozyonudur. Aynı ürünün farklı kanallarda farklı fiyatlarla görünmesi hem eczacı güvenini sarsar hem de markaya zarar verir. Doğru kurgulanmış bir eczane pazaryeri yazılımı distribütörün tedarik ağını <strong>davetli model</strong> ile kontrol altında tutmasına izin verir — bu konuyu i-Depo yazımızda derinlemesine ele aldık.</p>
+
+<h2>Doğru yazılımı seçerken nelere dikkat edilmeli?</h2>
+
+<h3>Sektöre özel tasarım</h3>
+<p>Genel e-ticaret motorları dermokozmetik dikeyine uyarlanamaz. Eczacı iskontoları, İTS/ETS entegrasyonu, INCI filtreleme ve eczaneye özel KDV gibi özellikler yazılımın çekirdeğinde olmalı, bir eklenti olarak değil.</p>
+
+<h3>Çok satıcılı mimari</h3>
+<p>Pazaryeri tek bir marka değil, onlarca markanın aynı anda yönettiği bir platformdur. Satıcı bağımsızlığı, yetkilendirme ve ürün onay akışı güçlü olmalıdır.</p>
+
+<h3>Ölçeklenebilir altyapı</h3>
+<p>Sezon başı kampanyaları, Black Friday trafiği ve bölgesel stok yoğunluğu durumunda yazılımın sorun yaşamayacağı bir altyapıda koşması şart. Dermokozmetik pazaryerleri anlık <strong>eş zamanlı kullanıcı sayısını</strong> hafife alamaz.</p>
+
+<h3>Mutabakat ve muhasebe entegrasyonu</h3>
+<p>Eczacı ay sonunda binlerce satırlık cari hesap ekstresiyle muhatap olmak istemez. Otomatik mutabakat, dekont eşleme ve e-Fatura entegrasyonu vazgeçilmez.</p>
+
+<h2>i-Eczane yaklaşımı</h2>
+<p>i-Eczane'de yukarıdaki gereksinimlerin tümü ürünün çekirdek modüllerinde yer alıyor. Çok satıcılı mimari, dermokozmetik odaklı filtreler, eczacıya özel iskonto motoru, barkod doğrulamalı iade akışı ve otomatik mutabakat modülü standart olarak geliyor. Platformu hayata geçirmek isteyen marka ve distribütörler için demo talep edebilir, entegrasyon için iletişim sayfasından bize ulaşabilirsiniz.</p>
 `.trim(),
 
   "dermokozmetikte-kapali-pazaryeri": `
-<p>Dermokozmetik sektörü son beş yılda Türkiye'de hızlı büyüdü; ancak büyüme beraberinde fiyat erozyonu, marka korunması ve yetkisiz satış kanalları gibi ciddi sorunları getirdi. Bu yazıda <strong>i-Depo ile geliştirdiğimiz kapalı B2B pazaryeri modelinin</strong> bu sorunlara verdiği yanıtı paylaşıyoruz.</p>
-<h2>Neden "kapalı" pazaryeri?</h2>
-<p>Açık platformlar — pazaryerleri veya genel e-ticaret siteleri — dermokozmetik gibi dikey ürün gruplarında iki büyük soruna yol açıyor:</p>
+<p>Dermokozmetik sektörü Türkiye'de son beş yılda iki haneli büyüme gördü. Ancak büyümeyle birlikte <strong>fiyat erozyonu, yetkisiz satış kanalları ve marka değer kaybı</strong> gibi sektörün temellerini sarsan sorunlar gündeme geldi. Bu yazıda i-Depo ile kurguladığımız <strong>kapalı B2B dermokozmetik tedarik ağı</strong> modelinin bu sorunlara verdiği yanıtı, teknik yaklaşımı ve sektörün kapalı pazaryerinden nasıl yararlandığını detaylı şekilde paylaşıyoruz.</p>
+
+<h2>Açık pazaryerlerinin dermokozmetikte yarattığı sorunlar</h2>
+<p>Açık platformlar — genel pazaryerleri veya sınırsız satıcıya açık e-ticaret siteleri — dermokozmetik gibi dikey ve düzenlemelere tabi ürün gruplarında ciddi riskler üretir:</p>
 <ul>
-  <li><strong>Fiyat yıpranması:</strong> Aynı ürün farklı satıcılarda farklı fiyatla görünüyor, marka değeri düşüyor.</li>
-  <li><strong>Yetkisiz satıcı:</strong> Distribütör ağının dışından gelen ürünler garanti/iade süreçlerinde zorluk yaratıyor.</li>
+  <li><strong>Fiyat yıpranması:</strong> Aynı ürün farklı satıcılarda farklı fiyatla görünür, marka MSRP politikası aşınır.</li>
+  <li><strong>Yetkisiz satıcı:</strong> Distribütör ağının dışından gelen ürünler iade ve garanti süreçlerini zorlaştırır, müşteri güveni zayıflar.</li>
+  <li><strong>Paralel ithalat:</strong> Markanın onaylamadığı kanallardan gelen ürünler marka konumlandırmasını bozar.</li>
+  <li><strong>Veri görünürlüğü yokluğu:</strong> Marka, son tüketiciye hangi kanaldan ulaştığını göremez.</li>
 </ul>
-<p>Kapalı pazaryeri, distribütörün onayladığı eczacı veya perakendeci ağına özel erişim açar. Dışarıdan kimse göremez, sipariş veremez. Bu model hem fiyat dengesini korur hem de ürünün gerçek kaynağını garanti eder.</p>
-<h2>i-Depo'nun yaklaşımı</h2>
-<p>i-Depo'da her distribütör kendi eczacı portföyünü yönetiyor. Fiyat grupları merkezi olarak tanımlanıyor; bir eczacı yalnızca bağlı olduğu distribütörün katalog ve fiyatlarını görüyor. Bu ayrışım sayesinde:</p>
+<p>Tüm bu sorunların ortak paydası; dermokozmetik ürününün "herkesin satabileceği" bir ürün gibi değil, <em>onaylı bir tedarik kanalından akması gereken</em> bir ürün olarak konumlandırılması gerektiğidir.</p>
+
+<h2>Kapalı pazaryeri nedir?</h2>
+<p>Kapalı B2B pazaryeri; yalnızca <strong>davetli ve onaylı kullanıcıların</strong> erişebildiği, sipariş verebildiği ve alışveriş yapabildiği dijital tedarik platformudur. Açık pazaryerinden temel farkları:</p>
 <ul>
-  <li>Marka fiyat politikası korunuyor.</li>
-  <li>Eczacı, güvenilir bir kanaldan tedarik alıyor.</li>
-  <li>Distribütör, sahada kimin ne satın aldığını veriyle görüyor.</li>
+  <li>Dışarıdan kimse katalog ve fiyatları göremez.</li>
+  <li>Her distribütör kendi eczacı ağını yönetir; tedarik ilişkisi birebir kurulur.</li>
+  <li>Fiyat grupları merkezi olarak tanımlanır; eczacı sınıfı, cari durumu ve bölgesine göre otomatik fiyatlama çalışır.</li>
+  <li>Kampanyalar ağ içindeki belirli eczacı gruplarına özel yayınlanabilir.</li>
 </ul>
-<h2>Çıkarılacak ders</h2>
-<p>Dermokozmetik, eczacı, medikal gibi düzenlemelere tabi sektörler; açık platform yerine kapalı ağ modellerinden çok daha fazla fayda görüyor. Marka güvenliği ve fiyat disiplini isteyen üretici/distribütörler için kapalı pazaryeri ciddi bir alternatif.</p>
+
+<h2>i-Depo'nun teknik yaklaşımı</h2>
+<p>i-Depo, dermokozmetik distribütörleri için tasarlanmış kapalı B2B pazaryeri yazılımıdır. Mimarinin özü <strong>distribütör–eczacı ilişkisinin birebir modellenmesi</strong> üzerine kuruludur:</p>
+
+<h3>Davetli tedarik ağı</h3>
+<p>Her distribütör kendi eczacı portföyünü panelden yönetir; davet eder, onaylar, askıya alır. Eczacı yalnızca bağlı olduğu distribütörün katalog ve fiyatlarını görür. Bir eczane birden fazla distribütöre bağlı olabilir; her bağlantı için ayrı fiyat grubu çalışır.</p>
+
+<h3>Fiyat grupları ve iskonto motoru</h3>
+<p>Dermokozmetikte fiyatlama çok katmanlıdır: liste fiyatı, eczacı iskontosu, hacim iskontosu, kampanya iskontosu, sezonluk indirim. i-Depo'nun fiyat motoru tüm bu katmanları kural bazlı çalıştırır; sipariş anında nihai fiyat şeffaf şekilde hesaplanır.</p>
+
+<h3>Koli ve kalem bazlı sipariş</h3>
+<p>Dermokozmetik distribütörleri çoğunlukla koli bazlı çalışır; ancak bazı eczacılar birim bazlı sipariş vermek ister. i-Depo her iki modu da destekler; distribütör bunu ürün bazlı tanımlayabilir.</p>
+
+<h3>Cari hesap ve mutabakat</h3>
+<p>Vadeli satış dermokozmetikte standart. Sistem otomatik olarak cari bakiye, vade takibi, dekont eşleme ve e-Fatura akışını yönetir. Eczacının ay sonu mutabakat yükü büyük ölçüde ortadan kalkar.</p>
+
+<h3>Kampanya yönetimi</h3>
+<p>Distribütör bir kampanyayı belirli eczacı gruplarına, belirli bölgelere veya belirli ürün kategorilerine özel olarak yayınlayabilir. Kampanya analitiği panelden takip edilir.</p>
+
+<h2>Kapalı pazaryerinin markaya sağladığı faydalar</h2>
+<ul>
+  <li><strong>Fiyat disiplini:</strong> MSRP ihlali yapan satıcı ortadan kalkar; marka değeri korunur.</li>
+  <li><strong>Tedarik zinciri şeffaflığı:</strong> Ürünün hangi eczacıya gittiği uçtan uca izlenebilir.</li>
+  <li><strong>Eczacı ilişkisi güçlenir:</strong> Onaylı ağın içinde olan eczacılar için sipariş deneyimi modernleşir.</li>
+  <li><strong>Veri odaklı karar:</strong> Hangi bölgede, hangi ürünün, hangi eczacı tarafından ne zaman sipariş edildiği ölçülebilir.</li>
+</ul>
+
+<h2>Hangi sektörler kapalı pazaryerinden yararlanır?</h2>
+<p>Kapalı pazaryeri modeli dermokozmetik dışında da çalışır ancak özellikle <strong>düzenlemelere tabi, marka hassasiyeti yüksek ve fiyat politikası kritik</strong> sektörlerde yüksek değer üretir: OTC ve reçetesiz ilaç, medikal cihaz, tıbbi beslenme, profesyonel saç–cilt bakım ürünleri ve veteriner ürünleri. Bu sektörlerin hepsinde i-Depo mimarisi uyarlanabilir durumda.</p>
+
+<h2>Özet</h2>
+<p>Dermokozmetik distribütörü için kapalı B2B pazaryeri artık lüks değil, sektörel zorunluluktur. Fiyat politikasını koruyamayan, yetkisiz satıcıyı engelleyemeyen ve eczacı ağını şeffaf yönetemeyen bir distribütör uzun vadede marka ilişkisini de eczacı güvenini de kaybeder. i-Depo bu üç konuda da saha-test edilmiş, üretimde çalışan bir çözüm sunar. Demo talebi için iletişim sayfamızdan bize ulaşabilirsiniz.</p>
 `.trim(),
 
-  "ekipce-calisma-ritmimiz": `
-<p>İki kişi olarak 13 aktif ürünü nasıl yönetiyoruz? En çok sorulan soru bu. Cevap kısa: <strong>disiplinli bir haftalık ritim ve paylaşımlı altyapı</strong>. Bu yazıda haftalık takvimimizi, ürünler arası önceliklendirmeyi ve dört yıldır uyguladığımız "4+1 hafta" modelini anlatıyoruz.</p>
-<h2>4+1 hafta modeli</h2>
-<p>Her ay beş haftaya bölünüyor: dört hafta yeni geliştirme, bir hafta bakım ve dinlenme. Bu basit kural sayesinde;</p>
+  "inci-okuyucu-mobil-uygulama": `
+<p>Kozmetik ürün ambalajlarının arkasındaki küçük punto INCI listesi, tüketicinin ürünün içeriğini anlaması için en kritik bilgidir — ama aynı zamanda çözülmesi en zor bilgi. Bu yazıda <strong>INCI okuyucu mobil uygulama</strong> nedir, cilt tipi uyumluluk nasıl hesaplanır, neden dermokozmetik dikeyi için kritik bir ürün kategorisidir ve i-Kozmo ile bu alanda nasıl bir çözüm ürettiğimizi detaylı paylaşıyoruz.</p>
+
+<h2>INCI nedir?</h2>
+<p><strong>INCI (International Nomenclature of Cosmetic Ingredients)</strong>, kozmetik ve kişisel bakım ürünlerindeki bileşenlerin uluslararası standart isimlendirmesidir. Dünyada satılan her kozmetik ürünün ambalajında aynı standartla yazılmış bir INCI listesi bulunur. Ancak kullanıcı için problem:</p>
 <ul>
-  <li>Aktif geliştirme haftalarında rutin işler sekteye uğramıyor.</li>
-  <li>Bakım haftasında müşteri destek ve hata ayıklama rahat biriktiriliyor.</li>
-  <li>Birikmiş teknik borç "bir hafta dinlenme" tampon zamanında temizleniyor.</li>
+  <li>Bileşen isimleri Latince ve kimya terimi,</li>
+  <li>50+ bileşen bir ürünün arkasında sıralı,</li>
+  <li>Hangi bileşen hangi işleve sahip belirsiz,</li>
+  <li>Hangi bileşen hangi cilt tipi için riskli bilinmez.</li>
 </ul>
-<h2>Ürünler arası önceliklendirme</h2>
-<p>13 ürünü aynı anda geliştiremiyoruz. Her çeyrek başında hangi ürünün hangi aşamada olacağına birlikte karar veriyoruz. Yayındaki ürünler minimum bakım yüküyle çalışır; beta olanlar hızlı iterasyona ihtiyaç duyar; yakında olanlar ise odak haftalarının çoğunu alır.</p>
-<h2>Paylaşımlı altyapı</h2>
-<p>Farklı ürünlerde tekrar eden ihtiyaçlar (kimlik doğrulama, bildirim, ödeme, cari hesap) paylaşımlı modüller haline getirildi. i-Eczane ve i-Depo aynı kimlik sistemini kullanıyor; i-Hesap'taki fatura motoru diğer pazaryerlerinde de çalışıyor. Bu yaklaşım 13 ürünü 2 kişiyle yönetmeyi mümkün kılan tek şey.</p>
-<h2>İstisnalar ve öğrendiklerimiz</h2>
-<p>Plan her zaman tutmuyor — bir ürün krizi veya beklenmedik özellik talebi geldiğinde modeli bozuyoruz. Önemli olan iki hafta sonra ritmi yeniden kurabilmek. Dört yıllık deneyimle en büyük öğrendiğimiz: <em>sprint yapmaktan çok sürdürülebilir hız çok daha önemli</em>.</p>
+<p>Bu boşluğu dolduran ürün kategorisi <strong>INCI okuyucu mobil uygulamalarıdır</strong>. i-Kozmo bu kategoride Türkçe içerik, yerel kozmetik ürün veritabanı ve cilt tipine özel öneri üzerine kurulu bir çözümdür.</p>
+
+<h2>INCI okuyucu uygulamasının teknik mimarisi</h2>
+
+<h3>OCR — Etiket okuma</h3>
+<p>Kullanıcı ürünün arka yüzünün fotoğrafını çeker; uygulama ambalajdaki INCI metnini optik karakter tanıma (OCR) ile çıkarır. Burada iki büyük teknik zorluk vardır:</p>
+<ul>
+  <li><strong>Yansıma ve parıldama:</strong> Parlak kozmetik ambalajları flaş yansımasıyla okumayı zorlaştırır.</li>
+  <li><strong>Kıvrımlı yüzey:</strong> Tüp ürünlerde metin kıvrılmış olarak görünür, karakter tanıma güçleşir.</li>
+</ul>
+<p>i-Kozmo'da <strong>INCI 2.0 motoru</strong> bu iki problem için özel olarak eğitilmiş bir model kullanır; yansıma ve kıvrım etkilerini tolere eder.</p>
+
+<h3>Bileşen veritabanı</h3>
+<p>Çıkarılan INCI listesi, kurumsal bileşen veritabanıyla karşılaştırılır. Veritabanı her bileşen için:</p>
+<ul>
+  <li>İşlevi (emollient, surfactant, antioxidant, vb.),</li>
+  <li>Cilt tipi etkileri (kuru, yağlı, hassas),</li>
+  <li>Bilinen alerjen/irritan risk seviyesi,</li>
+  <li>Doğal / sentetik kaynağı,</li>
+  <li>Hamilelik ve bebek kullanımına uygunluk,</li>
+</ul>
+<p>gibi çok boyutlu etiketler tutar.</p>
+
+<h3>Cilt tipi eşleştirme modeli</h3>
+<p>Kullanıcı ilk girişte cilt tipi, hassasiyetler, endişeler (akne, kızarıklık, kuruluk, yaşlanma karşıtı vb.) ve tercihleri (vegan, parfümsüz, hayvan deneyi karşıtı) ile profilini oluşturur. i-Kozmo motor bu profili her ürünün INCI değerlendirmesiyle karşılaştırır ve 0–100 arası bir <strong>uyum skoru</strong> üretir.</p>
+
+<h3>Alternatif ürün önerisi</h3>
+<p>Bir ürün kullanıcı profiline uygun değilse, uygulama aynı kategoride daha yüksek skorlu alternatifleri listeler. Bu özellik tüketiciyi <em>ürünü geri koymakla almak</em> arasında değil, <em>doğru ürüne yönlendirmek</em> konumuna taşır.</p>
+
+<h2>INCI okuyucunun dermokozmetik dikeyindeki rolü</h2>
+<p>Kozmetik markaları için şeffaflık artık opsiyonel değil. Tüketici bir ürünü satın almadan önce bileşenlerini öğrenmek istiyor; özellikle dermokozmetik segmentinde marka sadakati daha bilinçli bir tabanda şekilleniyor. INCI okuyucu uygulamaları bu dönüşümde <strong>tarafsız bir değerlendirme kaynağı</strong> olarak öne çıkıyor.</p>
+<p>Dermokozmetik markaları açısından bu bir tehdit değil, aksine bir fırsat. Ürünün formülünden emin olan marka için INCI okuyucudaki yüksek uyum skoru güçlü bir pazarlama argümanı haline geliyor.</p>
+
+<h2>i-Kozmo'daki ek özellikler</h2>
+<ul>
+  <li><strong>Rutin takibi:</strong> Sabah ve akşam bakım rutinlerinin yapılandırılması, hatırlatıcılar.</li>
+  <li><strong>Karşılaştırma:</strong> İki farklı ürünün INCI farklarını yan yana görebilme.</li>
+  <li><strong>Topluluk yorumları:</strong> Aynı cilt tipine sahip kullanıcıların ürün deneyimleri.</li>
+  <li><strong>Veri gizliliği:</strong> Çekilen fotoğraflar cihazda işlenir, sunucuya yalnızca metin gönderilir.</li>
+</ul>
+
+<h2>Markalar için i-Kozmo entegrasyonu</h2>
+<p>Dermokozmetik markaları ürünlerini i-Kozmo veritabanına eklemek, ürün sayfalarını zenginleştirmek ve cilt tipine özel pazarlama kampanyaları yürütmek için bizimle iletişime geçebilir. Şeffaflık ve cilt tipi uyumluluğu, markanıza bilinçli tüketici segmentinde güçlü bir konumlandırma sunar.</p>
 `.trim(),
 
-  "i-kozmo-inci-2": `
-<p><strong>i-Kozmo için yeni INCI 2.0 motoru bugün yayında.</strong> Kozmetik ürün etiketlerindeki bileşen listesini fotoğraftan okuyan motorumuzu tamamen yeniledik; cilt tipi uyumluluğunu %37 daha doğru hesaplıyor.</p>
-<h2>Neyi geliştirdik?</h2>
-<p>INCI 1.0 versiyonu temel OCR ve bileşen veritabanı karşılaştırmasına dayanıyordu. 2.0'da üç ana yenilik var:</p>
+  "kisisel-kozmetik-abonelik-modeli": `
+<p>Kozmetik alışverişinde tüketicinin karşılaştığı en büyük sorun ürün çeşitliliği değil — <strong>kendisine hangi ürünün uygun olduğunu bilmemesidir</strong>. Cilt tipi, hassasiyetler, mevsim, yaş, genetik özellikler ve öncelikler her tüketici için farklı; bu yüzden aynı raftaki ürünler aynı cilde aynı sonucu vermez. Bu yazıda <strong>kişisel kozmetik abonelik modeli</strong> nedir, kürasyon motoru nasıl çalışır, dermokozmetik dikeyinde bu modeli neden önemsediğimizi ve İstanbulVitamin deneyimini paylaşıyoruz.</p>
+
+<h2>Kozmetik alışverişinde karar yorgunluğu</h2>
+<p>Bir tüketici cilt bakım ürünü ararken ortalama 40+ markayı, her markanın 10+ ürününü incelemek durumunda. Online yorumlar çelişkili, reklamlar abartılı, dermatolog önerileri farklı. Sonuç: <strong>karar yorgunluğu</strong>. Kullanıcı ya rastgele bir ürün satın alır ya da alışverişi erteler.</p>
+<p>Kişisel kürasyon modeli bu sorunun üstüne oturur: tüketici yerine karar veren bir <em>akıllı küratör</em> devreye girer.</p>
+
+<h2>Kürasyon motoru nasıl çalışır?</h2>
+
+<h3>1. Profil oluşturma</h3>
+<p>Kullanıcı ilk girişte kısa bir form doldurur. Tipik sorular:</p>
 <ul>
-  <li><strong>Geliştirilmiş OCR:</strong> Işık, çekim açısı ve ambalaj yansıması daha dayanıklı tanıma.</li>
-  <li><strong>Cilt tipi eşleştirme modeli:</strong> Bileşen bazlı risk değerlendirmesi, cilt tipi profiliyle karşılaştırma.</li>
-  <li><strong>Yakında ürünler veritabanı:</strong> 12.000+ kozmetik ürünü önceden taranmış olarak geliyor.</li>
+  <li>Cilt tipi (kuru, yağlı, karma, hassas, normal)</li>
+  <li>Endişeler (akne, kızarıklık, pigmentasyon, yaşlanma belirtileri, kuruluk)</li>
+  <li>Alerjiler ve hassasiyetler</li>
+  <li>Rutininin olgunluğu (başlangıç, orta, ileri)</li>
+  <li>Tercihler (vegan, parfümsüz, kokusuz, fiyat aralığı)</li>
+  <li>Mevcut ürünler</li>
 </ul>
-<h2>Ne anlama geliyor?</h2>
-<p>Eski sürümde bir ürünün hassas cildinize uygun olup olmadığını söylemek %60 doğrulukla sınırlıydı. 2.0 ile bu oran %97'ye çıktı. Yani fotoğrafı çektiğinizde; sadece bileşen listesini değil, cilt tipinize özel risk seviyesini ve alternatif ürün önerilerini görüyorsunuz.</p>
-<h2>Veri gizliliği</h2>
-<p>Çektiğiniz fotoğraflar cihazda işleniyor; yalnızca bileşen listesi metni sunucuya gönderiliyor. Fotoğraflar bizde saklanmıyor.</p>
-<h2>Ne zaman?</h2>
-<p>Güncelleme otomatik olarak App Store ve Google Play'de yayında. Kullanıcıların %95'ine ulaşmasını önümüzdeki hafta içinde bekliyoruz.</p>
+
+<h3>2. Ürün eşleştirme</h3>
+<p>Kürasyon motoru profili katalogdaki her ürünün etiketleriyle eşleştirir. İstanbulVitamin'de her ürün; cilt tipi, bileşen listesi, endikasyon, rutin aşaması (temizleyici, tonik, serum, nemlendirici, güneş koruyucu) ve deneyim seviyesi etiketleriyle tanımlıdır. Eşleşme skoru kullanıcıya kutu içinde 4–6 ürün olarak dönüşür.</p>
+
+<h3>3. Kutu hazırlama ve gönderim</h3>
+<p>Kullanıcıya özel hazırlanan kutu aylık olarak sevk edilir. İlk kutuyu aldıktan sonra geri bildirim formu sunulur: beğenildi / beğenilmedi / alerji oldu / tekrar gelsin. Bu geri bildirim bir sonraki kutunun kürasyonunu iyileştirir — motor öğrenir.</p>
+
+<h3>4. Profil güncellemesi</h3>
+<p>Cilt tipi sabit değildir; mevsim, yaş, hormonal değişim, iklim gibi faktörlerle değişir. Kullanıcı istediğinde profilini güncelleyebilir; bir sonraki kutu yeni profile göre hazırlanır.</p>
+
+<h2>Abonelik modelinin kozmetik için avantajları</h2>
+<ul>
+  <li><strong>Karar yorgunluğundan kurtulma:</strong> Kullanıcı artık hangi ürünü seçeceğini düşünmez.</li>
+  <li><strong>Düzenli rutin:</strong> Aylık kutu, cilt bakım rutininin sürdürülebilir olmasını sağlar.</li>
+  <li><strong>Markaya ulaşmakta zorlanan ürünlerin keşfi:</strong> Niş markalar kürasyon modelinde öne çıkabilir.</li>
+  <li><strong>Bilinçli iade:</strong> Beğenilmeyen ürünler bir sonraki kutuda değiştirilir; kürasyon sürekli iyileşir.</li>
+</ul>
+
+<h2>Markalar için kürasyon kanalı</h2>
+<p>Kişisel kozmetik abonelik platformları, markalar için <strong>akıllı bir dağıtım kanalı</strong> oluşturur. Açık pazaryerlerinden farklı olarak burada ürün doğru kullanıcıya gider; yanlış eşleşmeden doğan iade ve olumsuz yorum oranı çok düşüktür. Dermokozmetik markaları için bu:</p>
+<ul>
+  <li>Doğru tüketici segmentine ulaşma,</li>
+  <li>Düşük iade oranıyla lojistik verimliliği,</li>
+  <li>Denenmemiş ürünü test etme fırsatı,</li>
+</ul>
+<p>anlamına gelir.</p>
+
+<h2>İstanbulVitamin yaklaşımı</h2>
+<p>İstanbulVitamin, Türkiye'de dermokozmetik ve kişisel bakım segmentinde kürasyon motoruyla çalışan kozmetik abonelik platformudur. Kullanıcı profili, ürün etiketleme, eşleşme skoru ve kutu oluşturma süreçleri baştan sektörel ihtiyaçlara göre tasarlandı. Markalar ile birlikte çalışıyor; kataloğumuza ürün eklemek isteyen dermokozmetik markaları için iletişim kanallarımız açık.</p>
+
+<h2>Gelecek</h2>
+<p>Kişiselleştirme sadece cilt tipiyle sınırlı değil. İleride iklim, hava kalitesi, stres düzeyi ve uyku verisi gibi sinyaller de kürasyon motoruna girebilir. Kozmetikte kişiselleştirme geldiği noktanın çok daha ilerisine gidecek; i-Grup olarak bu gelişimi hem İstanbulVitamin hem i-Kozmo ürünlerimizle destekliyoruz.</p>
 `.trim(),
 };
 
@@ -340,7 +485,7 @@ async function seedSettings() {
   const data = {
     siteName: "i-Grup",
     tagline:
-      "İki ortağın kendi inisiyatifiyle yayınladığı 13 aktif ürünün portföy sitesi.",
+      "Dermokozmetik yazılım grubu. Eczane pazaryeri, kapalı B2B dermokozmetik tedarik ağı, INCI okuyucu mobil uygulama ve kişisel kozmetik abonelik platformu.",
     email: "merhaba@i-grup.com.tr",
     phone: "+90 212 000 00 00",
     whatsapp: "+905000000000",
@@ -349,11 +494,11 @@ async function seedSettings() {
     instagramUrl: "https://www.instagram.com/i-Grup",
     xUrl: "https://x.com/igroup",
     footerText:
-      "İki ortağın bağımsız olarak yayınladığı ürün portföyü. i-Eczane, i-Depo, i-Kozmo, İstanbulVitamin, SpecialWhey, i-Hesap, i-Hırdavat, i-Bijuteri, i-Kırtasiye, i-Nalbur, i-Zeruj, MemnuniyetimVar, i-Kira — hepsi kendi fikrimiz, kendi bakımımız altında.",
+      "i-Grup, dermokozmetik ve B2B dikeylerinde uçtan uca yazılım çözümleri üreten bir yazılım grubudur. Eczane pazaryeri (i-Eczane), kapalı B2B dermokozmetik tedarik platformu (i-Depo), INCI okuyucu mobil uygulama (i-Kozmo) ve kişisel kozmetik abonelik sitesi (İstanbulVitamin) başta olmak üzere sektöre özel ürünler yayınlıyoruz.",
     defaultSeoTitle:
-      "i-Grup — Eczane, kozmetik ve B2B alanlarında 13 aktif ürün",
+      "i-Grup — Dermokozmetik Yazılım Grubu | Eczane Pazaryeri, B2B Tedarik ve INCI Okuyucu",
     defaultSeoDesc:
-      "İki ortağın yayınladığı 13 aktif ürün: eczane pazaryeri, B2B dermokozmetik tedariki, kozmetik mobil uygulaması, muhasebe ERP, B2B hırdavat-bijuteri-kırtasiye platformları ve tüketici uygulamaları. Bağımsız olarak fikirden yayına kadar geliştirilen ürün portföyümüz.",
+      "Dermokozmetik sektörüne özel yazılım çözümleri: i-Eczane çok satıcılı eczane pazaryeri, i-Depo kapalı B2B dermokozmetik tedarik platformu, i-Kozmo INCI okuyucu mobil uygulaması ve İstanbulVitamin kişisel kozmetik abonelik sitesi. Eczacı, distribütör ve kozmetik markaları için uçtan uca dijital altyapı.",
     statProjects: 13,
     statSectors: 6,
     statYears: 8,
@@ -361,55 +506,55 @@ async function seedSettings() {
     teamSize: 2,
     foundedYear: 2018,
     heroHeading:
-      "Eczane, kozmetik, B2B ve tüketici için 13 aktif ürün geliştirdik.",
-    heroHighlight: "13 aktif ürün geliştirdik.",
+      "Dermokozmetik için uçtan uca yazılım çözümleri.",
+    heroHighlight: "Dermokozmetik",
     heroSubtitle:
-      "2018'den beri iki arkadaş olarak kendi fikirlerimizi ürüne dönüştürüyoruz. Eczane pazaryerinden B2B tedarik ağlarına, kozmetik mobil uygulamadan kurumsal muhasebe yazılımına kadar uzanan 13 aktif ürün — hepsi kendi sermayemiz, kendi bakımımız altında.",
-    heroStatusText: "İki ortağın ürün portföyü · 2018'den beri",
+      "Eczane pazaryerinden kapalı B2B dermokozmetik tedarik ağına, INCI okuyucu mobil uygulamadan cilt tipine göre kürasyon yapan kişisel kozmetik e-ticaretine kadar sektöre özel dijital altyapı kuruyoruz. Eczacılar, dermokozmetik distribütörleri, kozmetik markaları ve son kullanıcılar için ürünler geliştiriyoruz; paralelde B2B pazaryerleri, kurumsal ERP ve tüketici uygulamaları yayınlıyoruz.",
+    heroStatusText: "Dermokozmetik yazılım grubu · 2018'den beri",
     heroImageUrl: IMG.heroOffice,
-    heroCtaPrimaryLabel: "Ürünlerimiz",
+    heroCtaPrimaryLabel: "Ürünlerimizi İnceleyin",
     heroCtaPrimaryUrl: "#projeler",
-    heroCtaSecondaryLabel: "İletişime geç",
-    heroCtaSecondaryUrl: "#iletisim",
-    heroOverlayLabel: "YAPI",
-    heroOverlayTitle: "2 ortak, 13 ürün",
+    heroCtaSecondaryLabel: "Demo Talep Edin",
+    heroCtaSecondaryUrl: "/iletisim",
+    heroOverlayLabel: "UZMANLIK",
+    heroOverlayTitle: "Dermokozmetik dikeyinde derin sektör bilgisi",
     heroOverlayDescription:
-      "Ürün yönetimi, tasarım ve mühendisliği birlikte yürüten iki kişilik bağımsız yapı.",
-    aboutHeading: "İki arkadaş; fikirden canlı ürüne.",
+      "Eczacı–distribütör ilişkileri, INCI standartları ve marka politikalarına göre tasarlanmış ürünler.",
+    aboutHeading: "Dermokozmetik sektörüne özel yazılım üreten bir grup.",
     aboutLead:
-      "2018'de iki arkadaş olarak kendi ürünlerimizi yayınlamaya başladık. Bugün 13 aktif ürünümüz var — hepsi kendi fikrimiz, kendi sermayemiz ve kendi bakımımız altında. Başkasına proje yapmıyoruz; kendi ürünlerimizi üretiyor, işletiyor ve büyütüyoruz. Eczane pazaryerlerinden B2B tedarik ağlarına, kozmetik mobil uygulamalardan kurumsal muhasebe yazılımına kadar tüm ürünler paylaşımlı bir altyapı üzerinde koşuyor.",
+      "i-Grup, eczacı ve dermokozmetik dikeyinde uçtan uca dijital çözümler üreten bir yazılım grubudur. Çok satıcılı eczane pazaryeri, davetli tedarik ağına dayalı kapalı B2B dermokozmetik platformu, kozmetik ambalajlarının INCI bileşen listesini fotoğraftan okuyan mobil uygulama ve cilt tipine göre kürasyon yapan kişisel kozmetik abonelik sitesi; portföyümüzün omurgasını dermokozmetik ürünleri oluşturuyor. Bunun yanında B2B hırdavat, bijuteri, kırtasiye, nalbur ve zerzevat pazaryerleri, KOBİ'ler için e-Fatura entegre muhasebe ERP ve tüketici uygulamaları gibi ek dikeylerde de çözümler yayınlıyoruz.",
     aboutImage1: IMG.aboutOffice,
     aboutImage2: IMG.aboutTeam,
     aboutImage3: IMG.officeFloor,
-    careersHeading: "Sabit ekip yerine doğru freelance ortaklar.",
+    careersHeading: "Dermokozmetik yazılımı geliştiren ekibe katılın.",
     careersLead:
-      "İki ortaklı bir yapıyız; sabit kadro büyütmüyoruz. Freelance veya proje bazlı işbirliği için kapımız her zaman açık — özellikle React/Next.js ön yüz, Go backend ve ürün tasarımı alanlarında.",
+      "Eczane pazaryerinden B2B tedarik ağına, INCI okuyucu mobil uygulamadan kişisel kozmetik e-ticaretine kadar sektöre özel ürünler üretiyoruz. React/Next.js ön yüz, Go/Node.js backend, mobil mühendislik ve ürün tasarımı alanlarında birlikte çalışmak için portföyünüzü bekliyoruz.",
     careersImage: IMG.careersOffice,
-    careersEmptyTitle: "Şu an sabit pozisyon aramıyoruz",
+    careersEmptyTitle: "Şu an aktif ilan yok",
     careersEmptyText:
-      "Ancak freelance veya proje bazlı işbirliği için portföyünüzü gönderin — değerlendirmek için hepsini okuyoruz.",
+      "Dermokozmetik yazılım projelerimizde freelance veya proje bazlı işbirliği için portföyünüzü gönderebilirsiniz; değerlendirmek için hepsini inceliyoruz.",
     careersApplyLabel: "Portföy Gönder →",
-    contactHeading: "Ürünlerimiz hakkında konuşalım.",
-    contactHighlight: "Ürünlerimiz",
+    contactHeading: "Dermokozmetik yazılım projenizi konuşalım.",
+    contactHighlight: "Dermokozmetik",
     contactLead:
-      "Demo talep ediyor, entegrasyon hakkında soru sormak veya işbirliği konuşmak istiyorsanız kısa bir form yeterli. 48 saat içinde ikimizden biri dönüyor.",
+      "Eczane pazaryeri, kapalı B2B dermokozmetik tedarik, INCI okuyucu uygulama veya kişisel kozmetik abonelik platformu hakkında demo talep etmek, entegrasyon sorularınızı sormak veya sektöre özel bir yazılım çözümü tasarlamak için formu doldurun. 48 saat içinde geri dönüyoruz.",
     officeHours: "Pazartesi – Cuma · 09:30 – 18:30",
     projectsEyebrow: "Ürünler",
-    projectsTitle: "Kendi inisiyatifimizle yayınladığımız 13 aktif ürün.",
+    projectsTitle: "Dermokozmetik ve B2B dikeylerinde yayınladığımız ürünler.",
     projectsLead:
-      "Eczane pazaryerinden B2B tedarike, kozmetik mobil uygulamadan kurumsal muhasebe yazılımına kadar birbirini besleyen ürün portföyümüz. Her biri kendi fikrimiz; paylaşımlı altyapıyla koşuyor.",
+      "Eczane pazaryerinden kapalı B2B dermokozmetik tedarik ağına, INCI okuyucu mobil uygulamadan kişisel kozmetik abonelik platformuna kadar sektöre özel ürünlerimiz. Dermokozmetik çözümlerin yanında B2B pazaryerleri, kurumsal ERP ve tüketici uygulamalarını da portföyümüzde bulabilirsiniz.",
     sectorsEyebrow: "Sektörler",
-    sectorsTitle: "Odaklandığımız beş dikey.",
+    sectorsTitle: "Odaklandığımız dikeyler.",
     sectorsLead:
-      "13 ürünü yayınlarken sektörü anlamak kadar içinde uzun zaman geçirmek de önemli. Her sektörde öğrendiğimizi diğerine taşıyoruz.",
+      "Birincil odak dermokozmetik dikeyi: eczacı pazaryeri, distribütör tedarik ağı ve kozmetik markaları. İkincil odak olarak B2B pazaryerleri, kurumsal ERP ve tüketici platformları alanlarında da aktif ürünlerimiz var.",
     clientsEyebrow: "Birlikte çalıştıklarımız",
-    clientsTitle: "Ürünlerimizi kullanan markalar ve tedarikçiler.",
+    clientsTitle: "Dermokozmetik markaları ve tedarikçileri.",
     clientsLead:
-      "i-Eczane ve i-Depo üzerinden dermokozmetik dağıtımı yapan distribütörler, kozmetik markaları ve zincir perakendeciler.",
+      "i-Eczane ve i-Depo platformları üzerinden dermokozmetik dağıtımı yapan distribütörler, kozmetik markaları, zincir eczaneler ve bölgesel tedarikçiler.",
     blogEyebrow: "Günlük",
-    blogTitle: "Ürünlerimizin arka planı ve sektör notları.",
+    blogTitle: "Dermokozmetik sektöründen ürün ve teknoloji notları.",
     blogLead:
-      "13 ürünü 2 kişiyle yönetirken öğrendiklerimiz, ürün lansmanları ve sektörün gündemi — doğrudan iki ortağın kalemi.",
+      "Kapalı B2B pazaryeri modeli, INCI standartları, eczane tedarik akışları ve kozmetik dijital dönüşümü üzerine yazılar.",
   };
   await prisma.siteSetting.upsert({
     where: { id: "singleton" },
@@ -424,37 +569,87 @@ async function seedPages() {
     {
       slug: "hakkimizda",
       title: "Hakkımızda",
-      subtitle: "İki ortağın bağımsız ürün portföyü.",
+      subtitle: "Dermokozmetik sektörüne özel yazılım çözümleri üreten grup.",
       content: `
-<p>i-Grup, iki arkadaşın 2018'den beri kendi fikirleri ile yayınladığı ürünlerin ortak çatısıdır. Yazılım stüdyosu değiliz — başkasına proje yapmıyor, kendi ürünlerimizi geliştirip işletiyoruz.</p>
-<h2>Kendi ürünlerimiz</h2>
-<p>Bugün 13 aktif ürünümüz var: eczane pazaryeri (i-Eczane), B2B dermokozmetik tedarik platformu (i-Depo), kozmetik mobil uygulaması (i-Kozmo), kişiye özel kozmetik e-ticareti (İstanbulVitamin), protein abonelik platformu (SpecialWhey), KOBİ muhasebe yazılımı (i-Hesap), dört farklı B2B pazaryeri (i-Hırdavat, i-Bijuteri, i-Kırtasiye, i-Nalbur), günlük zerzevat pazaryeri (i-Zeruj), tüketici memnuniyet platformu (MemnuniyetimVar) ve kira anlaşma uygulaması (i-Kira).</p>
-<h2>Yapımız</h2>
-<p>İki kişiyiz: ürün ve mühendislik bir arada. Sabit kadromuz yok; gerektiğinde freelance ortaklarla çalışıyoruz. Tüm ürünlerimiz paylaşımlı bir altyapı üzerinde koşuyor — kimlik doğrulama, bildirim, ödeme ve cari modülleri tek bir yerde, sonra da farklı ürünlere yayılıyor. Bu yaklaşım 13 ürünü 2 kişiyle yönetmeyi mümkün kılan tek şey.</p>
-<h2>Neye değer veriyoruz?</h2>
+<p>i-Grup, Türkiye'de <strong>dermokozmetik ve eczacılık dikeyi</strong> için uçtan uca dijital altyapı üreten bir yazılım grubudur. 2018'den bu yana eczacılar, dermokozmetik distribütörleri, kozmetik markaları ve son kullanıcılar için sektöre özel ürünler geliştiriyor ve işletiyoruz.</p>
+
+<h2>Dermokozmetik dikeyindeki ürünlerimiz</h2>
+<p>Portföyümüzün omurgasını dermokozmetik ürünleri oluşturuyor. Eczacıdan distribütöre, marka üreticisinden son kullanıcıya kadar değer zincirinin her halkasında özel bir çözümümüz yer alıyor.</p>
 <ul>
-  <li><strong>Süreklilik:</strong> Ürünü yayımlamak başlangıç, ayakta tutmak asıl iş.</li>
-  <li><strong>Özerklik:</strong> Başkasına iş yapmıyoruz; öncelikleri kendimiz belirliyoruz.</li>
-  <li><strong>Doğrudan müşteri:</strong> Kullanıcı geri bildirimini ilk elden topluyoruz.</li>
-  <li><strong>Paylaşımlı altyapı:</strong> Bir üründe çözdüğümüz sorunu diğerinde de çözmek.</li>
+  <li><strong>i-Eczane — Çok satıcılı eczane pazaryeri:</strong> Dermokozmetik markalarının ürünlerini doğrudan eczacılarla buluşturan multi-vendor pazaryeri. Stok, sipariş, iade, kampanya ve cari hesap akışı tek panelde.</li>
+  <li><strong>i-Depo — Kapalı B2B dermokozmetik tedarik ağı:</strong> Distribütör–eczane arasında davetli tedarik modeli. Fiyat disiplini, marka güvenliği ve yetkisiz satıcı önlemi sağlayan kurumsal B2B platformu.</li>
+  <li><strong>i-Kozmo — INCI okuyucu mobil uygulama:</strong> Kozmetik ambalajlarının bileşen listesini fotoğraftan okuyan, cilt tipine göre uyumluluk skoru üreten ve kişisel rutin öneren uygulama.</li>
+  <li><strong>İstanbulVitamin — Kişisel kozmetik abonelik platformu:</strong> Cilt tipine göre kürasyon yapan kozmetik e-ticaret ve aylık abonelik sitesi.</li>
+  <li><strong>SpecialWhey — Kişiye özel besin takviyesi:</strong> Hedef ve diyete göre formüle edilen protein karışımı ve tekrar-siparişli abonelik platformu.</li>
 </ul>
-<p>Herhangi bir ürünümüz hakkında demo, entegrasyon veya ortaklık konuşmak için iletişim sayfasından bize yazabilirsiniz.</p>
+
+<h2>Diğer dikeylerdeki ürünlerimiz</h2>
+<p>Ana odağımız dermokozmetik olsa da paylaşımlı altyapımızı farklı dikeylerde de çalıştırıyoruz. B2B pazaryerleri, kurumsal yazılım ve tüketici uygulamaları alanlarında yayındaki çözümlerimiz:</p>
+<ul>
+  <li><strong>i-Hesap:</strong> KOBİ ve orta ölçekli işletmeler için e-Fatura, e-Arşiv ve e-SMM entegre muhasebe ERP yazılımı.</li>
+  <li><strong>i-Hırdavat, i-Bijuteri, i-Kırtasiye, i-Nalbur:</strong> Sektöre özel B2B pazaryerleri (hırdavat, bijuteri, kırtasiye, nalbur).</li>
+  <li><strong>i-Zeruj:</strong> Hal esnafı ile restoranlar arasında günlük zerzevat sipariş akışı (beta).</li>
+  <li><strong>MemnuniyetimVar:</strong> Pozitif müşteri geri bildirimine odaklı tüketici platformu.</li>
+  <li><strong>i-Kira:</strong> Kiracı ve ev sahibi arasında dijital kira anlaşma uygulaması.</li>
+</ul>
+
+<h2>Neden dermokozmetik?</h2>
+<p>Dermokozmetik dikeyi Türkiye'de son beş yılda hızlı büyüdü; ancak büyümeyle birlikte <strong>fiyat erozyonu, yetkisiz satış kanalları ve marka güvenliği</strong> gibi kritik sorunlar gündeme geldi. Eczacılar yüzlerce markanın stok, iade ve kampanya süreçlerini farklı kanallardan takip etmek zorundaydı; distribütörler fiyat politikalarını koruyamıyor, son kullanıcılar ise ambalaj üstündeki INCI listesini anlayamıyordu.</p>
+<p>i-Grup bu sorunlara <strong>sektörün iç dinamiklerine uygun, birbirini besleyen yazılım çözümleri</strong> ile yanıt veriyor. Eczacının kullandığı pazaryerinden distribütörün yönettiği kapalı ağa, markanın tüketicilere ulaştığı INCI uygulamasından abonelik kutusuna kadar her nokta tek bir ekosistemde çalışıyor.</p>
+
+<h2>Çalışma yaklaşımımız</h2>
+<p>Her ürünümüz, kendi gördüğümüz bir sektör problemini çözmek üzere tasarlandı. Müşteri adaylarıyla erken aşamada konuşuyor, gerçek kullanım verileriyle iteratif ilerliyoruz. Kimlik doğrulama, ödeme, bildirim, cari hesap, kampanya ve raporlama gibi tekrar eden ihtiyaçlar <strong>paylaşımlı modüller</strong> olarak tanımlandığı için yeni bir sektör ihtiyacı 3–4 ayda canlıya alınabiliyor.</p>
+
+<h3>Değer verdiğimiz ilkeler</h3>
+<ul>
+  <li><strong>Sektör uzmanlığı:</strong> Dermokozmetik mevzuatı, INCI standartları, eczacı–distribütör ilişkileri — ürünlerimizi sektörün içinden tanıyarak tasarlıyoruz.</li>
+  <li><strong>Süreklilik:</strong> Ürünü yayımlamak başlangıç, yıllarca aktif tutmak esas iş. Lansman tarihinden çok ürünün 5 yıl sonra nerede olacağına bakıyoruz.</li>
+  <li><strong>Gerçek saha testi:</strong> Eczacıyla sahada, markayla rafta, tüketiciyle uygulamada test ediyoruz.</li>
+  <li><strong>Paylaşımlı altyapı:</strong> Bir üründe çözdüğümüz sorunu diğerinde de kullanıyoruz — zaman da maliyet de yerinde harcanıyor.</li>
+</ul>
+
+<h2>İletişim</h2>
+<p>Dermokozmetik yazılım projeniz için demo talep etmek, eczane pazaryeri veya kapalı B2B tedarik platformu hakkında bilgi almak veya sektöre özel bir çözüm tasarlamak için iletişim sayfasından bize yazabilirsiniz. Kısa bir brief yeterli; 48 saat içinde geri dönüyoruz.</p>
 `.trim(),
     },
     {
       slug: "misyonumuz",
       title: "Misyonumuz",
-      subtitle: "Kurduğumuz ürünleri yıllarca ayakta tutmak.",
+      subtitle: "Dermokozmetik dikeyinde sürdürülebilir yazılım çözümleri.",
       content: `
-<p>i-Grup'un tek bir misyonu var: <strong>kurduğumuz ürünleri kısa sürede lansman değil, yıllarca sürdürülebilir hale getirmek</strong>. İki ortaklı bir yapı için 13 aktif ürünü aynı anda koşturmak disiplin ister; bu disiplini üç prensibe dayandırıyoruz.</p>
-<h2>1. Kendi inisiyatifimiz</h2>
-<p>Başkasının fikrine proje yapmıyoruz. Her ürün kendi gördüğümüz bir problemden doğar; ihtiyacı hem kullanıcı olarak hem de saha verisi olarak kontrol ederiz. Bu yaklaşım önceliklerimizin dış ajandalardan etkilenmesini engeller.</p>
-<h2>2. Ürünlerin kendi ayakları üstünde durması</h2>
-<p>Bir ürünün yayımlanması onun olgunluğa erişmesi değildir — asıl iş lansmandan sonra başlar. Ürünün kendi kendini finanse etmesi, kullanıcı tabanının yavaşça genişlemesi ve bakım yükünün makul seviyede kalması bizim için başarı kriteri.</p>
-<h2>3. Paylaşımlı altyapı ile ölçeklenmek</h2>
-<p>13 farklı ürünü her birine ayrı bir alt yapı yazarak yönetemeyiz. Kimlik doğrulama, bildirim, ödeme, cari, raporlama gibi ortak ihtiyaçlar <strong>paylaşımlı modüller</strong> olarak çıkarıldı. Bu sayede yeni bir pazaryeri projemiz üç-dört ayda canlıya alınıyor.</p>
+<p>i-Grup'un misyonu, <strong>dermokozmetik ve eczacılık sektörüne değer katan yazılım çözümlerini kısa sürede lansmandan çıkarıp yıllarca ayakta tutmaktır</strong>. Eczacı pazaryerinden distribütör tedarik ağına, kozmetik mobil uygulamadan kişisel kozmetik abonelik platformuna kadar ürünlerimizi birer kampanya değil birer altyapı olarak tasarlıyoruz.</p>
+
+<h2>Odağımız: dermokozmetik dikeyi</h2>
+<p>Dermokozmetik, düzenlemelere tabi ve bilgi yoğun bir sektör. Eczacı davranışı, distribütör ağ yapısı, INCI bileşen standartları ve marka fiyat politikaları birbirine bağlı sistemler. Bu sistemleri yüzeysel değil, iç dinamikleriyle öğrenerek çözüm üretiyoruz:</p>
+<ul>
+  <li>Eczacının günlük sipariş, iade ve kampanya akışında yaşadığı sürtünmeler.</li>
+  <li>Distribütörün fiyat politikasını koruma ve yetkisiz satıcıyı kontrol etme ihtiyacı.</li>
+  <li>Kozmetik markalarının INCI bileşen şeffaflığı ve müşteri güveni beklentisi.</li>
+  <li>Son kullanıcının ürün seçerken yaşadığı karar yorgunluğu ve kişiselleştirme talebi.</li>
+</ul>
+
+<h2>Üç temel prensip</h2>
+
+<h3>1. Sektöre özel çözümler, genel amaçlı şablonlar değil</h3>
+<p>Dermokozmetik dikeyinde çalışan yazılımlar çoğu zaman genel e-ticaret veya genel ERP şablonlarından türetiliyor; bu yüzden mevzuat, fiyat disiplini ve kanal yapısı gibi kritik ihtiyaçlara cevap veremiyor. Biz ürünlerimizi baştan sektöre göre tasarlıyoruz: eczacı KDV ve iskontoları, bölgesel stok, INCI etiketi, davetli tedarik ağı gibi özellikler bir eklenti değil, ürünün temel alanları.</p>
+
+<h3>2. Sürdürülebilir büyüme, hızlı lansman değil</h3>
+<p>Bir ürünün yayımlanması onun olgunluğa erişmesi değildir — asıl iş lansmandan sonra başlar. Ürünün kendi kendini finanse etmesi, kullanıcı tabanının yavaşça genişlemesi, müşteri desteğinin makul seviyede kalması ve ürünün beş yıl sonra hâlâ aktif olması bizim için başarı kriteri.</p>
+
+<h3>3. Paylaşımlı altyapı ile ölçeklenme</h3>
+<p>Her ürüne ayrı bir altyapı yazmak sürdürülebilir değil. Kimlik doğrulama, ödeme, bildirim, cari hesap, kampanya, raporlama gibi tekrar eden ihtiyaçlar <strong>paylaşımlı modüller</strong> olarak çıkarıldı. Bu sayede yeni bir sektör ihtiyacı 3–4 ayda canlıya alınabiliyor; bir modülü iyileştirdiğimizde tüm ürünler bundan yararlanıyor.</p>
+
 <h2>Uzun vadeli niyet</h2>
-<p>Bundan on yıl sonra ürünlerimizin hâlâ aktif ve büyüyor olmasını hedefliyoruz. Hızlı büyümek yerine sürdürülebilir büyümek; 50 kişiye ulaşmak yerine iki kişi ile 20 ürün yönetmek. İşimiz bu.</p>
+<p>On yıl sonra dermokozmetik dikeyinde Türkiye'nin en yaygın <strong>eczacı pazaryeri</strong>, en güvenilir <strong>kapalı B2B tedarik ağı</strong> ve en çok kullanılan <strong>INCI okuyucu uygulamasının</strong> i-Grup çatısı altında çalışıyor olmasını hedefliyoruz. Hızlı büyümek yerine sürdürülebilir büyümeyi, geniş vaatler yerine ölçülebilir sonuçları ve müşteriyle dolaylı değil doğrudan ilişkiyi tercih ediyoruz.</p>
+
+<h2>Kiminle çalışıyoruz?</h2>
+<p>Ürünlerimiz dermokozmetik sektörünün tüm halkalarına hitap ediyor:</p>
+<ul>
+  <li><strong>Eczacılar:</strong> Tek bir pazaryerinden yüzlerce marka ile çalışmak isteyen bağımsız eczacılar ve zincir eczaneler.</li>
+  <li><strong>Distribütörler:</strong> Fiyat politikasını korumak ve eczane ağını şeffaf yönetmek isteyen dermokozmetik distribütörleri.</li>
+  <li><strong>Kozmetik markaları:</strong> Ürünlerini hem B2B hem son kullanıcıya şeffaf şekilde sunmak isteyen markalar.</li>
+  <li><strong>Son kullanıcılar:</strong> Bilinçli ürün seçimi yapmak ve kişiselleştirilmiş bakım deneyimi isteyen tüketiciler.</li>
+</ul>
 `.trim(),
     },
     {
@@ -787,33 +982,33 @@ async function seedAboutValues() {
   const values = [
     {
       eyebrow: "Odak",
-      title: "Kendi ürünlerimiz",
+      title: "Dermokozmetik dikeyi",
       description:
-        "Başkasına proje yapmıyoruz. 13 ürünün tamamı kendi fikrimiz, kendi sermayemiz ve riskimiz altında yayında.",
+        "Eczane pazaryerinden kapalı B2B tedarik ağına, INCI okuyucu mobil uygulamadan cilt tipine özel kürasyona kadar dermokozmetik sektörüne uçtan uca dijital çözümler üretiyoruz.",
+    },
+    {
+      eyebrow: "Uzmanlık",
+      title: "Sektörün iç dinamikleri",
+      description:
+        "Eczacı KDV ve iskonto yapısı, distribütör ağ disiplini, INCI bileşen standartları ve marka fiyat politikaları — ürünlerimizi sektörü dışarıdan değil, içinden tasarlıyoruz.",
     },
     {
       eyebrow: "Yaklaşım",
-      title: "Doğrudan kullanıcıyla",
+      title: "Sahada test edilmiş",
       description:
-        "Aracı yok; eczacıyla sahada, markayla rafta, tüketiciyle uygulamada geri bildirim ilk elden bizde.",
+        "Eczacıyla tezgahta, distribütörle depoda, kozmetik markasıyla rafta, son kullanıcıyla uygulamada — ürünlerimiz gerçek sektör geri bildirimiyle iteratif büyüyor.",
     },
     {
       eyebrow: "Altyapı",
       title: "Paylaşımlı modüller",
       description:
-        "Kimlik, ödeme, bildirim ve cari altyapısı ortak. Bir üründe yazdığımızı diğer ürünlerde yeniden kullanıyoruz.",
+        "Kimlik doğrulama, ödeme, bildirim, cari hesap ve kampanya altyapısı tüm ürünlerde ortak. Bir üründe çözülen problem tüm portföyde hızla kullanılıyor.",
     },
     {
       eyebrow: "Süreklilik",
       title: "Lansman başlangıç, sürdürme asıl iş",
       description:
-        "Yıllarca aktif kalacak ürünler hedefliyoruz; hızlı çıkış değil, sürdürülebilir ilerleme.",
-    },
-    {
-      eyebrow: "Yapı",
-      title: "İki ortak, hızlı karar",
-      description:
-        "Ürün yönetimi ve mühendislik aynı iki kişide. Karar süreçleri kısa, iterasyon hızlı, bürokrasi yok.",
+        "Ürünün 5 yıl sonra nerede olacağına bakıyoruz. Hızlı büyüme yerine kendi ayakları üstünde duran, sürdürülebilir yazılım çözümleri hedefliyoruz.",
     },
   ];
 
@@ -831,55 +1026,56 @@ async function seedPosts() {
 
   const posts = [
     {
-      slug: "i-kira-ozel-beta-erisimi",
-      tag: "Ürün",
-      title: "i-Kira özel beta erişimi başladı",
+      slug: "eczane-pazaryeri-yazilimi-rehberi",
+      tag: "Rehber",
+      title: "Eczane Pazaryeri Yazılımı Nedir? Kapsamlı Rehber",
       excerpt:
-        "Kiracı ve ev sahipleri için dijital kira sözleşmesi, aylık ödeme ve demirbaş takibi — ilk 500 kullanıcıya özel beta erişimi.",
-      date: "2026-04-12",
-      cover: IMG.newsProduct,
+        "Dermokozmetik satan eczacılar için çok satıcılı pazaryeri yazılımı nedir, hangi sorunları çözer ve doğru çözümü seçerken nelere dikkat edilmeli? i-Eczane deneyiminden detaylı rehber.",
+      date: "2026-04-18",
+      cover: IMG.newsSector,
       seoTitle:
-        "i-Kira özel beta erişimi başladı — Dijital kira sözleşmesi ve ödeme takibi",
+        "Eczane Pazaryeri Yazılımı Nedir? | Dermokozmetik Tedarik Rehberi",
       seoDescription:
-        "Kira sürecini dijitalleştiren i-Kira uygulaması özel beta erişimine açıldı. Dijital sözleşme, otomatik aylık tahsilat ve fotoğraflı demirbaş takibi.",
+        "Eczane pazaryeri yazılımı nedir, dermokozmetik tedarikinde hangi sorunları çözer, çok satıcılı mimari, eczacı iskonto motoru ve INCI filtreleri. Markalar ve distribütörler için doğru yazılımı seçerken dikkat edilecekler.",
     },
     {
       slug: "dermokozmetikte-kapali-pazaryeri",
       tag: "Sektör",
-      title: "Dermokozmetikte kapalı pazaryeri neden önemli?",
+      title: "Dermokozmetikte Kapalı B2B Pazaryeri Neden Kritik?",
       excerpt:
-        "i-Depo deneyiminden hareketle: davetli tedarik ağı, marka güvenliği, fiyat disiplini ve yetkisiz satıcı sorunu üzerine bir yazı.",
+        "Fiyat erozyonu, yetkisiz satıcı ve marka değer kaybı sorunlarına kapalı B2B dermokozmetik tedarik ağının verdiği yanıt — i-Depo mimarisi ve saha notları.",
       date: "2026-04-04",
       cover: IMG.newsSector,
       seoTitle:
-        "Dermokozmetikte kapalı pazaryeri neden önemli? — Marka güvenliği ve fiyat disiplini",
+        "Dermokozmetikte Kapalı B2B Pazaryeri | Marka Güvenliği ve Fiyat Disiplini",
       seoDescription:
-        "Dermokozmetik sektöründe fiyat erozyonu ve yetkisiz satış kanallarına kapalı B2B pazaryeri nasıl çözüm üretiyor? i-Depo deneyiminden saha notları.",
+        "Dermokozmetik sektöründe fiyat erozyonu ve yetkisiz satış kanalı sorunlarına kapalı B2B pazaryeri nasıl çözüm üretiyor? Davetli tedarik ağı, fiyat grupları ve i-Depo mimarisi üzerine detaylı yazı.",
     },
     {
-      slug: "ekipce-calisma-ritmimiz",
-      tag: "Kültür",
-      title: "İki kişi 13 ürünü nasıl yönetiyor? — 4+1 hafta ritmi",
+      slug: "inci-okuyucu-mobil-uygulama",
+      tag: "Kozmetik",
+      title: "INCI Okuyucu Mobil Uygulama Nasıl Çalışır?",
       excerpt:
-        "Disiplinli haftalık ritim ve paylaşımlı altyapı sayesinde iki ortağın 13 aktif ürünü sürdürülebilir biçimde yönetmesini anlatıyoruz.",
+        "Kozmetik ambalajlarının INCI bileşen listesini fotoğraftan okuyan uygulamaların teknik mimarisi, cilt tipi eşleştirme motoru ve dermokozmetik markaları için anlamı — i-Kozmo üzerinden derinlemesine inceleme.",
       date: "2026-03-21",
-      cover: IMG.newsCulture,
+      cover: IMG.newsInci,
       seoTitle:
-        "İki kişi 13 ürünü nasıl yönetiyor? — 4+1 hafta çalışma ritmi",
+        "INCI Okuyucu Mobil Uygulama Nasıl Çalışır? | Kozmetik Bileşen Analizi",
       seoDescription:
-        "İki ortaklı bir yapıda 13 aktif ürünü yönetmek için uyguladığımız 4 hafta geliştirme + 1 hafta bakım ritmi ve paylaşımlı altyapı yaklaşımı.",
+        "INCI okuyucu mobil uygulamalar kozmetik ürün bileşenlerini nasıl analiz eder? OCR motoru, bileşen veritabanı, cilt tipi eşleştirme ve dermokozmetik markaları için pazarlama değeri üzerine kapsamlı rehber.",
     },
     {
-      slug: "i-kozmo-inci-2",
-      tag: "Ürün",
-      title: "i-Kozmo için INCI 2.0 yayında",
+      slug: "kisisel-kozmetik-abonelik-modeli",
+      tag: "Kozmetik",
+      title: "Kişisel Kozmetik Abonelik Modeli ve Kürasyon Motoru",
       excerpt:
-        "Kozmetik ambalajlarının bileşen listesini fotoğraftan okuyan yeni motor; cilt tipi uyumluluğunu %37 daha doğru hesaplıyor.",
-      date: "2026-03-02",
-      cover: IMG.newsInci,
-      seoTitle: "i-Kozmo için INCI 2.0 yayında — Cilt tipi uyumluluğu %97'ye çıktı",
+        "Cilt tipine göre kürasyon yapan aylık kozmetik abonelik platformları nasıl çalışır? Kürasyon motorunun aşamaları, markalar için faydası ve İstanbulVitamin yaklaşımı.",
+      date: "2026-03-07",
+      cover: IMG.newsProduct,
+      seoTitle:
+        "Kişisel Kozmetik Abonelik Modeli | Cilt Tipine Göre Kürasyon",
       seoDescription:
-        "i-Kozmo'nun INCI bileşen okuyucu motorunu yeniledik: geliştirilmiş OCR, cilt tipi eşleştirme ve 12.000+ ürün veritabanı ile %97 uyum doğruluğu.",
+        "Kozmetik abonelik platformlarındaki kürasyon motoru nasıl çalışır? Cilt tipi profili, ürün etiketleme, eşleşme skoru ve aylık kutu hazırlama — İstanbulVitamin üzerinden kapsamlı inceleme.",
     },
   ];
 
