@@ -51,14 +51,16 @@ export default async function HomePage() {
       }),
     ]);
 
-  // Derive sector counts from projects; allow override.
-  const projectCountBySectorName = new Map<string, number>();
+  // Group projects by sector name for "related products" display
+  const projectsBySectorName = new Map<
+    string,
+    { slug: string; title: string }[]
+  >();
   for (const p of projects) {
     if (!p.sector) continue;
-    projectCountBySectorName.set(
-      p.sector,
-      (projectCountBySectorName.get(p.sector) ?? 0) + 1
-    );
+    const arr = projectsBySectorName.get(p.sector) ?? [];
+    arr.push({ slug: p.slug, title: p.title });
+    projectsBySectorName.set(p.sector, arr);
   }
   const SECTOR_TO_PROJECT_SECTORS: Record<string, string[]> = {
     ecza: ["Eczane"],
@@ -69,15 +71,15 @@ export default async function HomePage() {
   };
   const sectors = sectorsRaw.map((s) => {
     const matched = SECTOR_TO_PROJECT_SECTORS[s.slug] ?? [];
-    const derived = matched.reduce(
-      (sum, name) => sum + (projectCountBySectorName.get(name) ?? 0),
-      0
+    const sectorProjects = matched.flatMap(
+      (name) => projectsBySectorName.get(name) ?? []
     );
     return {
       slug: s.slug,
       name: s.name,
       detail: s.detail,
-      count: s.countOverride ?? derived,
+      count: s.countOverride ?? sectorProjects.length,
+      projects: sectorProjects,
     };
   });
 
