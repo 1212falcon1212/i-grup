@@ -15,7 +15,7 @@ export default async function SectorsPage() {
     <div className="space-y-6">
       <PageHeader
         title="Sektörler"
-        description="Ana sayfadaki 'Hizmet verdiğimiz dikeyler' bölümü. Sürükleyerek sıralayın."
+        description="Ana sayfadaki 'Hizmet verdiğimiz sektörler' bölümü. Sürükleyerek sıralayın."
       />
       <SectorsClient
         initial={sectors.map((s) => ({

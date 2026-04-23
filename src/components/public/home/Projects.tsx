@@ -43,7 +43,7 @@ export function Projects({ projects, eyebrow, title, lead }: Props) {
         title={title || "Yayınladığımız ve işlettiğimiz ürünler."}
         lead={
           lead ||
-          "Eczane pazaryerinden kozmetik e-ticarete, B2B tedarikten kurumsal muhasebe yazılımına kadar birbirini besleyen 13 aktif ürün."
+          "Eczane pazaryerinden kapalı B2B dermokozmetik tedarik ağına, INCI okuyucu mobil uygulamadan kozmetik e-ticarete kadar birbirini besleyen sektörel ürünler."
         }
       />
       <div className="flex flex-wrap gap-2 mb-8">

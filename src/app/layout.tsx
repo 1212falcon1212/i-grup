@@ -34,7 +34,13 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(
       process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
     ),
-    icons: s.faviconUrl ? { icon: s.faviconUrl } : undefined,
+    icons: s.faviconUrl
+      ? {
+          icon: [{ url: s.faviconUrl, type: "image/webp" }],
+          shortcut: [s.faviconUrl],
+          apple: [{ url: s.faviconUrl }],
+        }
+      : undefined,
     openGraph: {
       type: "website",
       locale: "tr_TR",

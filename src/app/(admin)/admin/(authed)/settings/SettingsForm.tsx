@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { createContext, useContext, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -74,6 +74,83 @@ type Values = {
   blogLead: string;
 };
 
+type SettingsFormContextValue = {
+  values: Values;
+  setValue: <K extends keyof Values>(k: K, val: Values[K]) => void;
+};
+
+const SettingsFormContext = createContext<SettingsFormContextValue | null>(
+  null
+);
+
+function useSettingsForm() {
+  const ctx = useContext(SettingsFormContext);
+  if (!ctx) {
+    throw new Error("Settings fields must be used inside SettingsForm");
+  }
+  return ctx;
+}
+
+function TextField({
+  label,
+  k,
+  type = "text",
+  textarea,
+  rows,
+}: {
+  label: string;
+  k: keyof Values;
+  type?: string;
+  textarea?: boolean;
+  rows?: number;
+}) {
+  const { values, setValue } = useSettingsForm();
+
+  return (
+    <div className="space-y-2">
+      <Label>{label}</Label>
+      {textarea ? (
+        <Textarea
+          rows={rows ?? 2}
+          value={String(values[k] ?? "")}
+          onChange={(e) => setValue(k, e.target.value as Values[typeof k])}
+        />
+      ) : (
+        <Input
+          type={type}
+          value={String(values[k] ?? "")}
+          onChange={(e) => {
+            const raw = e.target.value;
+            const parsed =
+              type === "number" ? (raw === "" ? 0 : Number(raw)) : raw;
+            setValue(k, parsed as Values[typeof k]);
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
+function ImageField({
+  label,
+  k,
+}: {
+  label: string;
+  k: keyof Values;
+}) {
+  const { values, setValue } = useSettingsForm();
+
+  return (
+    <div className="space-y-2">
+      <Label>{label}</Label>
+      <MediaPicker
+        value={String(values[k] ?? "")}
+        onChange={(url) => setValue(k, (url ?? "") as Values[typeof k])}
+      />
+    </div>
+  );
+}
+
 export function SettingsForm({ initial }: { initial: Values }) {
   const router = useRouter();
   const [v, setV] = useState<Values>(initial);
@@ -96,54 +173,9 @@ export function SettingsForm({ initial }: { initial: Values }) {
     });
   }
 
-  const TextField = ({
-    label,
-    k,
-    type = "text",
-    textarea,
-    rows,
-  }: {
-    label: string;
-    k: keyof Values;
-    type?: string;
-    textarea?: boolean;
-    rows?: number;
-  }) => (
-    <div className="space-y-2">
-      <Label>{label}</Label>
-      {textarea ? (
-        <Textarea
-          rows={rows ?? 2}
-          value={String(v[k] ?? "")}
-          onChange={(e) => set(k, e.target.value as Values[typeof k])}
-        />
-      ) : (
-        <Input
-          type={type}
-          value={String(v[k] ?? "")}
-          onChange={(e) => {
-            const raw = e.target.value;
-            const parsed =
-              type === "number" ? (raw === "" ? 0 : Number(raw)) : raw;
-            set(k, parsed as Values[typeof k]);
-          }}
-        />
-      )}
-    </div>
-  );
-
-  const ImageField = ({ label, k }: { label: string; k: keyof Values }) => (
-    <div className="space-y-2">
-      <Label>{label}</Label>
-      <MediaPicker
-        value={String(v[k] ?? "")}
-        onChange={(url) => set(k, (url ?? "") as Values[typeof k])}
-      />
-    </div>
-  );
-
   return (
-    <form onSubmit={submit} className="space-y-8 max-w-3xl">
+    <SettingsFormContext.Provider value={{ values: v, setValue: set }}>
+      <form onSubmit={submit} className="space-y-8 max-w-3xl">
       <section className="space-y-4">
         <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
           Genel
@@ -355,6 +387,7 @@ export function SettingsForm({ initial }: { initial: Values }) {
           {isPending ? "Kaydediliyor..." : "Kaydet"}
         </Button>
       </div>
-    </form>
+      </form>
+    </SettingsFormContext.Provider>
   );
 }

@@ -17,12 +17,6 @@ export interface ProjectCardData {
   featured: boolean;
 }
 
-function statusColor(status: string) {
-  if (status === "Yayında") return "var(--success)";
-  if (status === "Beta") return "var(--indigo)";
-  return "var(--violet)";
-}
-
 export function ProjectCard({ p }: { p: ProjectCardData }) {
   const hasLive = !!p.liveUrl;
   const externalHref = p.liveUrl ?? `/projelerimiz/${p.slug}`;
@@ -50,14 +44,6 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
           label={`${p.title} · ekran görüntüsü`}
           sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
         />
-        {/* Status pill */}
-        <div
-          className="absolute top-3.5 left-3.5 inline-flex items-center gap-1.5 text-[11.5px] font-semibold text-ink rounded-full px-[11px] py-[5px] backdrop-blur"
-          style={{ background: "rgba(255,255,255,0.92)" }}
-        >
-          <span className="dot" style={{ background: statusColor(p.status) }} />
-          {p.status}
-        </div>
         {/* Category chip */}
         <div
           className="absolute top-3.5 right-3.5 inline-flex text-[11.5px] font-medium rounded-full px-[11px] py-[5px] backdrop-blur"

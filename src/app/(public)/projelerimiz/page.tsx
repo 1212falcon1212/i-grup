@@ -11,7 +11,7 @@ export const revalidate = 3600;
 export const metadata = {
   title: "Projelerimiz",
   description:
-    "15+ kurumsal proje: pazaryeri, e-ticaret, kozmetik, kurye operasyonu ve B2B platformları.",
+    "Dermokozmetik, eczane pazaryeri, kapalı B2B tedarik, kozmetik e-ticaret ve kurumsal yazılım ürünleri.",
 };
 
 export default async function ProjectsListPage({
@@ -39,7 +39,7 @@ export default async function ProjectsListPage({
               <span className="num-badge">01</span> Portföy
             </div>
             <h1 className="text-4xl md:text-6xl font-semibold tracking-[-0.02em] leading-[1.05] max-w-3xl">
-              Farklı dikeylerde{" "}
+              Farklı sektörlerde{" "}
               <span className="serif-accent text-gradient">
                 hayata geçirdiğimiz
               </span>{" "}

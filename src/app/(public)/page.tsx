@@ -17,11 +17,11 @@ export async function generateMetadata() {
   return {
     title:
       s.defaultSeoTitle ??
-      `${s.siteName} — Eczane, kozmetik ve B2B için ürün geliştiriyoruz`,
+      `${s.siteName} — Dermokozmetik yazılım şirketi`,
     description:
       s.defaultSeoDesc ??
       s.tagline ??
-      "İstanbul merkezli ürün stüdyosu. Pazaryerleri, B2B, mobil ve kurumsal yazılım.",
+      "Dermokozmetik, eczane pazaryeri, kapalı B2B tedarik, INCI okuyucu mobil uygulama ve kozmetik e-ticaret yazılımları.",
   };
 }
 
@@ -107,9 +107,9 @@ export default async function HomePage() {
         }
         heading={
           settings.heroHeading ??
-          "Eczane, kozmetik ve B2B için ürün geliştiriyoruz."
+          "i-Grup"
         }
-        highlight={settings.heroHighlight ?? "ürün geliştiriyoruz."}
+        highlight={settings.heroHighlight ?? "i-Grup"}
         subtitle={
           settings.heroSubtitle ??
           settings.tagline ??
@@ -133,11 +133,11 @@ export default async function HomePage() {
 
       <About
         heading={
-          settings.aboutHeading ?? "Bir yazılım stüdyosu; fikirden canlı ürüne."
+          settings.aboutHeading ?? "Dermokozmetik sektörüne özel yazılım üreten bir şirket."
         }
         lead={
           settings.aboutLead ??
-          "2014'te İstanbul'da üç kişilik bir ekiple kuruldu. Bugün ekibimizle aktif ürünleri yayınlıyor, işletiyor ve büyütüyoruz."
+          "Eczane pazaryeri, kapalı B2B tedarik platformu, INCI okuyucu mobil uygulama ve kozmetik e-ticaret ürünleri geliştiriyoruz."
         }
         image1={settings.aboutImage1}
         image2={settings.aboutImage2}

@@ -1,7 +1,28 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { SiteSettings } from "@/lib/site";
 
-function LogoBox() {
+function LogoBox({ settings }: { settings: SiteSettings }) {
+  if (settings.logoUrl) {
+    return (
+      <span
+        className="relative block h-14 w-[176px] shrink-0 overflow-hidden rounded-lg bg-white shadow-sm"
+        style={{ boxShadow: "0 0 0 1px rgba(247,245,240,0.16)" }}
+      >
+        <span className="absolute inset-x-3 inset-y-2">
+          <Image
+            src={settings.logoUrl}
+            alt={`${settings.siteName} logo`}
+            fill
+            sizes="140px"
+            unoptimized
+            className="object-contain"
+          />
+        </span>
+      </span>
+    );
+  }
+
   return (
     <div
       className="w-7 h-7 rounded-[8px] shrink-0"
@@ -32,10 +53,12 @@ export function Footer({
         >
           <div className="sm:col-span-2 md:col-span-1">
             <div className="flex items-center gap-2.5">
-              <LogoBox />
-              <div className="text-[20px] font-bold tracking-[-0.02em]">
-                {settings.siteName}
-              </div>
+              <LogoBox settings={settings} />
+              {!settings.logoUrl ? (
+                <div className="text-[20px] font-bold tracking-[-0.02em]">
+                  {settings.siteName}
+                </div>
+              ) : null}
             </div>
             <p
               className="mt-3.5 text-sm leading-[1.55] max-w-[380px]"

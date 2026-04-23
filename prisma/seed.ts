@@ -695,16 +695,19 @@ async function seedPages() {
     },
   ];
   for (const p of pages) {
+    const data = {
+      title: p.title,
+      subtitle: p.subtitle,
+      content: p.content,
+      seoTitle: p.title,
+      seoDescription: p.subtitle,
+    };
     await prisma.page.upsert({
       where: { slug: p.slug },
-      update: {},
+      update: data,
       create: {
         slug: p.slug,
-        title: p.title,
-        subtitle: p.subtitle,
-        content: p.content,
-        seoTitle: p.title,
-        seoDescription: p.subtitle,
+        ...data,
       },
     });
   }

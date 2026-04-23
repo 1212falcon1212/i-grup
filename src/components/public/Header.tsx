@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -15,7 +16,35 @@ const nav = [
   { href: "/iletisim", label: "İletişim" },
 ];
 
-function Logo({ className }: { className?: string }) {
+function Logo({
+  siteName,
+  logoUrl,
+  className,
+}: {
+  siteName: string;
+  logoUrl?: string | null;
+  className?: string;
+}) {
+  if (logoUrl) {
+    return (
+      <span
+        className={cn(
+          "relative block h-10 w-[130px] shrink-0 overflow-hidden",
+          className
+        )}
+      >
+        <Image
+          src={logoUrl}
+          alt={`${siteName} logo`}
+          fill
+          sizes="130px"
+          unoptimized
+          className="object-contain"
+        />
+      </span>
+    );
+  }
+
   return (
     <div
       className={cn(
@@ -29,7 +58,13 @@ function Logo({ className }: { className?: string }) {
   );
 }
 
-export function Header({ siteName }: { siteName: string }) {
+export function Header({
+  siteName,
+  logoUrl,
+}: {
+  siteName: string;
+  logoUrl?: string | null;
+}) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -51,10 +86,12 @@ export function Header({ siteName }: { siteName: string }) {
     >
       <div className="container-site flex items-center justify-between py-[18px]">
         <Link href="/" className="flex items-center gap-2.5 no-underline">
-          <Logo />
-          <span className="text-[17px] font-bold tracking-[-0.02em] text-ink">
-            {siteName}
-          </span>
+          <Logo siteName={siteName} logoUrl={logoUrl} />
+          {!logoUrl ? (
+            <span className="text-[17px] font-bold tracking-[-0.02em] text-ink">
+              {siteName}
+            </span>
+          ) : null}
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">

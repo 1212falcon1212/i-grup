@@ -18,7 +18,7 @@ export default async function PublicLayout({
   ]);
   return (
     <>
-      <Header siteName={settings.siteName} />
+      <Header siteName={settings.siteName} logoUrl={settings.logoUrl} />
       <main className="flex-1">{children}</main>
       <Footer settings={settings} products={products} />
     </>

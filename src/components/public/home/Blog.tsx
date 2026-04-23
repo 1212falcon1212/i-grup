@@ -93,38 +93,37 @@ export function Blog({
             {rest.slice(0, 3).map((n) => (
               <article
                 key={n.slug}
-                className="bg-bg rounded-[14px] overflow-hidden card-lift group grid grid-cols-[1fr_1.4fr]"
+                className="bg-bg rounded-[14px] overflow-hidden card-lift group min-h-[174px]"
                 style={{ border: "1px solid var(--rule)" }}
               >
                 <Link
                   href={`/blog/${n.slug}`}
-                  className="contents"
+                  className="grid grid-cols-[1fr_1.4fr] h-full"
                 >
-                  <div className="relative">
+                  <div className="relative h-full">
                     <Shot
                       src={n.coverImage}
                       aspect="4/3"
                       radius={0}
                       label={n.tag}
                       sizes="(min-width: 768px) 180px, 40vw"
+                      className="!aspect-auto h-full min-h-[174px]"
                     />
                   </div>
                   <div
-                    className="flex flex-col justify-between"
+                    className="flex flex-col"
                     style={{ padding: "18px 22px" }}
                   >
-                    <div>
-                      <div className="text-[11.5px] font-semibold text-indigo tracking-[0.04em] uppercase">
-                        {n.tag} · {dateStr(n.publishedAt)}
-                      </div>
-                      <div className="font-bold text-ink tracking-[-0.02em] mt-1.5 text-[18px] leading-[1.2]">
-                        {n.title}
-                      </div>
-                      <div className="text-ink2 mt-2 text-[13.5px] leading-[1.5] line-clamp-2">
-                        {n.excerpt}
-                      </div>
+                    <div className="text-[11.5px] font-semibold text-indigo tracking-[0.04em] uppercase">
+                      {n.tag} · {dateStr(n.publishedAt)}
                     </div>
-                    <div className="text-[13px] font-semibold text-ink mt-2.5 arrow-shift">
+                    <div className="font-bold text-ink tracking-[-0.02em] mt-1.5 text-[18px] leading-[1.2]">
+                      {n.title}
+                    </div>
+                    <div className="text-ink2 mt-2 text-[13.5px] leading-[1.5] line-clamp-3">
+                      {n.excerpt}
+                    </div>
+                    <div className="text-[13px] font-semibold text-ink mt-3 arrow-shift">
                       Oku <span className="arrow">→</span>
                     </div>
                   </div>
