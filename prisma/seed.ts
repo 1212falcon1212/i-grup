@@ -240,6 +240,49 @@ async function seedSectors() {
   console.log(`✓ Sectors (${sectors.length})`);
 }
 
+async function seedAboutValues() {
+  const existing = await prisma.aboutValue.count();
+  if (existing > 0) await prisma.aboutValue.deleteMany();
+
+  const values = [
+    {
+      eyebrow: "Odak",
+      title: "Uçtan uca ürün geliştirme",
+      description:
+        "Strateji, tasarım, mühendislik, operasyon — tek ekip, tek takvim.",
+    },
+    {
+      eyebrow: "Yaklaşım",
+      title: "Sahaya bakar, üretir, ölçer",
+      description: "Eczacıyla sahada, markayla rafta, tüketiciyle uygulamada.",
+    },
+    {
+      eyebrow: "Altyapı",
+      title: "Paylaşımlı ve ölçekli",
+      description: "Bir üründe çözdüğümüzü diğer ürünlere taşıyoruz.",
+    },
+    {
+      eyebrow: "Destek",
+      title: "Lansman sonrası devam",
+      description:
+        "Ürünü yayımlamak başlangıçtır; sürdürme sözleşmeleri ile yanında kalırız.",
+    },
+    {
+      eyebrow: "Ekip",
+      title: "Çoklu disiplin, tek takım",
+      description:
+        "Ürün, tasarım, mühendislik ve operasyon aynı ofiste — 38 kişi, tek çatı.",
+    },
+  ];
+
+  for (let i = 0; i < values.length; i++) {
+    await prisma.aboutValue.create({
+      data: { ...values[i], order: i, isActive: true },
+    });
+  }
+  console.log(`✓ AboutValues (${values.length})`);
+}
+
 async function seedPosts() {
   const existing = await prisma.post.count();
   if (existing > 0) await prisma.post.deleteMany();
@@ -397,6 +440,7 @@ async function main() {
   await seedPages();
   await seedProjects();
   await seedSectors();
+  await seedAboutValues();
   await seedPosts();
   await seedClients();
   await seedCareers();

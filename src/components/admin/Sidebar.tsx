@@ -13,6 +13,7 @@ import {
   Files,
   Settings,
   LogOut,
+  GalleryVerticalEnd,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -22,6 +23,7 @@ const navItems = [
   { href: "/admin", label: "Gösterge Paneli", icon: LayoutDashboard, exact: true },
   { href: "/admin/banners", label: "Banner'lar", icon: ImageIcon },
   { href: "/admin/pages", label: "Sayfalar", icon: FileText },
+  { href: "/admin/about-values", label: "Hakkımızda Kartları", icon: GalleryVerticalEnd },
   { href: "/admin/services", label: "Hizmetler", icon: Layers },
   { href: "/admin/projects", label: "Projeler", icon: FolderKanban },
   { href: "/admin/careers", label: "Kariyer", icon: Briefcase },

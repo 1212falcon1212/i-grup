@@ -26,11 +26,15 @@ export async function generateMetadata() {
 }
 
 export default async function HomePage() {
-  const [settings, projects, sectorsRaw, posts, clients, jobs] =
+  const [settings, projects, sectorsRaw, aboutValues, posts, clients, jobs] =
     await Promise.all([
       getSiteSettings(),
       prisma.project.findMany({ orderBy: [{ order: "asc" }, { createdAt: "desc" }] }),
       prisma.sector.findMany({ orderBy: { order: "asc" } }),
+      prisma.aboutValue.findMany({
+        where: { isActive: true },
+        orderBy: { order: "asc" },
+      }),
       prisma.post.findMany({
         where: { isPublished: true },
         orderBy: { publishedAt: "desc" },
@@ -129,6 +133,12 @@ export default async function HomePage() {
         image1={settings.aboutImage1}
         image2={settings.aboutImage2}
         image3={settings.aboutImage3}
+        values={aboutValues.map((v) => ({
+          id: v.id,
+          eyebrow: v.eyebrow,
+          title: v.title,
+          description: v.description,
+        }))}
       />
 
       <Projects
