@@ -53,8 +53,11 @@ export default async function BlogDetailPage({
   return (
     <>
       <article>
-        <header className="bg-bg2" style={{ padding: "72px 0 56px" }}>
-          <div className="container-site max-w-[860px]">
+        <header
+          className="bg-bg2"
+          style={{ padding: "64px 0 48px" }}
+        >
+          <div className="max-w-[880px] mx-auto px-5 md:px-10">
             <Link
               href="/blog"
               className="text-[13px] text-ink2 hover:text-ink inline-flex items-center gap-1.5"
@@ -82,32 +85,32 @@ export default async function BlogDetailPage({
             >
               {post.title}
             </h1>
-            <p className="text-ink2 text-[18px] leading-[1.55] mt-5 max-w-[700px]">
+            <p
+              className="text-ink2 mt-5"
+              style={{ fontSize: 18, lineHeight: 1.55 }}
+            >
               {post.excerpt}
             </p>
           </div>
         </header>
 
         {post.coverImage ? (
-          <div className="container-site" style={{ padding: "0 40px" }}>
-            <div className="max-w-[1040px] mx-auto" style={{ marginTop: -40 }}>
+          <div className="max-w-[880px] mx-auto px-5 md:px-10">
+            <div className="-mt-10 md:-mt-14 relative z-10">
               <Shot
                 src={post.coverImage}
                 aspect="16/9"
                 radius={16}
                 label={post.tag}
                 priority
-                sizes="(min-width: 1040px) 1040px, 100vw"
+                sizes="(min-width: 900px) 800px, 100vw"
               />
             </div>
           </div>
         ) : null}
 
-        <div
-          className="container-site max-w-[760px]"
-          style={{ padding: "72px 40px 96px" }}
-        >
-          <article
+        <div className="max-w-[760px] mx-auto px-5 md:px-10 py-14 md:py-20">
+          <div
             className="prose-content"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
