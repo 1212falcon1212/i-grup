@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Shot } from "./Shot";
-import { cn } from "@/lib/utils";
 
 export interface ProjectCardData {
   slug: string;
@@ -31,14 +30,10 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
 
   return (
     <article
-      className={cn(
-        "card-lift group rounded-[14px] overflow-hidden flex flex-col bg-bg",
-        p.featured ? "md:col-span-8" : "md:col-span-4"
-      )}
+      className="card-lift group rounded-[14px] overflow-hidden flex flex-col bg-bg"
       style={{
         border: "1px solid var(--rule)",
         boxShadow: "0 1px 2px rgba(17,17,24,0.04)",
-        gridColumn: p.featured ? "span 8" : "span 4",
       }}
     >
       <Link
@@ -49,10 +44,10 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
         <Shot
           src={p.coverImage}
           hue={p.hue ?? 260}
-          aspect={p.featured ? "16/9" : "4/3"}
+          aspect="4/3"
           radius={0}
           label={`${p.title} · ekran görüntüsü`}
-          sizes={p.featured ? "(min-width: 1024px) 820px, 100vw" : "(min-width: 1024px) 400px, 50vw"}
+          sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
         />
         {/* Status pill */}
         <div
@@ -75,12 +70,12 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
       </Link>
       <div
         className="flex-1 flex flex-col gap-3"
-        style={{ padding: p.featured ? "26px 28px 28px" : "20px 22px 22px" }}
+        style={{ padding: "20px 22px 22px" }}
       >
         <div className="flex justify-between items-baseline gap-3">
           <h3
             className="font-bold text-ink tracking-[-0.025em]"
-            style={{ fontSize: p.featured ? 32 : 22, lineHeight: 1.1 }}
+            style={{ fontSize: 22, lineHeight: 1.1 }}
           >
             {p.title}
           </h3>
@@ -91,7 +86,7 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
         <p
           className="text-ink2 flex-1"
           style={{
-            fontSize: p.featured ? 15.5 : 13.5,
+            fontSize: 13.5,
             lineHeight: 1.55,
             margin: 0,
           }}
@@ -112,16 +107,14 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
               rel="noopener noreferrer"
               className="text-[13px] font-semibold text-ink arrow-shift"
             >
-              {externalLabel}{" "}
-              <span className="arrow">→</span>
+              {externalLabel} <span className="arrow">→</span>
             </a>
           ) : (
             <Link
               href={externalHref}
               className="text-[13px] font-semibold text-ink arrow-shift"
             >
-              {externalLabel}{" "}
-              <span className="arrow">→</span>
+              {externalLabel} <span className="arrow">→</span>
             </Link>
           )}
         </div>

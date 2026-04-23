@@ -19,8 +19,9 @@ export function Projects({ projects }: Props) {
   const [filter, setFilter] = useState("Tümü");
 
   const filtered = useMemo(() => {
-    const list = filter === "Tümü" ? projects : projects.filter((p) => p.category === filter);
-    return list.map((p, i) => ({ ...p, featured: i % 5 === 0 }));
+    return filter === "Tümü"
+      ? projects
+      : projects.filter((p) => p.category === filter);
   }, [filter, projects]);
 
   const countFor = (tag: string) =>
@@ -63,9 +64,9 @@ export function Projects({ projects }: Props) {
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map((p) => (
-          <ProjectCard key={p.slug} p={p} />
+          <ProjectCard key={p.slug} p={{ ...p, featured: false }} />
         ))}
       </div>
     </section>
