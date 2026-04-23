@@ -41,6 +41,35 @@ export const settingsUpdateSchema = z.object({
   contactHighlight: optionalString,
   contactLead: optionalString,
   officeHours: optionalString,
+  // Hero CTAs
+  heroCtaPrimaryLabel: optionalString,
+  heroCtaPrimaryUrl: optionalString,
+  heroCtaSecondaryLabel: optionalString,
+  heroCtaSecondaryUrl: optionalString,
+  // Hero overlay card
+  heroOverlayLabel: optionalString,
+  heroOverlayTitle: optionalString,
+  heroOverlayDescription: optionalString,
+  // Careers empty state
+  careersEmptyTitle: optionalString,
+  careersEmptyText: optionalString,
+  careersApplyLabel: optionalString,
+  // Projects section meta
+  projectsEyebrow: optionalString,
+  projectsTitle: optionalString,
+  projectsLead: optionalString,
+  // Sectors section meta
+  sectorsEyebrow: optionalString,
+  sectorsTitle: optionalString,
+  sectorsLead: optionalString,
+  // Clients section meta
+  clientsEyebrow: optionalString,
+  clientsTitle: optionalString,
+  clientsLead: optionalString,
+  // Blog section meta
+  blogEyebrow: optionalString,
+  blogTitle: optionalString,
+  blogLead: optionalString,
 });
 
 export type SettingsFormValues = z.input<typeof settingsUpdateSchema>;

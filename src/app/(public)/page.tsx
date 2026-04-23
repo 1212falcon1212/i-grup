@@ -122,6 +122,13 @@ export default async function HomePage() {
           { value: `${settings.statEndUsers}+`, label: "son kullanıcı" },
         ]}
         teamSize={settings.teamSize}
+        ctaPrimaryLabel={settings.heroCtaPrimaryLabel}
+        ctaPrimaryUrl={settings.heroCtaPrimaryUrl}
+        ctaSecondaryLabel={settings.heroCtaSecondaryLabel}
+        ctaSecondaryUrl={settings.heroCtaSecondaryUrl}
+        overlayLabel={settings.heroOverlayLabel}
+        overlayTitle={settings.heroOverlayTitle}
+        overlayDescription={settings.heroOverlayDescription}
       />
 
       <About
@@ -144,6 +151,9 @@ export default async function HomePage() {
       />
 
       <Projects
+        eyebrow={settings.projectsEyebrow}
+        title={settings.projectsTitle}
+        lead={settings.projectsLead}
         projects={projects.map((p) => ({
           slug: p.slug,
           title: p.title,
@@ -158,13 +168,24 @@ export default async function HomePage() {
         }))}
       />
 
-      <Sectors sectors={sectors} />
+      <Sectors
+        sectors={sectors}
+        eyebrow={settings.sectorsEyebrow}
+        title={settings.sectorsTitle}
+        lead={settings.sectorsLead}
+      />
 
       <Clients
         clients={clients.map((c) => ({ id: c.id, name: c.name }))}
+        eyebrow={settings.clientsEyebrow}
+        title={settings.clientsTitle}
+        lead={settings.clientsLead}
       />
 
       <Blog
+        eyebrow={settings.blogEyebrow}
+        title={settings.blogTitle}
+        lead={settings.blogLead}
         posts={posts.map((p) => ({
           slug: p.slug,
           tag: p.tag,
@@ -183,6 +204,9 @@ export default async function HomePage() {
         }
         image={settings.careersImage}
         applyEmail={settings.email}
+        emptyTitle={settings.careersEmptyTitle}
+        emptyText={settings.careersEmptyText}
+        applyLabel={settings.careersApplyLabel}
         jobs={jobs.map((j) => ({
           slug: j.slug,
           title: j.title,

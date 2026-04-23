@@ -9,6 +9,13 @@ interface Props {
   heroImageUrl: string | null;
   stats: { value: string; label: string }[];
   teamSize: number;
+  ctaPrimaryLabel?: string | null;
+  ctaPrimaryUrl?: string | null;
+  ctaSecondaryLabel?: string | null;
+  ctaSecondaryUrl?: string | null;
+  overlayLabel?: string | null;
+  overlayTitle?: string | null;
+  overlayDescription?: string | null;
 }
 
 export function Hero({
@@ -19,11 +26,28 @@ export function Hero({
   heroImageUrl,
   stats,
   teamSize,
+  ctaPrimaryLabel,
+  ctaPrimaryUrl,
+  ctaSecondaryLabel,
+  ctaSecondaryUrl,
+  overlayLabel,
+  overlayTitle,
+  overlayDescription,
 }: Props) {
-  // Split heading at highlight position to style the last part
   const parts = highlight ? heading.split(highlight) : [heading];
   const leading = parts[0] ?? heading;
   const tail = highlight && parts.length > 1 ? highlight : "";
+
+  const primaryLabel = ctaPrimaryLabel || "Projelerimiz";
+  const primaryUrl = ctaPrimaryUrl || "#projeler";
+  const secondaryLabel = ctaSecondaryLabel || "Birlikte çalışalım";
+  const secondaryUrl = ctaSecondaryUrl || "#iletisim";
+
+  const ovLabel = overlayLabel || "EKİP";
+  const ovTitle = overlayTitle || `${teamSize} kişi, tek çatı`;
+  const ovDesc =
+    overlayDescription ||
+    "Ürün, tasarım, mühendislik ve operasyon aynı ofiste.";
 
   return (
     <section
@@ -64,17 +88,18 @@ export function Hero({
 
           <div className="flex flex-wrap gap-3.5 mt-9">
             <Link
-              href="#projeler"
+              href={primaryUrl}
               className="inline-flex items-center gap-2.5 text-[15px] font-medium px-6 py-3.5 rounded-full bg-ink text-[#F7F5F0] hover:opacity-90 transition-opacity arrow-shift"
             >
-              Projelerimiz <span className="arrow text-lg leading-none">→</span>
+              {primaryLabel}{" "}
+              <span className="arrow text-lg leading-none">→</span>
             </Link>
             <Link
-              href="#iletisim"
-              className="inline-flex items-center text-[15px] font-medium px-6 py-3.5 rounded-full border border-rule-strong text-ink hover:bg-bg2 transition-colors"
-              style={{ borderColor: "rgba(17,17,24,0.22)" }}
+              href={secondaryUrl}
+              className="inline-flex items-center text-[15px] font-medium px-6 py-3.5 rounded-full text-ink hover:bg-bg2 transition-colors"
+              style={{ border: "1px solid rgba(17,17,24,0.22)" }}
             >
-              Birlikte çalışalım
+              {secondaryLabel}
             </Link>
           </div>
 
@@ -117,14 +142,14 @@ export function Hero({
               boxShadow: "0 12px 28px rgba(17,17,24,0.12)",
             }}
           >
-            <div className="text-xs font-semibold text-mute tracking-wide">
-              EKİP
+            <div className="text-xs font-semibold text-mute tracking-wide uppercase">
+              {ovLabel}
             </div>
             <div className="text-[18px] font-semibold text-ink mt-1">
-              {teamSize} kişi, tek çatı
+              {ovTitle}
             </div>
             <div className="text-[13px] text-ink2 mt-1.5 leading-[1.45]">
-              Ürün, tasarım, mühendislik ve operasyon aynı ofiste.
+              {ovDesc}
             </div>
           </div>
         </div>

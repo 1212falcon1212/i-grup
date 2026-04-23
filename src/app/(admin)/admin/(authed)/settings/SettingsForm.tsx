@@ -50,6 +50,28 @@ type Values = {
   contactHighlight: string;
   contactLead: string;
   officeHours: string;
+  heroCtaPrimaryLabel: string;
+  heroCtaPrimaryUrl: string;
+  heroCtaSecondaryLabel: string;
+  heroCtaSecondaryUrl: string;
+  heroOverlayLabel: string;
+  heroOverlayTitle: string;
+  heroOverlayDescription: string;
+  careersEmptyTitle: string;
+  careersEmptyText: string;
+  careersApplyLabel: string;
+  projectsEyebrow: string;
+  projectsTitle: string;
+  projectsLead: string;
+  sectorsEyebrow: string;
+  sectorsTitle: string;
+  sectorsLead: string;
+  clientsEyebrow: string;
+  clientsTitle: string;
+  clientsLead: string;
+  blogEyebrow: string;
+  blogTitle: string;
+  blogLead: string;
 };
 
 export function SettingsForm({ initial }: { initial: Values }) {
@@ -184,6 +206,34 @@ export function SettingsForm({ initial }: { initial: Values }) {
           <TextField label="Ekip büyüklüğü" k="teamSize" type="number" />
           <TextField label="Kuruluş yılı" k="foundedYear" type="number" />
         </div>
+        <div className="grid md:grid-cols-2 gap-4">
+          <TextField
+            label="Birincil CTA metni (dolu buton)"
+            k="heroCtaPrimaryLabel"
+          />
+          <TextField
+            label="Birincil CTA linki"
+            k="heroCtaPrimaryUrl"
+          />
+          <TextField
+            label="İkincil CTA metni (outline buton)"
+            k="heroCtaSecondaryLabel"
+          />
+          <TextField
+            label="İkincil CTA linki"
+            k="heroCtaSecondaryUrl"
+          />
+        </div>
+        <div className="grid md:grid-cols-3 gap-4">
+          <TextField label="Overlay rozet (EKİP vb.)" k="heroOverlayLabel" />
+          <TextField label="Overlay başlık" k="heroOverlayTitle" />
+          <TextField
+            label="Overlay açıklama"
+            k="heroOverlayDescription"
+            textarea
+            rows={2}
+          />
+        </div>
       </section>
 
       <section className="space-y-4">
@@ -209,9 +259,76 @@ export function SettingsForm({ initial }: { initial: Values }) {
           <TextField label="Kariyer başlığı" k="careersHeading" />
           <TextField label="Kariyer lead" k="careersLead" textarea rows={2} />
           <ImageField label="Kariyer görseli" k="careersImage" />
+          <TextField
+            label="Boş ilan başlığı (açık pozisyon yokken)"
+            k="careersEmptyTitle"
+          />
+          <TextField
+            label="Boş ilan metni"
+            k="careersEmptyText"
+            textarea
+            rows={2}
+          />
+          <TextField label="Spontan başvuru buton metni" k="careersApplyLabel" />
           <TextField label="İletişim başlığı" k="contactHeading" textarea rows={2} />
           <TextField label="İletişim vurgu (başlık içinden)" k="contactHighlight" />
           <TextField label="İletişim lead" k="contactLead" textarea rows={3} />
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+          Ana Sayfa Bölüm Başlıkları
+        </h2>
+        <p className="text-xs text-muted-foreground -mt-2">
+          Projeler / Sektörler / Referanslar / Blog bölümlerinin üst yazıları.
+          Boş bırakılırsa kod içindeki varsayılan metin gösterilir.
+        </p>
+
+        <div className="space-y-6">
+          <div>
+            <div className="text-xs font-semibold text-muted-foreground mb-2">PROJELER</div>
+            <div className="grid md:grid-cols-[1fr_2fr] gap-3">
+              <TextField label="Eyebrow" k="projectsEyebrow" />
+              <TextField label="Başlık" k="projectsTitle" />
+            </div>
+            <div className="mt-3">
+              <TextField label="Lead paragraf" k="projectsLead" textarea rows={2} />
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs font-semibold text-muted-foreground mb-2">SEKTÖRLER</div>
+            <div className="grid md:grid-cols-[1fr_2fr] gap-3">
+              <TextField label="Eyebrow" k="sectorsEyebrow" />
+              <TextField label="Başlık" k="sectorsTitle" />
+            </div>
+            <div className="mt-3">
+              <TextField label="Lead paragraf" k="sectorsLead" textarea rows={2} />
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs font-semibold text-muted-foreground mb-2">REFERANSLAR</div>
+            <div className="grid md:grid-cols-[1fr_2fr] gap-3">
+              <TextField label="Eyebrow" k="clientsEyebrow" />
+              <TextField label="Başlık" k="clientsTitle" />
+            </div>
+            <div className="mt-3">
+              <TextField label="Lead paragraf" k="clientsLead" textarea rows={2} />
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs font-semibold text-muted-foreground mb-2">BLOG</div>
+            <div className="grid md:grid-cols-[1fr_2fr] gap-3">
+              <TextField label="Eyebrow" k="blogEyebrow" />
+              <TextField label="Başlık" k="blogTitle" />
+            </div>
+            <div className="mt-3">
+              <TextField label="Lead paragraf" k="blogLead" textarea rows={2} />
+            </div>
+          </div>
         </div>
       </section>
 

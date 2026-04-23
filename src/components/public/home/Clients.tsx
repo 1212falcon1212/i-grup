@@ -5,7 +5,17 @@ export interface ClientItem {
   name: string;
 }
 
-export function Clients({ clients }: { clients: ClientItem[] }) {
+export function Clients({
+  clients,
+  eyebrow,
+  title,
+  lead,
+}: {
+  clients: ClientItem[];
+  eyebrow?: string | null;
+  title?: string | null;
+  lead?: string | null;
+}) {
   return (
     <section
       id="referanslar"
@@ -13,9 +23,12 @@ export function Clients({ clients }: { clients: ClientItem[] }) {
       style={{ padding: "96px 40px" }}
     >
       <SectionHeader
-        eyebrow="Referanslar"
-        title="Birlikte çalıştığımız markalar."
-        lead="Eczane zincirleri, kozmetik markaları, dağıtıcılar ve kurumsal firmalar."
+        eyebrow={eyebrow || "Referanslar"}
+        title={title || "Birlikte çalıştığımız markalar."}
+        lead={
+          lead ||
+          "Eczane zincirleri, kozmetik markaları, dağıtıcılar ve kurumsal firmalar."
+        }
       />
       <div
         className="rounded-[14px] bg-bg overflow-hidden"

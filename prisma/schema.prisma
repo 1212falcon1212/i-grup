@@ -223,5 +223,34 @@ model SiteSetting {
   contactHighlight  String? // "proje"
   contactLead       String?
   officeHours       String? // "Pazartesi – Cuma · 09:30 – 18:30"
+  // Hero CTA'ları
+  heroCtaPrimaryLabel    String?
+  heroCtaPrimaryUrl      String?
+  heroCtaSecondaryLabel  String?
+  heroCtaSecondaryUrl    String?
+  // Hero overlay kartı
+  heroOverlayLabel       String?
+  heroOverlayTitle       String?
+  heroOverlayDescription String?
+  // Careers empty state
+  careersEmptyTitle      String?
+  careersEmptyText       String?
+  careersApplyLabel      String?
+  // Projects section
+  projectsEyebrow   String?
+  projectsTitle     String?
+  projectsLead      String?
+  // Sectors section
+  sectorsEyebrow    String?
+  sectorsTitle      String?
+  sectorsLead       String?
+  // Clients section
+  clientsEyebrow    String?
+  clientsTitle      String?
+  clientsLead       String?
+  // Blog section
+  blogEyebrow       String?
+  blogTitle         String?
+  blogLead          String?
   updatedAt       DateTime @updatedAt
 }

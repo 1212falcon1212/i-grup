@@ -14,6 +14,9 @@ import {
   Settings,
   LogOut,
   GalleryVerticalEnd,
+  Building,
+  Users,
+  Newspaper,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -26,6 +29,9 @@ const navItems = [
   { href: "/admin/about-values", label: "Hakkımızda Kartları", icon: GalleryVerticalEnd },
   { href: "/admin/services", label: "Hizmetler", icon: Layers },
   { href: "/admin/projects", label: "Projeler", icon: FolderKanban },
+  { href: "/admin/sectors", label: "Sektörler", icon: Building },
+  { href: "/admin/clients", label: "Referanslar", icon: Users },
+  { href: "/admin/posts", label: "Blog", icon: Newspaper },
   { href: "/admin/careers", label: "Kariyer", icon: Briefcase },
   { href: "/admin/messages", label: "Mesajlar", icon: Mail },
   { href: "/admin/media", label: "Medya", icon: Files },

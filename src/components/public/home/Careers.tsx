@@ -15,9 +15,21 @@ interface Props {
   image: string | null;
   jobs: JobItem[];
   applyEmail?: string | null;
+  emptyTitle?: string | null;
+  emptyText?: string | null;
+  applyLabel?: string | null;
 }
 
-export function Careers({ heading, lead, image, jobs, applyEmail }: Props) {
+export function Careers({
+  heading,
+  lead,
+  image,
+  jobs,
+  applyEmail,
+  emptyTitle,
+  emptyText,
+  applyLabel,
+}: Props) {
   return (
     <section
       id="kariyer"
@@ -84,10 +96,10 @@ export function Careers({ heading, lead, image, jobs, applyEmail }: Props) {
           >
             <div>
               <div className="text-ink font-semibold text-[15px]">
-                Listede yok mu?
+                {emptyTitle || "Listede yok mu?"}
               </div>
               <div className="text-ink2 text-[13.5px] mt-0.5">
-                Yine de özgeçmişinizi gönderin — sizinle tanışırız.
+                {emptyText || "Yine de özgeçmişinizi gönderin — sizinle tanışırız."}
               </div>
             </div>
             <a
@@ -99,7 +111,7 @@ export function Careers({ heading, lead, image, jobs, applyEmail }: Props) {
                 border: "1px solid var(--rule)",
               }}
             >
-              Başvur →
+              {applyLabel || "Başvur →"}
             </a>
           </div>
         </div>

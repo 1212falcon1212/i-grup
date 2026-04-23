@@ -10,6 +10,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "design_handoff_igroup_corporate_site/**",
+    "docs/**",
   ]),
   {
     rules: {

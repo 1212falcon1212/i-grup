@@ -7,9 +7,12 @@ import { cn } from "@/lib/utils";
 
 interface Props {
   projects: Omit<ProjectCardData, "featured">[];
+  eyebrow?: string | null;
+  title?: string | null;
+  lead?: string | null;
 }
 
-export function Projects({ projects }: Props) {
+export function Projects({ projects, eyebrow, title, lead }: Props) {
   const allTags = useMemo(() => {
     const set = new Set<string>();
     for (const p of projects) set.add(p.category);
@@ -36,9 +39,12 @@ export function Projects({ projects }: Props) {
       style={{ padding: "96px 40px" }}
     >
       <SectionHeader
-        eyebrow="Projeler"
-        title="Yayınladığımız ve işlettiğimiz ürünler."
-        lead="Eczane pazaryerinden kozmetik e-ticarete, B2B tedarikten kurumsal muhasebe yazılımına kadar birbirini besleyen 13 aktif ürün."
+        eyebrow={eyebrow || "Projeler"}
+        title={title || "Yayınladığımız ve işlettiğimiz ürünler."}
+        lead={
+          lead ||
+          "Eczane pazaryerinden kozmetik e-ticarete, B2B tedarikten kurumsal muhasebe yazılımına kadar birbirini besleyen 13 aktif ürün."
+        }
       />
       <div className="flex flex-wrap gap-2 mb-8">
         {allTags.map((t) => (

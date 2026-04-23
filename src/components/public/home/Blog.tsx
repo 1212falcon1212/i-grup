@@ -13,7 +13,17 @@ export interface PostItem {
   publishedAt: Date;
 }
 
-export function Blog({ posts }: { posts: PostItem[] }) {
+export function Blog({
+  posts,
+  eyebrow,
+  title,
+  lead: headingLead,
+}: {
+  posts: PostItem[];
+  eyebrow?: string | null;
+  title?: string | null;
+  lead?: string | null;
+}) {
   if (posts.length === 0) return null;
   const [lead, ...rest] = posts;
   const dateStr = (d: Date) => format(d, "d MMM yyyy", { locale: tr });
@@ -26,9 +36,15 @@ export function Blog({ posts }: { posts: PostItem[] }) {
     >
       <div className="container-site">
         <SectionHeader
-          eyebrow="Blog & Haberler"
-          title="Ürünlerimizden, sektörlerimizden ve ekibimizden notlar."
-          lead="Yaptığımız işten, sektörlerin nabzından ve ekip kültürümüzden yazıyoruz."
+          eyebrow={eyebrow || "Blog & Haberler"}
+          title={
+            title ||
+            "Ürünlerimizden, sektörlerimizden ve ekibimizden notlar."
+          }
+          lead={
+            headingLead ||
+            "Yaptığımız işten, sektörlerin nabzından ve ekip kültürümüzden yazıyoruz."
+          }
         />
         <div className="grid md:grid-cols-[1.4fr_1fr] gap-6">
           {/* Lead article */}

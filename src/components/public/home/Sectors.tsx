@@ -9,7 +9,17 @@ export interface SectorItem {
   projects: { slug: string; title: string }[];
 }
 
-export function Sectors({ sectors }: { sectors: SectorItem[] }) {
+export function Sectors({
+  sectors,
+  eyebrow,
+  title,
+  lead,
+}: {
+  sectors: SectorItem[];
+  eyebrow?: string | null;
+  title?: string | null;
+  lead?: string | null;
+}) {
   return (
     <section
       id="sektorler"
@@ -18,9 +28,12 @@ export function Sectors({ sectors }: { sectors: SectorItem[] }) {
     >
       <div className="container-site">
         <SectionHeader
-          eyebrow="Sektörler"
-          title="Hizmet verdiğimiz dikeyler."
-          lead="Farklı pazarlar, aynı üretim disiplini. Bir sektörde öğrendiğimiz diğerini besliyor."
+          eyebrow={eyebrow || "Sektörler"}
+          title={title || "Hizmet verdiğimiz dikeyler."}
+          lead={
+            lead ||
+            "Farklı pazarlar, aynı üretim disiplini. Bir sektörde öğrendiğimiz diğerini besliyor."
+          }
         />
 
         <ul
