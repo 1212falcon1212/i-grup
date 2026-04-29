@@ -2,7 +2,6 @@ import { prisma } from "@/lib/db";
 import { getSiteSettings } from "@/lib/site";
 import { JsonLd, organizationSchema } from "@/components/shared/SeoJsonLd";
 import { Hero } from "@/components/public/home/Hero";
-import { About } from "@/components/public/home/About";
 import { Projects } from "@/components/public/home/Projects";
 import { Sectors } from "@/components/public/home/Sectors";
 import { Clients } from "@/components/public/home/Clients";
@@ -26,15 +25,11 @@ export async function generateMetadata() {
 }
 
 export default async function HomePage() {
-  const [settings, projects, sectorsRaw, aboutValues, posts, clients, jobs] =
+  const [settings, projects, sectorsRaw, posts, clients, jobs] =
     await Promise.all([
       getSiteSettings(),
       prisma.project.findMany({ orderBy: [{ order: "asc" }, { createdAt: "desc" }] }),
       prisma.sector.findMany({ orderBy: { order: "asc" } }),
-      prisma.aboutValue.findMany({
-        where: { isActive: true },
-        orderBy: { order: "asc" },
-      }),
       prisma.post.findMany({
         where: { isPublished: true },
         orderBy: { publishedAt: "desc" },
@@ -129,26 +124,6 @@ export default async function HomePage() {
         overlayLabel={settings.heroOverlayLabel}
         overlayTitle={settings.heroOverlayTitle}
         overlayDescription={settings.heroOverlayDescription}
-      />
-
-      <About
-        heading={
-          settings.aboutHeading ??
-          "Farklı sektörlerde büyüyen markaları aynı çatı altında buluşturan grup."
-        }
-        lead={
-          settings.aboutLead ??
-          "i-Grup; eczane pazaryeri, B2B tedarik platformları, kozmetik ve kişisel bakım markaları, finansal çözümler ve tüketici platformlarından oluşan marka portföyünü aynı stratejik çatı altında yönetir."
-        }
-        image1={settings.aboutImage1}
-        image2={settings.aboutImage2}
-        image3={settings.aboutImage3}
-        values={aboutValues.map((v) => ({
-          id: v.id,
-          eyebrow: v.eyebrow,
-          title: v.title,
-          description: v.description,
-        }))}
       />
 
       <Projects

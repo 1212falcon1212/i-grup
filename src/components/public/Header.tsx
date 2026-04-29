@@ -7,7 +7,6 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const nav = [
-  { href: "/#sirket", label: "Şirket" },
   { href: "/#markalar", label: "Markalarımız" },
   { href: "/#sektorler", label: "Sektörler" },
   { href: "/#referanslar", label: "Referanslar" },
