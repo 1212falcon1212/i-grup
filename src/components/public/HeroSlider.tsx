@@ -108,7 +108,7 @@ export function HeroSlider({ banners }: { banners: Banner[] }) {
                 variant="ghost"
                 className="rounded-full h-12 px-6 text-white hover:bg-white/10 hover:text-white"
               >
-                <Link href="/projelerimiz">Portföy</Link>
+                <Link href="/markalarimiz">Markalarımız</Link>
               </Button>
             </div>
           </motion.div>

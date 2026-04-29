@@ -29,10 +29,10 @@ export function Sectors({
       <div className="container-site">
         <SectionHeader
           eyebrow={eyebrow || "Sektörler"}
-          title={title || "Hizmet verdiğimiz sektörler."}
+          title={title || "Markalarımızın faaliyet gösterdiği alanlar."}
           lead={
             lead ||
-            "Farklı pazarlar, aynı üretim disiplini. Bir sektörde öğrendiğimiz diğerini besliyor."
+            "Her marka kendi sektöründe uzmanlaşır; i-Grup çatısı bu markaların ortak deneyimini ve büyüme disiplinini bir araya getirir."
           }
         />
 
@@ -52,7 +52,7 @@ export function Sectors({
                 className="absolute left-0 top-0 bottom-0 w-[3px] bg-indigo origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-300"
               />
               <Link
-                href="#projeler"
+                href="#markalar"
                 className="grid grid-cols-[1fr_auto] gap-x-6 md:gap-x-10 items-start py-8 md:py-10 px-2 md:px-6"
               >
                 <div className="min-w-0">

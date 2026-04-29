@@ -5,7 +5,7 @@ import { ProjectForm } from "@/components/admin/forms/ProjectForm";
 import { parseArray } from "@/lib/json-array";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Proje Düzenle", robots: { index: false } };
+export const metadata = { title: "Marka Düzenle", robots: { index: false } };
 
 export default async function EditProjectPage({
   params,
@@ -21,7 +21,7 @@ export default async function EditProjectPage({
 
   return (
     <div className="space-y-6">
-      <PageHeader title={project.title} description="Proje kaydını düzenleyin." />
+      <PageHeader title={project.title} description="Marka kaydını düzenleyin." />
       <ProjectForm
         categories={cats.map((c) => c.category)}
         initial={{

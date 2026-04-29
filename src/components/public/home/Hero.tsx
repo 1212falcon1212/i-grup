@@ -38,8 +38,8 @@ export function Hero({
   const leading = parts[0] ?? heading;
   const tail = highlight && parts.length > 1 ? highlight : "";
 
-  const primaryLabel = ctaPrimaryLabel || "Projelerimiz";
-  const primaryUrl = ctaPrimaryUrl || "#projeler";
+  const primaryLabel = ctaPrimaryLabel || "Markalarımız";
+  const primaryUrl = ctaPrimaryUrl || "#markalar";
   const secondaryLabel = ctaSecondaryLabel || "Birlikte çalışalım";
   const secondaryUrl = ctaSecondaryUrl || "#iletisim";
 

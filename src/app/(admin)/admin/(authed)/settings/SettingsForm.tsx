@@ -313,7 +313,7 @@ export function SettingsForm({ initial }: { initial: Values }) {
           Ana Sayfa Bölüm Başlıkları
         </h2>
         <p className="text-xs text-muted-foreground -mt-2">
-          Projeler / Sektörler / Referanslar / Blog bölümlerinin üst yazıları.
+          Markalar / Sektörler / Referanslar / Blog bölümlerinin üst yazıları.
           Boş bırakılırsa kod içindeki varsayılan metin gösterilir.
         </p>
 

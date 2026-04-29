@@ -19,8 +19,9 @@ export interface ProjectCardData {
 
 export function ProjectCard({ p }: { p: ProjectCardData }) {
   const hasLive = !!p.liveUrl;
-  const externalHref = p.liveUrl ?? `/projelerimiz/${p.slug}`;
-  const externalLabel = hasLive ? "Siteyi görüntüle" : "Detay";
+  const detailHref = `/markalarimiz/${p.slug}`;
+  const externalHref = p.liveUrl ?? detailHref;
+  const externalLabel = hasLive ? "Siteyi görüntüle" : "Markayı incele";
 
   return (
     <article
@@ -31,9 +32,9 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
       }}
     >
       <Link
-        href={`/projelerimiz/${p.slug}`}
+        href={detailHref}
         className="relative block"
-        aria-label={`${p.title} — detay`}
+        aria-label={`${p.title} markasını incele`}
       >
         <Shot
           src={p.coverImage}
@@ -41,7 +42,7 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
           aspect="16/10"
           radius={0}
           fit="cover"
-          label={`${p.title} · ekran görüntüsü`}
+          label={`${p.title} · marka görseli`}
           sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
         />
         {/* Category chip */}

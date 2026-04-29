@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 const nav = [
   { href: "/#sirket", label: "Şirket" },
-  { href: "/#projeler", label: "Projeler" },
+  { href: "/#markalar", label: "Markalarımız" },
   { href: "/#sektorler", label: "Sektörler" },
   { href: "/#referanslar", label: "Referanslar" },
   { href: "/blog", label: "Blog" },

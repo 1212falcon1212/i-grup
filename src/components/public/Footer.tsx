@@ -93,7 +93,7 @@ export function Footer({
               className="text-[12.5px] font-semibold uppercase tracking-[0.06em]"
               style={{ color: "rgba(247,245,240,0.5)" }}
             >
-              Ürünler
+              Markalar
             </div>
             <ul
               className="mt-4 text-sm leading-[2]"
@@ -101,7 +101,7 @@ export function Footer({
             >
               {products.slice(0, 5).map((p) => (
                 <li key={p.slug}>
-                  <Link href={`/projelerimiz/${p.slug}`} className="hover:text-white transition-colors">
+                  <Link href={`/markalarimiz/${p.slug}`} className="hover:text-white transition-colors">
                     {p.title}
                   </Link>
                 </li>

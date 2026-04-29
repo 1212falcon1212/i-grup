@@ -28,7 +28,7 @@ const navItems = [
   { href: "/admin/pages", label: "Sayfalar", icon: FileText },
   { href: "/admin/about-values", label: "Hakkımızda Kartları", icon: GalleryVerticalEnd },
   { href: "/admin/services", label: "Hizmetler", icon: Layers },
-  { href: "/admin/projects", label: "Projeler", icon: FolderKanban },
+  { href: "/admin/projects", label: "Markalar", icon: FolderKanban },
   { href: "/admin/sectors", label: "Sektörler", icon: Building },
   { href: "/admin/clients", label: "Referanslar", icon: Users },
   { href: "/admin/posts", label: "Blog", icon: Newspaper },

@@ -93,13 +93,13 @@ export default async function ServiceDetailPage({
           <Container>
             <div className="flex items-center justify-between gap-3 mb-8">
               <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-                Bu alandaki projelerimiz
+                Bu alandaki markalarımız
               </h2>
               <Link
-                href="/projelerimiz"
+                href="/markalarimiz"
                 className="text-sm text-primary font-medium inline-flex items-center gap-1"
               >
-                Tüm projeler <ArrowRight className="h-4 w-4" />
+                Tüm markalar <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -122,11 +122,11 @@ export default async function ServiceDetailPage({
         <div className="bg-primary text-primary-foreground rounded-xl p-8 md:p-12 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
           <div>
             <h2 className="text-xl md:text-3xl font-semibold tracking-tight">
-              Benzer bir proje planınız var mı?
+              i-Grup markaları hakkında bilgi almak ister misiniz?
             </h2>
             <p className="mt-2 text-primary-foreground/80 max-w-xl text-sm md:text-base">
-              {service.title} alanında deneyimli ekibimizle süreci birlikte
-              planlayalım.
+              i-Grup çatısı altındaki markalar ve faaliyet alanları hakkında
+              birlikte konuşalım.
             </p>
           </div>
           <Button asChild variant="secondary" size="lg" className="w-fit">

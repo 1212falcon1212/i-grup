@@ -31,7 +31,7 @@ export function ProjectRowActions({ id, isFeatured }: { id: string; isFeatured: 
         disabled={isPending}
         className="text-destructive hover:text-destructive"
         onClick={() => {
-          if (!confirm("Bu projeyi silmek istediğinizden emin misiniz?")) return;
+          if (!confirm("Bu markayı silmek istediğinizden emin misiniz?")) return;
           startTransition(async () => {
             try {
               await deleteProject(id);

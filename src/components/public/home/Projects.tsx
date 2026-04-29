@@ -34,16 +34,16 @@ export function Projects({ projects, eyebrow, title, lead }: Props) {
 
   return (
     <section
-      id="projeler"
+      id="markalar"
       className="container-site"
       style={{ padding: "96px 40px" }}
     >
       <SectionHeader
-        eyebrow={eyebrow || "Projeler"}
-        title={title || "Yayınladığımız ve işlettiğimiz ürünler."}
+        eyebrow={eyebrow || "Markalarımız"}
+        title={title || "i-Grup çatısı altında büyüyen markalar."}
         lead={
           lead ||
-          "Eczane pazaryerinden kapalı B2B dermokozmetik tedarik ağına, INCI okuyucu mobil uygulamadan kozmetik e-ticarete kadar birbirini besleyen sektörel ürünler."
+          "Eczane pazaryerinden B2B tedarik platformlarına, kozmetik ve kişisel bakım markalarından tüketici uygulamalarına kadar farklı alanlarda faaliyet gösteren dijital markalarımız."
         }
       />
       <div className="flex flex-wrap gap-2 mb-8">

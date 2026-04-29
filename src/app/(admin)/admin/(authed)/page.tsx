@@ -43,7 +43,7 @@ export default async function AdminDashboardPage() {
   const [stats, recent] = await Promise.all([getStats(), getRecentMessages()]);
 
   const cards = [
-    { label: "Projeler", value: stats.projects, icon: FolderKanban, href: "/admin/projects" },
+    { label: "Markalar", value: stats.projects, icon: FolderKanban, href: "/admin/projects" },
     { label: "Hizmetler", value: stats.services, icon: Layers, href: "/admin/services" },
     { label: "Banner'lar", value: stats.banners, icon: ImageIcon, href: "/admin/banners" },
     { label: "Aktif İlan", value: stats.careers, icon: Briefcase, href: "/admin/careers" },

@@ -9,7 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/hakkimizda",
     "/misyonumuz",
     "/hizmetlerimiz",
-    "/projelerimiz",
+    "/markalarimiz",
     "/kariyer",
     "/iletisim",
     "/blog",
@@ -52,7 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.6,
     })),
     ...projects.map((p) => ({
-      url: `${base}/projelerimiz/${p.slug}`,
+      url: `${base}/markalarimiz/${p.slug}`,
       lastModified: p.updatedAt,
       changeFrequency: "monthly" as const,
       priority: 0.6,

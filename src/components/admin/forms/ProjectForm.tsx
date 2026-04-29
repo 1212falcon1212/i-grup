@@ -118,7 +118,7 @@ export function ProjectForm({
       </div>
       <div className="grid md:grid-cols-3 gap-4">
         <div className="space-y-2">
-          <Label>Müşteri</Label>
+          <Label>Bağlı şirket / hedef kitle</Label>
           <Input
             value={v.client ?? ""}
             onChange={(e) => set("client", e.target.value)}
@@ -192,7 +192,7 @@ export function ProjectForm({
         <GalleryInput value={v.gallery} onChange={(next) => set("gallery", next)} />
       </div>
       <div className="space-y-2">
-        <Label>Tech Stack</Label>
+        <Label>Öne çıkan kabiliyetler</Label>
         <TagInput
           value={v.techStack}
           onChange={(next) => set("techStack", next)}

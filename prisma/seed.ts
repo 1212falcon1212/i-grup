@@ -485,7 +485,7 @@ async function seedSettings() {
   const data = {
     siteName: "i-Grup",
     tagline:
-      "Dermokozmetik yazılım grubu. Eczane pazaryeri, kapalı B2B dermokozmetik tedarik ağı, INCI okuyucu mobil uygulama ve kişisel kozmetik abonelik platformu.",
+      "Farklı sektörlerde faaliyet gösteren dijital markaları ve platformları çatısı altında buluşturan şirketler topluluğu.",
     email: "merhaba@i-grup.com.tr",
     phone: "+90 212 000 00 00",
     whatsapp: "+905000000000",
@@ -494,11 +494,11 @@ async function seedSettings() {
     instagramUrl: "https://www.instagram.com/i-Grup",
     xUrl: "https://x.com/igroup",
     footerText:
-      "i-Grup, dermokozmetik ve B2B dikeylerinde uçtan uca yazılım çözümleri üreten bir yazılım grubudur. Eczane pazaryeri (i-Eczane), kapalı B2B dermokozmetik tedarik platformu (i-Depo), INCI okuyucu mobil uygulama (i-Kozmo) ve kişisel kozmetik abonelik sitesi (İstanbulVitamin) başta olmak üzere sektöre özel ürünler yayınlıyoruz.",
+      "Farklı sektörlerde faaliyet gösteren dijital markaları aynı çatı altında buluşturan şirketler topluluğu.",
     defaultSeoTitle:
-      "i-Grup — Dermokozmetik Yazılım Grubu | Eczane Pazaryeri, B2B Tedarik ve INCI Okuyucu",
+      "i-Grup — Şirketler Topluluğu | Dijital Markalar ve Platformlar",
     defaultSeoDesc:
-      "Dermokozmetik sektörüne özel yazılım çözümleri: i-Eczane çok satıcılı eczane pazaryeri, i-Depo kapalı B2B dermokozmetik tedarik platformu, i-Kozmo INCI okuyucu mobil uygulaması ve İstanbulVitamin kişisel kozmetik abonelik sitesi. Eczacı, distribütör ve kozmetik markaları için uçtan uca dijital altyapı.",
+      "i-Grup çatısı altında faaliyet gösteren eczane pazaryeri, B2B tedarik platformları, kozmetik ve kişisel bakım markaları, finansal çözümler ve tüketici platformları.",
     statProjects: 13,
     statSectors: 6,
     statYears: 8,
@@ -506,47 +506,47 @@ async function seedSettings() {
     teamSize: 2,
     foundedYear: 2018,
     heroHeading:
-      "Dermokozmetik için uçtan uca yazılım çözümleri.",
-    heroHighlight: "Dermokozmetik",
+      "i-Grup markaları aynı çatı altında büyütür.",
+    heroHighlight: "markaları",
     heroSubtitle:
-      "Eczane pazaryerinden kapalı B2B dermokozmetik tedarik ağına, INCI okuyucu mobil uygulamadan cilt tipine göre kürasyon yapan kişisel kozmetik e-ticaretine kadar sektöre özel dijital altyapı kuruyoruz. Eczacılar, dermokozmetik distribütörleri, kozmetik markaları ve son kullanıcılar için ürünler geliştiriyoruz; paralelde B2B pazaryerleri, kurumsal ERP ve tüketici uygulamaları yayınlıyoruz.",
-    heroStatusText: "Dermokozmetik yazılım grubu · 2018'den beri",
+      "i-Grup; eczane pazaryeri, B2B tedarik platformları, kozmetik ve kişisel bakım markaları, finansal çözümler ve tüketici platformlarından oluşan marka portföyünü aynı çatı altında buluşturur.",
+    heroStatusText: "Şirketler topluluğu · 2018'den beri",
     heroImageUrl: IMG.heroOffice,
-    heroCtaPrimaryLabel: "Ürünlerimizi İnceleyin",
-    heroCtaPrimaryUrl: "#projeler",
-    heroCtaSecondaryLabel: "Demo Talep Edin",
+    heroCtaPrimaryLabel: "Markalarımızı İnceleyin",
+    heroCtaPrimaryUrl: "#markalar",
+    heroCtaSecondaryLabel: "İletişime Geçin",
     heroCtaSecondaryUrl: "/iletisim",
-    heroOverlayLabel: "UZMANLIK",
-    heroOverlayTitle: "Dermokozmetik dikeyinde derin sektör bilgisi",
+    heroOverlayLabel: "PORTFÖY",
+    heroOverlayTitle: "Farklı sektörlerde dijital markalar",
     heroOverlayDescription:
-      "Eczacı–distribütör ilişkileri, INCI standartları ve marka politikalarına göre tasarlanmış ürünler.",
-    aboutHeading: "Dermokozmetik sektörüne özel yazılım üreten bir grup.",
+      "Her marka kendi alanında uzmanlaşır; i-Grup ortak büyüme çatısını sağlar.",
+    aboutHeading: "Farklı sektörlerde büyüyen markaları aynı çatı altında buluşturan grup.",
     aboutLead:
-      "i-Grup, eczacı ve dermokozmetik dikeyinde uçtan uca dijital çözümler üreten bir yazılım grubudur. Çok satıcılı eczane pazaryeri, davetli tedarik ağına dayalı kapalı B2B dermokozmetik platformu, kozmetik ambalajlarının INCI bileşen listesini fotoğraftan okuyan mobil uygulama ve cilt tipine göre kürasyon yapan kişisel kozmetik abonelik sitesi; portföyümüzün omurgasını dermokozmetik ürünleri oluşturuyor. Bunun yanında B2B hırdavat, bijuteri, kırtasiye, nalbur ve zerzevat pazaryerleri, KOBİ'ler için e-Fatura entegre muhasebe ERP ve tüketici uygulamaları gibi ek dikeylerde de çözümler yayınlıyoruz.",
+      "i-Grup, her biri kendi alanında uzmanlaşan dijital markaları stratejik, operasyonel ve dijital büyüme disipliniyle destekleyen bir şirketler topluluğudur.",
     aboutImage1: IMG.aboutOffice,
     aboutImage2: IMG.aboutTeam,
     aboutImage3: IMG.officeFloor,
-    careersHeading: "Dermokozmetik yazılımı geliştiren ekibe katılın.",
+    careersHeading: "i-Grup markalarını büyüten ekibe katılın.",
     careersLead:
-      "Eczane pazaryerinden B2B tedarik ağına, INCI okuyucu mobil uygulamadan kişisel kozmetik e-ticaretine kadar sektöre özel ürünler üretiyoruz. React/Next.js ön yüz, Go/Node.js backend, mobil mühendislik ve ürün tasarımı alanlarında birlikte çalışmak için portföyünüzü bekliyoruz.",
+      "Farklı sektörlerde faaliyet gösteren markalarımızın ürün, operasyon, büyüme ve teknoloji ekiplerinde birlikte çalışmak için portföyünüzü bekliyoruz.",
     careersImage: IMG.careersOffice,
     careersEmptyTitle: "Şu an aktif ilan yok",
     careersEmptyText:
-      "Dermokozmetik yazılım projelerimizde freelance veya proje bazlı işbirliği için portföyünüzü gönderebilirsiniz; değerlendirmek için hepsini inceliyoruz.",
+      "Markalarımızla ilgili freelance, proje bazlı veya tam zamanlı iş birlikleri için portföyünüzü gönderebilirsiniz; değerlendirmek için hepsini inceliyoruz.",
     careersApplyLabel: "Portföy Gönder →",
-    contactHeading: "Dermokozmetik yazılım projenizi konuşalım.",
-    contactHighlight: "Dermokozmetik",
+    contactHeading: "i-Grup ve markaları hakkında konuşalım.",
+    contactHighlight: "markaları",
     contactLead:
-      "Eczane pazaryeri, kapalı B2B dermokozmetik tedarik, INCI okuyucu uygulama veya kişisel kozmetik abonelik platformu hakkında demo talep etmek, entegrasyon sorularınızı sormak veya sektöre özel bir yazılım çözümü tasarlamak için formu doldurun. 48 saat içinde geri dönüyoruz.",
+      "Markalarımız, grup yapımız, iş birlikleri veya iletişim talepleriniz için formu doldurun. 48 saat içinde geri dönüyoruz.",
     officeHours: "Pazartesi – Cuma · 09:30 – 18:30",
-    projectsEyebrow: "Ürünler",
-    projectsTitle: "Dermokozmetik ve B2B dikeylerinde yayınladığımız ürünler.",
+    projectsEyebrow: "Markalarımız",
+    projectsTitle: "i-Grup çatısı altında büyüyen markalar.",
     projectsLead:
-      "Eczane pazaryerinden kapalı B2B dermokozmetik tedarik ağına, INCI okuyucu mobil uygulamadan kişisel kozmetik abonelik platformuna kadar sektöre özel ürünlerimiz. Dermokozmetik çözümlerin yanında B2B pazaryerleri, kurumsal ERP ve tüketici uygulamalarını da portföyümüzde bulabilirsiniz.",
+      "Eczane pazaryerinden B2B tedarik platformlarına, kozmetik ve kişisel bakım markalarından tüketici uygulamalarına kadar farklı alanlarda faaliyet gösteren dijital markalarımız.",
     sectorsEyebrow: "Sektörler",
-    sectorsTitle: "Odaklandığımız dikeyler.",
+    sectorsTitle: "Markalarımızın faaliyet gösterdiği alanlar.",
     sectorsLead:
-      "Birincil odak dermokozmetik dikeyi: eczacı pazaryeri, distribütör tedarik ağı ve kozmetik markaları. İkincil odak olarak B2B pazaryerleri, kurumsal ERP ve tüketici platformları alanlarında da aktif ürünlerimiz var.",
+      "Her marka kendi sektöründe uzmanlaşır; i-Grup çatısı bu markaların ortak deneyimini ve büyüme disipliniyle bir araya getirir.",
     clientsEyebrow: "Birlikte çalıştıklarımız",
     clientsTitle: "Dermokozmetik markaları ve tedarikçileri.",
     clientsLead:
@@ -571,7 +571,7 @@ async function seedPages() {
       title: "Hakkımızda",
       subtitle: "Dermokozmetik sektörüne özel yazılım çözümleri üreten grup.",
       content: `
-<p>i-Grup, Türkiye'de <strong>dermokozmetik ve eczacılık dikeyi</strong> için uçtan uca dijital altyapı üreten bir yazılım grubudur. 2018'den bu yana eczacılar, dermokozmetik distribütörleri, kozmetik markaları ve son kullanıcılar için sektöre özel ürünler geliştiriyor ve işletiyoruz.</p>
+<p>i-Grup, Türkiye'de <strong>farklı sektörlerde faaliyet gösteren dijital markaları</strong> aynı çatı altında buluşturan bir şirketler topluluğudur. 2018'den bu yana eczacılar, dermokozmetik distribütörleri, kozmetik markaları, B2B tedarik kanalları ve son kullanıcılar için markalar geliştiriyor ve işletiyoruz.</p>
 
 <h2>Dermokozmetik dikeyindeki ürünlerimiz</h2>
 <p>Portföyümüzün omurgasını dermokozmetik ürünleri oluşturuyor. Eczacıdan distribütöre, marka üreticisinden son kullanıcıya kadar değer zincirinin her halkasında özel bir çözümümüz yer alıyor.</p>
@@ -609,7 +609,7 @@ async function seedPages() {
 </ul>
 
 <h2>İletişim</h2>
-<p>Dermokozmetik yazılım projeniz için demo talep etmek, eczane pazaryeri veya kapalı B2B tedarik platformu hakkında bilgi almak veya sektöre özel bir çözüm tasarlamak için iletişim sayfasından bize yazabilirsiniz. Kısa bir brief yeterli; 48 saat içinde geri dönüyoruz.</p>
+<p>i-Grup markaları, eczane pazaryeri, kapalı B2B tedarik platformları veya grup yapımız hakkında bilgi almak için iletişim sayfasından bize yazabilirsiniz. Kısa bir not yeterli; 48 saat içinde geri dönüyoruz.</p>
 `.trim(),
     },
     {

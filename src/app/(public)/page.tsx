@@ -17,11 +17,11 @@ export async function generateMetadata() {
   return {
     title:
       s.defaultSeoTitle ??
-      `${s.siteName} — Dermokozmetik yazılım şirketi`,
+      `${s.siteName} — Şirketler topluluğu`,
     description:
       s.defaultSeoDesc ??
       s.tagline ??
-      "Dermokozmetik, eczane pazaryeri, kapalı B2B tedarik, INCI okuyucu mobil uygulama ve kozmetik e-ticaret yazılımları.",
+      "i-Grup çatısı altında faaliyet gösteren dijital markalar, pazaryerleri ve platformlar.",
   };
 }
 
@@ -51,7 +51,7 @@ export default async function HomePage() {
       }),
     ]);
 
-  // Group projects by sector name for "related products" display
+  // Group brands by sector name for sector display
   const projectsBySectorName = new Map<
     string,
     { slug: string; title: string }[]
@@ -113,7 +113,7 @@ export default async function HomePage() {
         subtitle={
           settings.heroSubtitle ??
           settings.tagline ??
-          "İstanbul merkezli ürün stüdyosu."
+          "Farklı sektörlerde faaliyet gösteren dijital markaları çatısı altında buluşturan şirketler topluluğu."
         }
         heroImageUrl={settings.heroImageUrl}
         stats={[
@@ -133,11 +133,12 @@ export default async function HomePage() {
 
       <About
         heading={
-          settings.aboutHeading ?? "Dermokozmetik sektörüne özel yazılım üreten bir şirket."
+          settings.aboutHeading ??
+          "Farklı sektörlerde büyüyen markaları aynı çatı altında buluşturan grup."
         }
         lead={
           settings.aboutLead ??
-          "Eczane pazaryeri, kapalı B2B tedarik platformu, INCI okuyucu mobil uygulama ve kozmetik e-ticaret ürünleri geliştiriyoruz."
+          "i-Grup; eczane pazaryeri, B2B tedarik platformları, kozmetik ve kişisel bakım markaları, finansal çözümler ve tüketici platformlarından oluşan marka portföyünü aynı stratejik çatı altında yönetir."
         }
         image1={settings.aboutImage1}
         image2={settings.aboutImage2}

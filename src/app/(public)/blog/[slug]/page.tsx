@@ -111,8 +111,8 @@ export default async function BlogDetailPage({
           <div className="border border-border rounded-xl p-5 bg-muted/30">
             <h3 className="font-semibold text-sm">Bu konuda konuşalım mı?</h3>
             <p className="text-sm text-muted-foreground mt-1">
-              Dermokozmetik yazılımı, eczane pazaryeri veya B2B tedarik
-              altyapısı için bize ulaşın.
+              i-Grup markaları, eczane pazaryeri veya B2B tedarik
+              platformları hakkında konuşmak için bize ulaşın.
             </p>
             <Button asChild variant="outline" size="sm" className="mt-3 w-full">
               <Link href="/iletisim">

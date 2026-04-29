@@ -16,7 +16,7 @@ import { Plus, Star, Pencil } from "lucide-react";
 import { ProjectRowActions } from "./ProjectRowActions";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Projeler", robots: { index: false } };
+export const metadata = { title: "Markalar", robots: { index: false } };
 
 export default async function ProjectsListPage({
   searchParams,
@@ -40,12 +40,12 @@ export default async function ProjectsListPage({
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Projeler"
-        description="15 portföy projesini yönetin. Kategori ve öne çıkan filtreleri kullanabilirsiniz."
+        title="Markalar"
+        description="i-Grup çatısı altındaki markaları yönetin. Kategori ve öne çıkan filtreleri kullanabilirsiniz."
         actions={
           <Button asChild>
             <Link href="/admin/projects/new">
-              <Plus className="h-4 w-4 mr-1" /> Yeni Proje
+              <Plus className="h-4 w-4 mr-1" /> Yeni Marka
             </Link>
           </Button>
         }
@@ -101,7 +101,7 @@ export default async function ProjectsListPage({
             {projects.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={6} className="py-12 text-center text-muted-foreground">
-                  Proje bulunamadı.
+                  Marka bulunamadı.
                 </TableCell>
               </TableRow>
             ) : (

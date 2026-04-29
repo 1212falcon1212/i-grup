@@ -42,7 +42,7 @@ export function ProjectCard({ slug, title, category, coverImage, year }: Props) 
   return (
     <Link
       ref={ref}
-      href={`/projelerimiz/${slug}`}
+      href={`/markalarimiz/${slug}`}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       className="glow-card group relative block bg-card border border-border rounded-2xl overflow-hidden transition-[border-color,box-shadow] duration-300 hover:border-primary/30 will-change-transform"
