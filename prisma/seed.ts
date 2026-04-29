@@ -498,7 +498,7 @@ async function seedSettings() {
     defaultSeoTitle:
       "i-Grup — Şirketler Topluluğu | Dijital Markalar ve Platformlar",
     defaultSeoDesc:
-      "i-Grup çatısı altında faaliyet gösteren eczane pazaryeri, B2B tedarik platformları, kozmetik ve kişisel bakım markaları, finansal çözümler ve tüketici platformları.",
+      "i-Grup Şirketler Topluluğu çatısı altında faaliyet gösteren eczane pazaryeri, B2B tedarik platformları, kozmetik ve kişisel bakım markaları, finansal çözümler ve tüketici platformları.",
     statProjects: 13,
     statSectors: 6,
     statYears: 8,
@@ -506,13 +506,13 @@ async function seedSettings() {
     teamSize: 2,
     foundedYear: 2018,
     heroHeading:
-      "i-Grup markaları aynı çatı altında büyütür.",
+      "i-Grup Şirketler Topluluğu markaları aynı çatı altında buluşturur.",
     heroHighlight: "markaları",
     heroSubtitle:
       "i-Grup; eczane pazaryeri, B2B tedarik platformları, kozmetik ve kişisel bakım markaları, finansal çözümler ve tüketici platformlarından oluşan marka portföyünü aynı çatı altında buluşturur.",
     heroStatusText: "Şirketler topluluğu · 2018'den beri",
     heroImageUrl: IMG.heroOffice,
-    heroCtaPrimaryLabel: "Markalarımızı İnceleyin",
+    heroCtaPrimaryLabel: "Tüm Markalar",
     heroCtaPrimaryUrl: "#markalar",
     heroCtaSecondaryLabel: "İletişime Geçin",
     heroCtaSecondaryUrl: "/iletisim",
@@ -526,7 +526,7 @@ async function seedSettings() {
     aboutImage1: IMG.aboutOffice,
     aboutImage2: IMG.aboutTeam,
     aboutImage3: IMG.officeFloor,
-    careersHeading: "i-Grup markalarını büyüten ekibe katılın.",
+    careersHeading: "i-Grup Şirketler Topluluğu ekibine katılın.",
     careersLead:
       "Farklı sektörlerde faaliyet gösteren markalarımızın ürün, operasyon, büyüme ve teknoloji ekiplerinde birlikte çalışmak için portföyünüzü bekliyoruz.",
     careersImage: IMG.careersOffice,
@@ -534,19 +534,19 @@ async function seedSettings() {
     careersEmptyText:
       "Markalarımızla ilgili freelance, proje bazlı veya tam zamanlı iş birlikleri için portföyünüzü gönderebilirsiniz; değerlendirmek için hepsini inceliyoruz.",
     careersApplyLabel: "Portföy Gönder →",
-    contactHeading: "i-Grup ve markaları hakkında konuşalım.",
+    contactHeading: "i-Grup Şirketler Topluluğu hakkında konuşalım.",
     contactHighlight: "markaları",
     contactLead:
       "Markalarımız, grup yapımız, iş birlikleri veya iletişim talepleriniz için formu doldurun. 48 saat içinde geri dönüyoruz.",
     officeHours: "Pazartesi – Cuma · 09:30 – 18:30",
     projectsEyebrow: "Markalarımız",
-    projectsTitle: "i-Grup çatısı altında büyüyen markalar.",
+    projectsTitle: "i-Grup Şirketler Topluluğu markaları.",
     projectsLead:
       "Eczane pazaryerinden B2B tedarik platformlarına, kozmetik ve kişisel bakım markalarından tüketici uygulamalarına kadar farklı alanlarda faaliyet gösteren dijital markalarımız.",
     sectorsEyebrow: "Sektörler",
-    sectorsTitle: "Markalarımızın faaliyet gösterdiği alanlar.",
+    sectorsTitle: "i-Grup Şirketler Topluluğu faaliyet alanları.",
     sectorsLead:
-      "Her marka kendi sektöründe uzmanlaşır; i-Grup çatısı bu markaların ortak deneyimini ve büyüme disipliniyle bir araya getirir.",
+      "Her marka kendi sektöründe uzmanlaşır; i-Grup Şirketler Topluluğu bu markaların ortak deneyimini ve büyüme disipliniyle bir araya getirir.",
     clientsEyebrow: "Birlikte çalıştıklarımız",
     clientsTitle: "Dermokozmetik markaları ve tedarikçileri.",
     clientsLead:
@@ -609,7 +609,7 @@ async function seedPages() {
 </ul>
 
 <h2>İletişim</h2>
-<p>i-Grup markaları, eczane pazaryeri, kapalı B2B tedarik platformları veya grup yapımız hakkında bilgi almak için iletişim sayfasından bize yazabilirsiniz. Kısa bir not yeterli; 48 saat içinde geri dönüyoruz.</p>
+<p>i-Grup Şirketler Topluluğu, eczane pazaryeri, kapalı B2B tedarik platformları veya grup yapımız hakkında bilgi almak için iletişim sayfasından bize yazabilirsiniz. Kısa bir not yeterli; 48 saat içinde geri dönüyoruz.</p>
 `.trim(),
     },
     {
@@ -640,7 +640,7 @@ async function seedPages() {
 <p>Her ürüne ayrı bir altyapı yazmak sürdürülebilir değil. Kimlik doğrulama, ödeme, bildirim, cari hesap, kampanya, raporlama gibi tekrar eden ihtiyaçlar <strong>paylaşımlı modüller</strong> olarak çıkarıldı. Bu sayede yeni bir sektör ihtiyacı 3–4 ayda canlıya alınabiliyor; bir modülü iyileştirdiğimizde tüm ürünler bundan yararlanıyor.</p>
 
 <h2>Uzun vadeli niyet</h2>
-<p>On yıl sonra dermokozmetik dikeyinde Türkiye'nin en yaygın <strong>eczacı pazaryeri</strong>, en güvenilir <strong>kapalı B2B tedarik ağı</strong> ve en çok kullanılan <strong>INCI okuyucu uygulamasının</strong> i-Grup çatısı altında çalışıyor olmasını hedefliyoruz. Hızlı büyümek yerine sürdürülebilir büyümeyi, geniş vaatler yerine ölçülebilir sonuçları ve müşteriyle dolaylı değil doğrudan ilişkiyi tercih ediyoruz.</p>
+<p>On yıl sonra dermokozmetik dikeyinde Türkiye'nin en yaygın <strong>eczacı pazaryeri</strong>, en güvenilir <strong>kapalı B2B tedarik ağı</strong> ve en çok kullanılan <strong>INCI okuyucu uygulamasının</strong> i-Grup Şirketler Topluluğu çatısı altında çalışıyor olmasını hedefliyoruz. Hızlı büyümek yerine sürdürülebilir büyümeyi, geniş vaatler yerine ölçülebilir sonuçları ve müşteriyle dolaylı değil doğrudan ilişkiyi tercih ediyoruz.</p>
 
 <h2>Kiminle çalışıyoruz?</h2>
 <p>Ürünlerimiz dermokozmetik sektörünün tüm halkalarına hitap ediyor:</p>

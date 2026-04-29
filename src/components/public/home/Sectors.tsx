@@ -29,10 +29,10 @@ export function Sectors({
       <div className="container-site">
         <SectionHeader
           eyebrow={eyebrow || "Sektörler"}
-          title={title || "Markalarımızın faaliyet gösterdiği alanlar."}
+          title={title || "i-Grup Şirketler Topluluğu faaliyet alanları."}
           lead={
             lead ||
-            "Her marka kendi sektöründe uzmanlaşır; i-Grup çatısı bu markaların ortak deneyimini ve büyüme disiplinini bir araya getirir."
+            "Her marka kendi sektöründe uzmanlaşır; i-Grup Şirketler Topluluğu bu markaların ortak deneyimini ve büyüme disiplinini bir araya getirir."
           }
         />
 

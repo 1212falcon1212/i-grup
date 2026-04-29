@@ -20,7 +20,7 @@ export async function generateMetadata() {
     description:
       s.defaultSeoDesc ??
       s.tagline ??
-      "i-Grup çatısı altında faaliyet gösteren dijital markalar, pazaryerleri ve platformlar.",
+      "i-Grup Şirketler Topluluğu çatısı altında faaliyet gösteren dijital markalar, pazaryerleri ve platformlar.",
   };
 }
 

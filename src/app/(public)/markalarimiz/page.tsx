@@ -11,7 +11,7 @@ export const revalidate = 3600;
 export const metadata = {
   title: "Markalarımız",
   description:
-    "i-Grup çatısı altında faaliyet gösteren dijital markalar, pazaryerleri ve platformlar.",
+    "i-Grup Şirketler Topluluğu çatısı altında faaliyet gösteren dijital markalar, pazaryerleri ve platformlar.",
 };
 
 export default async function BrandsListPage({
@@ -39,7 +39,7 @@ export default async function BrandsListPage({
               <span className="num-badge">01</span> Markalarımız
             </div>
             <h1 className="text-4xl md:text-6xl font-semibold tracking-[-0.02em] leading-[1.05] max-w-3xl">
-              i-Grup çatısı altında büyüyen{" "}
+              i-Grup Şirketler Topluluğu çatısı altında büyüyen{" "}
               <span className="serif-accent text-gradient">
                 dijital markalar.
               </span>

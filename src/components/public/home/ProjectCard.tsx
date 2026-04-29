@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { Shot } from "./Shot";
 
 export interface ProjectCardData {
   slug: string;
@@ -33,18 +33,24 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
     >
       <Link
         href={detailHref}
-        className="relative block"
+        className="relative block overflow-hidden bg-bg2"
         aria-label={`${p.title} markasını incele`}
       >
-        <Shot
-          src={p.coverImage}
-          hue={p.hue ?? 260}
-          aspect="16/10"
-          radius={0}
-          fit="cover"
-          label={`${p.title} · marka görseli`}
-          sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
-        />
+        <div className="relative aspect-[16/9]">
+          <Image
+            src={p.coverImage}
+            alt={`${p.title} banner`}
+            fill
+            sizes="(min-width: 1280px) 300px, (min-width: 640px) 45vw, 100vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 p-4">
+            <h3 className="text-[24px] font-bold tracking-[-0.04em] text-white">
+              {p.title}
+            </h3>
+          </div>
+        </div>
         {/* Category chip */}
         <div
           className="absolute top-3.5 right-3.5 inline-flex text-[11.5px] font-medium rounded-full px-[11px] py-[5px] backdrop-blur"
@@ -61,12 +67,9 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
         style={{ padding: "20px 22px 22px" }}
       >
         <div className="flex justify-between items-baseline gap-3">
-          <h3
-            className="font-bold text-ink tracking-[-0.025em]"
-            style={{ fontSize: 22, lineHeight: 1.1 }}
-          >
-            {p.title}
-          </h3>
+          <span className="text-[12.5px] font-semibold uppercase tracking-[0.04em] text-indigo">
+            {p.status}
+          </span>
           <span className="text-[12.5px] font-medium text-mute whitespace-nowrap">
             {p.sector}
           </span>
@@ -86,7 +89,7 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
           style={{ borderTop: "1px solid var(--rule)" }}
         >
           <span className="text-[13px] text-mute">
-            {p.year ? `Lansman · ${p.year}` : "Yakında"}
+            {p.year ? `Grup markası · ${p.year}` : "Yakında"}
           </span>
           {hasLive ? (
             <a

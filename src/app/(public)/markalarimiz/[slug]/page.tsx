@@ -126,7 +126,9 @@ export default async function BrandDetailPage({
             </Button>
           ) : null}
           <div className="border border-border rounded-xl p-5 bg-muted/30">
-            <h3 className="font-semibold text-sm">i-Grup çatısı altında</h3>
+            <h3 className="font-semibold text-sm">
+              i-Grup Şirketler Topluluğu çatısı altında
+            </h3>
             <p className="text-sm text-muted-foreground mt-1">
               Markalarımız ve grup yapımız hakkında bilgi almak için bizimle
               iletişime geçin.

@@ -41,7 +41,7 @@ export default async function ProjectsListPage({
     <div className="space-y-6">
       <PageHeader
         title="Markalar"
-        description="i-Grup çatısı altındaki markaları yönetin. Kategori ve öne çıkan filtreleri kullanabilirsiniz."
+        description="i-Grup Şirketler Topluluğu çatısı altındaki markaları yönetin. Kategori ve öne çıkan filtreleri kullanabilirsiniz."
         actions={
           <Button asChild>
             <Link href="/admin/projects/new">
