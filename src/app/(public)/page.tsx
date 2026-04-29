@@ -4,7 +4,6 @@ import { JsonLd, organizationSchema } from "@/components/shared/SeoJsonLd";
 import { Hero } from "@/components/public/home/Hero";
 import { Projects } from "@/components/public/home/Projects";
 import { Sectors } from "@/components/public/home/Sectors";
-import { Clients } from "@/components/public/home/Clients";
 import { Blog } from "@/components/public/home/Blog";
 import { Careers } from "@/components/public/home/Careers";
 import { Contact } from "@/components/public/home/Contact";
@@ -25,7 +24,7 @@ export async function generateMetadata() {
 }
 
 export default async function HomePage() {
-  const [settings, projects, sectorsRaw, posts, clients, jobs] =
+  const [settings, projects, sectorsRaw, posts, jobs] =
     await Promise.all([
       getSiteSettings(),
       prisma.project.findMany({ orderBy: [{ order: "asc" }, { createdAt: "desc" }] }),
@@ -34,11 +33,6 @@ export default async function HomePage() {
         where: { isPublished: true },
         orderBy: { publishedAt: "desc" },
         take: 4,
-      }),
-      prisma.client.findMany({
-        where: { isActive: true },
-        orderBy: { order: "asc" },
-        take: 10,
       }),
       prisma.career.findMany({
         where: { isActive: true },
@@ -149,13 +143,6 @@ export default async function HomePage() {
         eyebrow={settings.sectorsEyebrow}
         title={settings.sectorsTitle}
         lead={settings.sectorsLead}
-      />
-
-      <Clients
-        clients={clients.map((c) => ({ id: c.id, name: c.name }))}
-        eyebrow={settings.clientsEyebrow}
-        title={settings.clientsTitle}
-        lead={settings.clientsLead}
       />
 
       <Blog

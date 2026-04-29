@@ -25,14 +25,15 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
 
   return (
     <article
-      className="group overflow-hidden rounded-[14px] flex flex-col bg-white/[0.045] transition-[transform,border-color,background] duration-300 hover:-translate-y-1 hover:bg-white/[0.07]"
+      className="card-lift group overflow-hidden rounded-[14px] flex flex-col bg-bg transition-[transform,border-color,background] duration-300"
       style={{
-        border: "1px solid rgba(247,245,240,0.12)",
+        border: "1px solid var(--rule)",
+        boxShadow: "0 1px 2px rgba(17,17,24,0.04)",
       }}
     >
       <Link
         href={detailHref}
-        className="relative block overflow-hidden bg-white/[0.06]"
+        className="relative block overflow-hidden bg-bg2"
         aria-label={`${p.title} markasını incele`}
       >
         <div className="relative aspect-[16/8.5]">
@@ -43,7 +44,7 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
             sizes="(min-width: 1280px) 300px, (min-width: 640px) 45vw, 100vw"
             className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/24 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/74 via-black/18 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 p-4">
             <h3 className="text-[24px] font-bold tracking-[-0.04em] text-white">
               {p.title}
@@ -54,8 +55,8 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
         <div
           className="absolute top-3.5 right-3.5 inline-flex text-[11.5px] font-medium rounded-full px-[11px] py-[5px] backdrop-blur"
           style={{
-            background: "rgba(247,245,240,0.9)",
-            color: "#0A0A10",
+            background: "rgba(17,17,24,0.72)",
+            color: "var(--bg)",
           }}
         >
           {p.category}
@@ -66,15 +67,15 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
         style={{ padding: "20px 22px 22px" }}
       >
         <div className="flex justify-between items-baseline gap-3">
-          <span className="text-[12.5px] font-semibold uppercase tracking-[0.08em] text-[#E7B500]">
+          <span className="text-[12.5px] font-semibold uppercase tracking-[0.08em] text-indigo">
             {p.status}
           </span>
-          <span className="text-[12.5px] font-medium text-[#F7F5F0]/48 whitespace-nowrap">
+          <span className="text-[12.5px] font-medium text-mute whitespace-nowrap">
             {p.sector}
           </span>
         </div>
         <p
-          className="text-[#F7F5F0]/72 flex-1"
+          className="text-ink2 flex-1"
           style={{
             fontSize: 14,
             lineHeight: 1.62,
@@ -85,9 +86,9 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
         </p>
         <div
           className="flex justify-between items-center pt-3.5 mt-2"
-          style={{ borderTop: "1px solid rgba(247,245,240,0.12)" }}
+          style={{ borderTop: "1px solid var(--rule)" }}
         >
-          <span className="text-[13px] text-[#F7F5F0]/45">
+          <span className="text-[13px] text-mute">
             {p.year ? `Grup markası · ${p.year}` : "Yakında"}
           </span>
           {hasLive ? (
@@ -95,14 +96,14 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
               href={externalHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[13px] font-semibold text-white arrow-shift"
+              className="text-[13px] font-semibold text-ink arrow-shift"
             >
               {externalLabel} <span className="arrow">→</span>
             </a>
           ) : (
             <Link
               href={externalHref}
-              className="text-[13px] font-semibold text-white arrow-shift"
+              className="text-[13px] font-semibold text-ink arrow-shift"
             >
               {externalLabel} <span className="arrow">→</span>
             </Link>

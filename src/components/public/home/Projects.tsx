@@ -44,7 +44,7 @@ export function Projects({ projects, eyebrow, title, lead }: Props) {
   return (
     <section
       id="markalar"
-      className="bg-[#0A0A10] text-[#F7F5F0]"
+      className="bg-bg"
       style={{ padding: "104px 0 120px" }}
     >
       <div className="container-site">
@@ -54,7 +54,7 @@ export function Projects({ projects, eyebrow, title, lead }: Props) {
               {eyebrow || "Markalarımız"}
             </div>
             <h2
-              className="mt-4 font-bold tracking-[-0.045em] text-white"
+              className="mt-4 font-bold tracking-[-0.045em] text-ink"
               style={{
                 fontSize: "clamp(3rem, 6vw, 5.4rem)",
                 lineHeight: 0.94,
@@ -64,7 +64,7 @@ export function Projects({ projects, eyebrow, title, lead }: Props) {
             </h2>
           </div>
           <p
-            className="max-w-[620px] text-[#F7F5F0]/68"
+            className="max-w-[620px] text-ink2"
             style={{ fontSize: 20, lineHeight: 1.6 }}
           >
             {lead ||
@@ -81,9 +81,10 @@ export function Projects({ projects, eyebrow, title, lead }: Props) {
                 className={cn(
                   "text-[13px] font-medium px-4 py-2.5 rounded-full transition-all",
                   filter === t
-                    ? "bg-[#F7F5F0] text-[#0A0A10] border border-[#F7F5F0]"
-                    : "border border-white/14 bg-white/[0.03] text-[#F7F5F0]/72 hover:text-white hover:bg-white/[0.08]"
+                    ? "bg-ink text-[#F7F5F0] border border-ink"
+                    : "border bg-transparent text-ink2 hover:text-ink hover:bg-bg2"
                 )}
+                style={filter !== t ? { borderColor: "var(--rule)" } : undefined}
               >
                 {t}{" "}
                 <span
@@ -101,12 +102,12 @@ export function Projects({ projects, eyebrow, title, lead }: Props) {
             <div key={category}>
               <div
                 className="mb-6 flex items-end justify-between gap-4"
-                style={{ borderBottom: "1px solid rgba(247,245,240,0.14)" }}
+                style={{ borderBottom: "1px solid var(--rule)" }}
               >
-                <h3 className="pb-4 text-[28px] font-semibold tracking-[-0.035em] text-white">
+                <h3 className="pb-4 text-[28px] font-semibold tracking-[-0.035em] text-ink">
                   {category}
                 </h3>
-                <span className="pb-4 text-[13px] font-medium text-[#F7F5F0]/50">
+                <span className="pb-4 text-[13px] font-medium text-mute">
                   {items.length} marka
                 </span>
               </div>
