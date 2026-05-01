@@ -38,11 +38,6 @@ type Values = {
   heroSubtitle: string;
   heroStatusText: string;
   heroImageUrl: string;
-  aboutHeading: string;
-  aboutLead: string;
-  aboutImage1: string;
-  aboutImage2: string;
-  aboutImage3: string;
   careersHeading: string;
   careersLead: string;
   careersImage: string;
@@ -66,9 +61,6 @@ type Values = {
   sectorsEyebrow: string;
   sectorsTitle: string;
   sectorsLead: string;
-  clientsEyebrow: string;
-  clientsTitle: string;
-  clientsLead: string;
   blogEyebrow: string;
   blogTitle: string;
   blogLead: string;
@@ -316,21 +308,6 @@ export function SettingsForm({ initial }: { initial: Values }) {
             textarea
             rows={2}
           />
-        </div>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
-          Hakkımızda
-        </h2>
-        <div className="grid gap-4">
-          <TextField label="Başlık" k="aboutHeading" textarea rows={2} />
-          <TextField label="Lead paragraf" k="aboutLead" textarea rows={3} />
-          <div className="grid md:grid-cols-3 gap-4">
-            <ImageField label="Görsel 1 (geniş)" k="aboutImage1" />
-            <ImageField label="Görsel 2 (kare)" k="aboutImage2" />
-            <ImageField label="Görsel 3 (kare)" k="aboutImage3" />
-          </div>
         </div>
       </section>
 

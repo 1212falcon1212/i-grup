@@ -29,11 +29,6 @@ export const settingsUpdateSchema = z.object({
   heroSubtitle: optionalString,
   heroStatusText: optionalString,
   heroImageUrl: optionalString,
-  aboutHeading: optionalString,
-  aboutLead: optionalString,
-  aboutImage1: optionalString,
-  aboutImage2: optionalString,
-  aboutImage3: optionalString,
   careersHeading: optionalString,
   careersLead: optionalString,
   careersImage: optionalString,
@@ -62,10 +57,6 @@ export const settingsUpdateSchema = z.object({
   sectorsEyebrow: optionalString,
   sectorsTitle: optionalString,
   sectorsLead: optionalString,
-  // Clients section meta
-  clientsEyebrow: optionalString,
-  clientsTitle: optionalString,
-  clientsLead: optionalString,
   // Blog section meta
   blogEyebrow: optionalString,
   blogTitle: optionalString,

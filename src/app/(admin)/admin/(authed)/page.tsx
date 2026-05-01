@@ -4,7 +4,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   FolderKanban,
-  Layers,
   Mail,
   Image as ImageIcon,
   Briefcase,
@@ -20,16 +19,15 @@ export const metadata = {
 };
 
 async function getStats() {
-  const [projects, services, banners, careers, totalMessages, unreadMessages] =
+  const [projects, banners, careers, totalMessages, unreadMessages] =
     await Promise.all([
       prisma.project.count(),
-      prisma.service.count(),
       prisma.banner.count(),
       prisma.career.count({ where: { isActive: true } }),
       prisma.contactMessage.count(),
       prisma.contactMessage.count({ where: { isRead: false } }),
     ]);
-  return { projects, services, banners, careers, totalMessages, unreadMessages };
+  return { projects, banners, careers, totalMessages, unreadMessages };
 }
 
 async function getRecentMessages() {
@@ -44,7 +42,6 @@ export default async function AdminDashboardPage() {
 
   const cards = [
     { label: "Markalar", value: stats.projects, icon: FolderKanban, href: "/admin/projects" },
-    { label: "Hizmetler", value: stats.services, icon: Layers, href: "/admin/services" },
     { label: "Banner'lar", value: stats.banners, icon: ImageIcon, href: "/admin/banners" },
     { label: "Aktif İlan", value: stats.careers, icon: Briefcase, href: "/admin/careers" },
   ];
@@ -72,7 +69,7 @@ export default async function AdminDashboardPage() {
         </Link>
       </header>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
         {cards.map((c) => {
           const Icon = c.icon;
           return (
