@@ -70,7 +70,7 @@ export function Header({
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const nav = [
-    { href: "/#markalar", label: navBrandsLabel || "Markalarımız" },
+    { href: "/markalarimiz", label: navBrandsLabel || "Markalarımız" },
     { href: "/#sektorler", label: navSectorsLabel || "Sektörler" },
     { href: "/blog", label: navBlogLabel || "Blog" },
     { href: "/#kariyer", label: navCareersLabel || "Kariyer" },
