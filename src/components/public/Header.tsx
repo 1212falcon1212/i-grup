@@ -6,14 +6,6 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const nav = [
-  { href: "/#markalar", label: "Markalarımız" },
-  { href: "/#sektorler", label: "Sektörler" },
-  { href: "/blog", label: "Blog" },
-  { href: "/#kariyer", label: "Kariyer" },
-  { href: "/iletisim", label: "İletişim" },
-];
-
 function Logo({
   siteName,
   logoUrl,
@@ -59,12 +51,32 @@ function Logo({
 export function Header({
   siteName,
   logoUrl,
+  navBrandsLabel,
+  navSectorsLabel,
+  navBlogLabel,
+  navCareersLabel,
+  navContactLabel,
+  headerCtaLabel,
 }: {
   siteName: string;
   logoUrl?: string | null;
+  navBrandsLabel?: string | null;
+  navSectorsLabel?: string | null;
+  navBlogLabel?: string | null;
+  navCareersLabel?: string | null;
+  navContactLabel?: string | null;
+  headerCtaLabel?: string | null;
 }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const nav = [
+    { href: "/#markalar", label: navBrandsLabel || "Markalarımız" },
+    { href: "/#sektorler", label: navSectorsLabel || "Sektörler" },
+    { href: "/blog", label: navBlogLabel || "Blog" },
+    { href: "/#kariyer", label: navCareersLabel || "Kariyer" },
+    { href: "/iletisim", label: navContactLabel || "İletişim" },
+  ];
+  const ctaLabel = headerCtaLabel || "İletişime geç";
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 24);
@@ -109,7 +121,7 @@ export function Header({
             href="/iletisim"
             className="hidden sm:inline-flex items-center gap-2 text-sm font-medium px-[18px] py-[10px] rounded-full bg-ink text-[#F7F5F0] hover:opacity-90 transition-opacity"
           >
-            İletişime geç <span className="text-base leading-none">→</span>
+            {ctaLabel} <span className="text-base leading-none">→</span>
           </Link>
           <button
             className="lg:hidden h-10 w-10 flex items-center justify-center text-ink"
@@ -139,7 +151,7 @@ export function Header({
               onClick={() => setOpen(false)}
               className="mt-2 text-center text-sm font-medium px-[18px] py-[12px] rounded-full bg-ink text-[#F7F5F0]"
             >
-              İletişime geç →
+              {ctaLabel} →
             </Link>
           </div>
         </div>

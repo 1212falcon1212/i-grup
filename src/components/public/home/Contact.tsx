@@ -11,6 +11,25 @@ interface Props {
   phone: string | null;
   address: string | null;
   officeHours: string | null;
+  eyebrow?: string | null;
+  emailLabel?: string | null;
+  phoneLabel?: string | null;
+  officeLabel?: string | null;
+  hoursLabel?: string | null;
+  formTitle?: string | null;
+  nameLabel?: string | null;
+  namePlaceholder?: string | null;
+  emailFieldLabel?: string | null;
+  emailPlaceholder?: string | null;
+  companyLabel?: string | null;
+  companyPlaceholder?: string | null;
+  messageLabel?: string | null;
+  messagePlaceholder?: string | null;
+  submitLabel?: string | null;
+  sendingLabel?: string | null;
+  successLabel?: string | null;
+  privacyText?: string | null;
+  subject?: string | null;
 }
 
 interface FormValues {
@@ -28,6 +47,25 @@ export function Contact({
   phone,
   address,
   officeHours,
+  eyebrow,
+  emailLabel,
+  phoneLabel,
+  officeLabel,
+  hoursLabel,
+  formTitle,
+  nameLabel,
+  namePlaceholder,
+  emailFieldLabel,
+  emailPlaceholder,
+  companyLabel,
+  companyPlaceholder,
+  messageLabel,
+  messagePlaceholder,
+  submitLabel,
+  sendingLabel,
+  successLabel,
+  privacyText,
+  subject,
 }: Props) {
   const [f, setF] = useState<FormValues>({
     name: "",
@@ -48,7 +86,7 @@ export function Contact({
       name: f.name,
       email: f.email,
       company: f.company,
-      subject: "Proje brief — i-Grup",
+      subject: subject || "İletişim formu - i-Grup",
       message: f.brief,
       kvkkConsent: true as const,
     };
@@ -81,7 +119,7 @@ export function Contact({
     >
       <div className="container-site grid md:grid-cols-2 gap-10 md:gap-[72px] items-start">
         <div>
-          <div className="eyebrow text-indigo-soft">İletişim</div>
+          <div className="eyebrow text-indigo-soft">{eyebrow || "İletişim"}</div>
           <h2
             className="h-display mt-3.5 text-[#F7F5F0]"
             style={{
@@ -105,10 +143,10 @@ export function Contact({
             {lead}
           </p>
           <div className="grid gap-6 mt-8">
-            <InfoRow label="E-posta" value={email} />
-            <InfoRow label="Telefon" value={phone} />
-            <InfoRow label="Ofis" value={address} />
-            <InfoRow label="Çalışma saatleri" value={officeHours} />
+            <InfoRow label={emailLabel || "E-posta"} value={email} />
+            <InfoRow label={phoneLabel || "Telefon"} value={phone} />
+            <InfoRow label={officeLabel || "Ofis"} value={address} />
+            <InfoRow label={hoursLabel || "Çalışma saatleri"} value={officeHours} />
           </div>
         </div>
 
@@ -122,40 +160,43 @@ export function Contact({
           }}
         >
           <div className="text-[21px] font-semibold text-[#F7F5F0] tracking-[-0.02em] mb-5">
-            Proje briefi
+            {formTitle || "İletişim formu"}
           </div>
           <Field
-            label="Ad soyad"
+            label={nameLabel || "Ad soyad"}
             value={f.name}
             onChange={(v) => setField("name", v)}
-            placeholder="Ayşe Demir"
+            placeholder={namePlaceholder || "Ayşe Demir"}
             required
           />
           <Field
-            label="E-posta"
+            label={emailFieldLabel || "E-posta"}
             type="email"
             value={f.email}
             onChange={(v) => setField("email", v)}
-            placeholder="ayse@sirket.com"
+            placeholder={emailPlaceholder || "ayse@sirket.com"}
             required
           />
           <Field
-            label="Şirket"
+            label={companyLabel || "Şirket"}
             value={f.company}
             onChange={(v) => setField("company", v)}
-            placeholder="Şirket / marka adı"
+            placeholder={companyPlaceholder || "Şirket / marka adı"}
           />
           <label className="block mb-5">
             <div
               className="text-xs font-semibold mb-1.5 tracking-[0.02em]"
               style={{ color: "rgba(247,245,240,0.7)" }}
             >
-              Kısaca projeniz
+              {messageLabel || "Mesajınız"}
             </div>
             <textarea
               value={f.brief}
               onChange={(e) => setField("brief", e.target.value)}
-              placeholder="Nasıl bir şey kurmak istersiniz? Hangi sektöre hitap ediyor?"
+              placeholder={
+                messagePlaceholder ||
+                "i-Grup Şirketler Topluluğu ile ilgili mesajınızı yazın."
+              }
               rows={5}
               className="w-full text-[15px] focus:outline-none focus:ring-2 focus:ring-indigo-soft/60"
               style={{
@@ -188,16 +229,16 @@ export function Contact({
             }}
           >
             {sent
-              ? "✓ Briefinizi aldık — 24 saat içinde döneceğiz"
+              ? successLabel || "Mesajınızı aldık. En kısa sürede döneceğiz."
               : isPending
-                ? "Gönderiliyor..."
-                : "Briefi gönder →"}
+                ? sendingLabel || "Gönderiliyor..."
+                : submitLabel || "Gönder →"}
           </button>
           <div
             className="text-[12px] mt-3.5 text-center"
             style={{ color: "rgba(247,245,240,0.55)" }}
           >
-            Paylaştığınız bilgiler yalnızca bu talep için kullanılır.
+            {privacyText || "Paylaştığınız bilgiler yalnızca bu talep için kullanılır."}
           </div>
         </form>
       </div>

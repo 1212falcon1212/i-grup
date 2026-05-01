@@ -65,7 +65,7 @@ export function Footer({
               style={{ color: "rgba(247,245,240,0.65)" }}
             >
               {settings.footerText ??
-                "İstanbul merkezli ürün stüdyosu. Eczane, kozmetik, B2B ve kurumsal yazılım için uçtan uca ürün geliştirir ve işletir."}
+                "i-Grup Şirketler Topluluğu, farklı sektörlerde faaliyet gösteren dijital markaları aynı çatı altında buluşturur."}
             </p>
           </div>
 
@@ -74,16 +74,16 @@ export function Footer({
               className="text-[12.5px] font-semibold uppercase tracking-[0.06em]"
               style={{ color: "rgba(247,245,240,0.5)" }}
             >
-              Şirket
+              {settings.footerCompanyHeading || "Şirket"}
             </div>
             <ul
               className="mt-4 text-sm leading-[2]"
               style={{ color: "rgba(247,245,240,0.88)" }}
             >
-              <li><Link href="/hakkimizda" className="hover:text-white transition-colors">Hakkımızda</Link></li>
-              <li><Link href="/#kariyer" className="hover:text-white transition-colors">Kariyer</Link></li>
-              <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-              <li><Link href="/iletisim" className="hover:text-white transition-colors">İletişim</Link></li>
+              <li><Link href="/hakkimizda" className="hover:text-white transition-colors">{settings.footerAboutLabel || "Hakkımızda"}</Link></li>
+              <li><Link href="/#kariyer" className="hover:text-white transition-colors">{settings.navCareersLabel || "Kariyer"}</Link></li>
+              <li><Link href="/blog" className="hover:text-white transition-colors">{settings.navBlogLabel || "Blog"}</Link></li>
+              <li><Link href="/iletisim" className="hover:text-white transition-colors">{settings.navContactLabel || "İletişim"}</Link></li>
             </ul>
           </div>
 
@@ -92,7 +92,7 @@ export function Footer({
               className="text-[12.5px] font-semibold uppercase tracking-[0.06em]"
               style={{ color: "rgba(247,245,240,0.5)" }}
             >
-              Markalar
+              {settings.footerBrandsHeading || settings.navBrandsLabel || "Markalar"}
             </div>
             <ul
               className="mt-4 text-sm leading-[2]"
@@ -113,7 +113,7 @@ export function Footer({
               className="text-[12.5px] font-semibold uppercase tracking-[0.06em]"
               style={{ color: "rgba(247,245,240,0.5)" }}
             >
-              İletişim
+              {settings.footerContactHeading || settings.navContactLabel || "İletişim"}
             </div>
             <ul
               className="mt-4 text-sm leading-[2]"
@@ -157,14 +157,15 @@ export function Footer({
           style={{ color: "rgba(247,245,240,0.5)" }}
         >
           <span>
-            © {new Date().getFullYear()} {settings.siteName} Yazılım A.Ş.
+            © {new Date().getFullYear()} {settings.siteName}{" "}
+            {settings.footerCopyrightSuffix || "Şirketler Topluluğu"}
           </span>
           <span className="flex items-center gap-2">
-            <Link href="/kvkk" className="hover:text-white transition-colors">KVKK</Link>
+            <Link href="/kvkk" className="hover:text-white transition-colors">{settings.footerKvkkLabel || "KVKK"}</Link>
             <span>·</span>
-            <Link href="/gizlilik-politikasi" className="hover:text-white transition-colors">Gizlilik</Link>
+            <Link href="/gizlilik-politikasi" className="hover:text-white transition-colors">{settings.footerPrivacyLabel || "Gizlilik"}</Link>
             <span>·</span>
-            <Link href="/gizlilik-politikasi" className="hover:text-white transition-colors">Çerezler</Link>
+            <Link href="/gizlilik-politikasi" className="hover:text-white transition-colors">{settings.footerCookiesLabel || "Çerezler"}</Link>
           </span>
         </div>
       </div>

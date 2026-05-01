@@ -18,15 +18,26 @@ export function Blog({
   eyebrow,
   title,
   lead: headingLead,
+  readFullLabel,
+  readLabel,
+  allPostsLabel,
+  featuredImageLabel,
 }: {
   posts: PostItem[];
   eyebrow?: string | null;
   title?: string | null;
   lead?: string | null;
+  readFullLabel?: string | null;
+  readLabel?: string | null;
+  allPostsLabel?: string | null;
+  featuredImageLabel?: string | null;
 }) {
   if (posts.length === 0) return null;
   const [lead, ...rest] = posts;
   const dateStr = (d: Date) => format(d, "d MMM yyyy", { locale: tr });
+  const leadCta = readFullLabel || "Yazının tamamı";
+  const itemCta = readLabel || "Oku";
+  const allCta = allPostsLabel || "Tüm yazılar";
 
   return (
     <section
@@ -57,7 +68,7 @@ export function Blog({
                 src={lead.coverImage}
                 aspect="16/10"
                 radius={0}
-                label="öne çıkan yazı"
+                label={featuredImageLabel || lead.tag}
                 sizes="(min-width: 768px) 60vw, 100vw"
               />
               <div style={{ padding: "32px 34px 36px" }}>
@@ -81,7 +92,7 @@ export function Blog({
                     {dateStr(lead.publishedAt)}
                   </span>
                   <span className="text-sm font-semibold text-ink arrow-shift">
-                    Yazının tamamı <span className="arrow">→</span>
+                    {leadCta} <span className="arrow">→</span>
                   </span>
                 </div>
               </div>
@@ -124,7 +135,7 @@ export function Blog({
                       {n.excerpt}
                     </div>
                     <div className="text-[13px] font-semibold text-ink mt-3 arrow-shift">
-                      Oku <span className="arrow">→</span>
+                      {itemCta} <span className="arrow">→</span>
                     </div>
                   </div>
                 </Link>
@@ -138,7 +149,7 @@ export function Blog({
             className="inline-flex items-center gap-2 text-[14px] font-semibold text-ink px-6 py-3 rounded-full bg-bg border transition-colors hover:bg-bg3"
             style={{ borderColor: "var(--rule)" }}
           >
-            Tüm yazılar <span className="arrow">→</span>
+            {allCta} <span className="arrow">→</span>
           </Link>
         </div>
       </div>

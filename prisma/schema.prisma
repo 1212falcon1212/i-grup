@@ -209,7 +209,7 @@ model SiteSetting {
   heroHeading       String? // "Eczane, kozmetik ve B2B için ürün geliştiriyoruz."
   heroHighlight     String? // "ürün geliştiriyoruz." kısmı
   heroSubtitle      String?
-  heroStatusText    String? // "İstanbul merkezli ürün stüdyosu · 2014'ten beri"
+  heroStatusText    String? // "i-Grup Şirketler Topluluğu · 2014'ten beri"
   heroImageUrl      String?
   aboutHeading      String?
   aboutLead         String?
@@ -252,5 +252,57 @@ model SiteSetting {
   blogEyebrow       String?
   blogTitle         String?
   blogLead          String?
+  // Homepage microcopy
+  navBrandsLabel       String?
+  navSectorsLabel      String?
+  navBlogLabel         String?
+  navCareersLabel      String?
+  navContactLabel      String?
+  headerCtaLabel       String?
+  heroImageLabel       String?
+  heroStatProjectsLabel String?
+  heroStatSectorsLabel  String?
+  heroStatUsersLabel    String?
+  brandsFilterAllLabel  String?
+  brandsCountSingular   String?
+  brandsCountPlural     String?
+  brandCardCtaLabel     String?
+  brandCardExternalLabel String?
+  brandCardMetaPrefix   String?
+  brandCardPendingLabel  String?
+  blogReadFullLabel     String?
+  blogReadLabel         String?
+  blogAllPostsLabel     String?
+  blogFeaturedImageLabel String?
+  careersEyebrow        String?
+  careersOpenPositionsLabel String?
+  careersImageLabel     String?
+  contactEyebrow        String?
+  contactEmailLabel     String?
+  contactPhoneLabel     String?
+  contactOfficeLabel    String?
+  contactHoursLabel     String?
+  contactFormTitle      String?
+  contactNameLabel      String?
+  contactNamePlaceholder String?
+  contactEmailFieldLabel String?
+  contactEmailPlaceholder String?
+  contactCompanyLabel   String?
+  contactCompanyPlaceholder String?
+  contactMessageLabel   String?
+  contactMessagePlaceholder String?
+  contactSubmitLabel    String?
+  contactSendingLabel   String?
+  contactSuccessLabel   String?
+  contactPrivacyText    String?
+  contactSubject        String?
+  footerCompanyHeading  String?
+  footerBrandsHeading   String?
+  footerContactHeading  String?
+  footerAboutLabel      String?
+  footerCopyrightSuffix String?
+  footerKvkkLabel       String?
+  footerPrivacyLabel    String?
+  footerCookiesLabel    String?
   updatedAt       DateTime @updatedAt
 }

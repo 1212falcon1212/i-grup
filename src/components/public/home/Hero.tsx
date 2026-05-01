@@ -16,6 +16,7 @@ interface Props {
   overlayLabel?: string | null;
   overlayTitle?: string | null;
   overlayDescription?: string | null;
+  imageLabel?: string | null;
 }
 
 export function Hero({
@@ -33,6 +34,7 @@ export function Hero({
   overlayLabel,
   overlayTitle,
   overlayDescription,
+  imageLabel,
 }: Props) {
   const parts = highlight ? heading.split(highlight) : [heading];
   const leading = parts[0] ?? heading;
@@ -129,7 +131,7 @@ export function Hero({
             src={heroImageUrl}
             aspect="4/5"
             radius={12}
-            label="i-Grup merkez ofis"
+            label={imageLabel || "i-Grup merkez ofis"}
             priority
             sizes="(min-width: 768px) 40vw, 100vw"
           />

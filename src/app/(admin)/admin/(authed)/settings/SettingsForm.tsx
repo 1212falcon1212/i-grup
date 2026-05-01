@@ -72,6 +72,57 @@ type Values = {
   blogEyebrow: string;
   blogTitle: string;
   blogLead: string;
+  navBrandsLabel: string;
+  navSectorsLabel: string;
+  navBlogLabel: string;
+  navCareersLabel: string;
+  navContactLabel: string;
+  headerCtaLabel: string;
+  heroImageLabel: string;
+  heroStatProjectsLabel: string;
+  heroStatSectorsLabel: string;
+  heroStatUsersLabel: string;
+  brandsFilterAllLabel: string;
+  brandsCountSingular: string;
+  brandsCountPlural: string;
+  brandCardCtaLabel: string;
+  brandCardExternalLabel: string;
+  brandCardMetaPrefix: string;
+  brandCardPendingLabel: string;
+  blogReadFullLabel: string;
+  blogReadLabel: string;
+  blogAllPostsLabel: string;
+  blogFeaturedImageLabel: string;
+  careersEyebrow: string;
+  careersOpenPositionsLabel: string;
+  careersImageLabel: string;
+  contactEyebrow: string;
+  contactEmailLabel: string;
+  contactPhoneLabel: string;
+  contactOfficeLabel: string;
+  contactHoursLabel: string;
+  contactFormTitle: string;
+  contactNameLabel: string;
+  contactNamePlaceholder: string;
+  contactEmailFieldLabel: string;
+  contactEmailPlaceholder: string;
+  contactCompanyLabel: string;
+  contactCompanyPlaceholder: string;
+  contactMessageLabel: string;
+  contactMessagePlaceholder: string;
+  contactSubmitLabel: string;
+  contactSendingLabel: string;
+  contactSuccessLabel: string;
+  contactPrivacyText: string;
+  contactSubject: string;
+  footerCompanyHeading: string;
+  footerBrandsHeading: string;
+  footerContactHeading: string;
+  footerAboutLabel: string;
+  footerCopyrightSuffix: string;
+  footerKvkkLabel: string;
+  footerPrivacyLabel: string;
+  footerCookiesLabel: string;
 };
 
 type SettingsFormContextValue = {
@@ -313,13 +364,13 @@ export function SettingsForm({ initial }: { initial: Values }) {
           Ana Sayfa Bölüm Başlıkları
         </h2>
         <p className="text-xs text-muted-foreground -mt-2">
-          Markalar / Sektörler / Referanslar / Blog bölümlerinin üst yazıları.
+          Markalar / Sektörler / Blog bölümlerinin üst yazıları.
           Boş bırakılırsa kod içindeki varsayılan metin gösterilir.
         </p>
 
         <div className="space-y-6">
           <div>
-            <div className="text-xs font-semibold text-muted-foreground mb-2">PROJELER</div>
+            <div className="text-xs font-semibold text-muted-foreground mb-2">MARKALAR</div>
             <div className="grid md:grid-cols-[1fr_2fr] gap-3">
               <TextField label="Eyebrow" k="projectsEyebrow" />
               <TextField label="Başlık" k="projectsTitle" />
@@ -341,17 +392,6 @@ export function SettingsForm({ initial }: { initial: Values }) {
           </div>
 
           <div>
-            <div className="text-xs font-semibold text-muted-foreground mb-2">REFERANSLAR</div>
-            <div className="grid md:grid-cols-[1fr_2fr] gap-3">
-              <TextField label="Eyebrow" k="clientsEyebrow" />
-              <TextField label="Başlık" k="clientsTitle" />
-            </div>
-            <div className="mt-3">
-              <TextField label="Lead paragraf" k="clientsLead" textarea rows={2} />
-            </div>
-          </div>
-
-          <div>
             <div className="text-xs font-semibold text-muted-foreground mb-2">BLOG</div>
             <div className="grid md:grid-cols-[1fr_2fr] gap-3">
               <TextField label="Eyebrow" k="blogEyebrow" />
@@ -361,6 +401,106 @@ export function SettingsForm({ initial }: { initial: Values }) {
               <TextField label="Lead paragraf" k="blogLead" textarea rows={2} />
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+          Ana Sayfa Mikro Metinler
+        </h2>
+        <p className="text-xs text-muted-foreground -mt-2">
+          Menü, buton, sayaç, kart ve form içindeki küçük metinler.
+        </p>
+
+        <div className="space-y-6">
+          <div>
+            <div className="text-xs font-semibold text-muted-foreground mb-2">MENÜ</div>
+            <div className="grid md:grid-cols-3 gap-3">
+              <TextField label="Markalar linki" k="navBrandsLabel" />
+              <TextField label="Sektörler linki" k="navSectorsLabel" />
+              <TextField label="Blog linki" k="navBlogLabel" />
+              <TextField label="Kariyer linki" k="navCareersLabel" />
+              <TextField label="İletişim linki" k="navContactLabel" />
+              <TextField label="Header CTA" k="headerCtaLabel" />
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs font-semibold text-muted-foreground mb-2">HERO</div>
+            <div className="grid md:grid-cols-2 gap-3">
+              <TextField label="Hero görsel alt etiketi" k="heroImageLabel" />
+              <TextField label="Stat 1 etiketi" k="heroStatProjectsLabel" />
+              <TextField label="Stat 2 etiketi" k="heroStatSectorsLabel" />
+              <TextField label="Stat 3 etiketi" k="heroStatUsersLabel" />
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs font-semibold text-muted-foreground mb-2">MARKALAR</div>
+            <div className="grid md:grid-cols-3 gap-3">
+              <TextField label="Tümü filtresi" k="brandsFilterAllLabel" />
+              <TextField label="Tekil sayaç kelimesi" k="brandsCountSingular" />
+              <TextField label="Çoğul sayaç kelimesi" k="brandsCountPlural" />
+              <TextField label="Kart CTA" k="brandCardCtaLabel" />
+              <TextField label="Dış site CTA" k="brandCardExternalLabel" />
+              <TextField label="Kart meta ön eki" k="brandCardMetaPrefix" />
+              <TextField label="Yıl yoksa kart meta metni" k="brandCardPendingLabel" />
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs font-semibold text-muted-foreground mb-2">BLOG & KARİYER</div>
+            <div className="grid md:grid-cols-3 gap-3">
+              <TextField label="Öne çıkan yazı CTA" k="blogReadFullLabel" />
+              <TextField label="Küçük yazı CTA" k="blogReadLabel" />
+              <TextField label="Tüm yazılar CTA" k="blogAllPostsLabel" />
+              <TextField label="Blog görsel fallback etiketi" k="blogFeaturedImageLabel" />
+              <TextField label="Kariyer eyebrow" k="careersEyebrow" />
+              <TextField label="Açık pozisyon etiketi" k="careersOpenPositionsLabel" />
+              <TextField label="Kariyer görsel fallback etiketi" k="careersImageLabel" />
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs font-semibold text-muted-foreground mb-2">İLETİŞİM FORMU</div>
+            <div className="grid md:grid-cols-2 gap-3">
+              <TextField label="İletişim eyebrow" k="contactEyebrow" />
+              <TextField label="E-posta bilgi etiketi" k="contactEmailLabel" />
+              <TextField label="Telefon bilgi etiketi" k="contactPhoneLabel" />
+              <TextField label="Ofis bilgi etiketi" k="contactOfficeLabel" />
+              <TextField label="Çalışma saati etiketi" k="contactHoursLabel" />
+              <TextField label="Form başlığı" k="contactFormTitle" />
+              <TextField label="Ad soyad etiketi" k="contactNameLabel" />
+              <TextField label="Ad soyad placeholder" k="contactNamePlaceholder" />
+              <TextField label="E-posta alan etiketi" k="contactEmailFieldLabel" />
+              <TextField label="E-posta placeholder" k="contactEmailPlaceholder" />
+              <TextField label="Şirket etiketi" k="contactCompanyLabel" />
+              <TextField label="Şirket placeholder" k="contactCompanyPlaceholder" />
+              <TextField label="Mesaj etiketi" k="contactMessageLabel" />
+              <TextField label="Mesaj placeholder" k="contactMessagePlaceholder" />
+              <TextField label="Gönder butonu" k="contactSubmitLabel" />
+              <TextField label="Gönderiliyor metni" k="contactSendingLabel" />
+              <TextField label="Başarı metni" k="contactSuccessLabel" />
+              <TextField label="Gizlilik alt metni" k="contactPrivacyText" />
+              <TextField label="Mesaj konusu" k="contactSubject" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+          Footer Mikro Metinler
+        </h2>
+        <div className="grid md:grid-cols-2 gap-3">
+          <TextField label="Şirket kolon başlığı" k="footerCompanyHeading" />
+          <TextField label="Markalar kolon başlığı" k="footerBrandsHeading" />
+          <TextField label="İletişim kolon başlığı" k="footerContactHeading" />
+          <TextField label="Hakkımızda link metni" k="footerAboutLabel" />
+          <TextField label="Copyright eki" k="footerCopyrightSuffix" />
+          <TextField label="KVKK link metni" k="footerKvkkLabel" />
+          <TextField label="Gizlilik link metni" k="footerPrivacyLabel" />
+          <TextField label="Çerezler link metni" k="footerCookiesLabel" />
         </div>
       </section>
 

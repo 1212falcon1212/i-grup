@@ -9,25 +9,47 @@ interface Props {
   eyebrow?: string | null;
   title?: string | null;
   lead?: string | null;
+  filterAllLabel?: string | null;
+  countSingular?: string | null;
+  countPlural?: string | null;
+  cardCtaLabel?: string | null;
+  cardExternalLabel?: string | null;
+  cardMetaPrefix?: string | null;
+  cardPendingLabel?: string | null;
 }
 
-export function Projects({ projects, eyebrow, title, lead }: Props) {
+export function Projects({
+  projects,
+  eyebrow,
+  title,
+  lead,
+  filterAllLabel,
+  countSingular,
+  countPlural,
+  cardCtaLabel,
+  cardExternalLabel,
+  cardMetaPrefix,
+  cardPendingLabel,
+}: Props) {
+  const allLabel = filterAllLabel || "Tümü";
+  const singular = countSingular || "marka";
+  const plural = countPlural || singular;
   const allTags = useMemo(() => {
     const set = new Set<string>();
     for (const p of projects) set.add(p.category);
-    return ["Tümü", ...Array.from(set)];
-  }, [projects]);
+    return [allLabel, ...Array.from(set)];
+  }, [allLabel, projects]);
 
-  const [filter, setFilter] = useState("Tümü");
+  const [filter, setFilter] = useState(allLabel);
 
   const filtered = useMemo(() => {
-    return filter === "Tümü"
+    return filter === allLabel
       ? projects
       : projects.filter((p) => p.category === filter);
-  }, [filter, projects]);
+  }, [allLabel, filter, projects]);
 
   const countFor = (tag: string) =>
-    tag === "Tümü"
+    tag === allLabel
       ? projects.length
       : projects.filter((p) => p.category === tag).length;
 
@@ -108,12 +130,19 @@ export function Projects({ projects, eyebrow, title, lead }: Props) {
                   {category}
                 </h3>
                 <span className="pb-4 text-[13px] font-medium text-mute">
-                  {items.length} marka
+                  {items.length} {items.length === 1 ? singular : plural}
                 </span>
               </div>
               <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
                 {items.map((p) => (
-                  <ProjectCard key={p.slug} p={{ ...p, featured: false }} />
+                  <ProjectCard
+                    key={p.slug}
+                    p={{ ...p, featured: false }}
+                    ctaLabel={cardCtaLabel}
+                    externalLabel={cardExternalLabel}
+                    metaPrefix={cardMetaPrefix}
+                    pendingLabel={cardPendingLabel}
+                  />
                 ))}
               </div>
             </div>

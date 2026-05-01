@@ -24,13 +24,13 @@ export async function generateMetadata(): Promise<Metadata> {
     title: {
       default:
         s.defaultSeoTitle ??
-        `${s.siteName} — Eczane, kozmetik ve B2B için ürün geliştiriyoruz`,
+        `${s.siteName} — Şirketler Topluluğu`,
       template: `%s | ${s.siteName}`,
     },
     description:
       s.defaultSeoDesc ??
       s.tagline ??
-      "İstanbul merkezli ürün stüdyosu. Pazaryeri, B2B tedarik, mobil uygulamalar, kurumsal muhasebe ve tüketici platformlarında uçtan uca ürün üretir.",
+      "i-Grup Şirketler Topluluğu, farklı sektörlerde faaliyet gösteren dijital markaları ve platformları aynı çatı altında buluşturur.",
     metadataBase: new URL(
       process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
     ),

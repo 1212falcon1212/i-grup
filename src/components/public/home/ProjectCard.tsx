@@ -17,11 +17,27 @@ export interface ProjectCardData {
   featured: boolean;
 }
 
-export function ProjectCard({ p }: { p: ProjectCardData }) {
+export function ProjectCard({
+  p,
+  ctaLabel,
+  externalLabel,
+  metaPrefix,
+  pendingLabel,
+}: {
+  p: ProjectCardData;
+  ctaLabel?: string | null;
+  externalLabel?: string | null;
+  metaPrefix?: string | null;
+  pendingLabel?: string | null;
+}) {
   const hasLive = !!p.liveUrl;
   const detailHref = `/markalarimiz/${p.slug}`;
   const externalHref = p.liveUrl ?? detailHref;
-  const externalLabel = hasLive ? "Siteyi görüntüle" : "Markayı incele";
+  const actionLabel = hasLive
+    ? externalLabel || "Siteyi görüntüle"
+    : ctaLabel || "Markayı incele";
+  const meta = metaPrefix || "Grup markası";
+  const noYearMeta = pendingLabel || "Yakında";
 
   return (
     <article
@@ -89,7 +105,7 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
           style={{ borderTop: "1px solid var(--rule)" }}
         >
           <span className="text-[13px] text-mute">
-            {p.year ? `Grup markası · ${p.year}` : "Yakında"}
+            {p.year ? `${meta} · ${p.year}` : noYearMeta}
           </span>
           {hasLive ? (
             <a
@@ -98,14 +114,14 @@ export function ProjectCard({ p }: { p: ProjectCardData }) {
               rel="noopener noreferrer"
               className="text-[13px] font-semibold text-ink arrow-shift"
             >
-              {externalLabel} <span className="arrow">→</span>
+              {actionLabel} <span className="arrow">→</span>
             </a>
           ) : (
             <Link
               href={externalHref}
               className="text-[13px] font-semibold text-ink arrow-shift"
             >
-              {externalLabel} <span className="arrow">→</span>
+              {actionLabel} <span className="arrow">→</span>
             </Link>
           )}
         </div>

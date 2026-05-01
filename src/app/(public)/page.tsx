@@ -92,7 +92,7 @@ export default async function HomePage() {
       <Hero
         statusText={
           settings.heroStatusText ??
-          `İstanbul merkezli ürün stüdyosu · ${settings.foundedYear}'ten beri`
+          `i-Grup Şirketler Topluluğu · ${settings.foundedYear}'ten beri`
         }
         heading={
           settings.heroHeading ??
@@ -106,9 +106,18 @@ export default async function HomePage() {
         }
         heroImageUrl={settings.heroImageUrl}
         stats={[
-          { value: String(settings.statProjects), label: "aktif proje" },
-          { value: String(settings.statSectors), label: "sektör" },
-          { value: `${settings.statEndUsers}+`, label: "son kullanıcı" },
+          {
+            value: String(settings.statProjects),
+            label: settings.heroStatProjectsLabel ?? "aktif marka",
+          },
+          {
+            value: String(settings.statSectors),
+            label: settings.heroStatSectorsLabel ?? "sektör",
+          },
+          {
+            value: `${settings.statEndUsers}+`,
+            label: settings.heroStatUsersLabel ?? "son kullanıcı",
+          },
         ]}
         teamSize={settings.teamSize}
         ctaPrimaryLabel={settings.heroCtaPrimaryLabel}
@@ -118,12 +127,20 @@ export default async function HomePage() {
         overlayLabel={settings.heroOverlayLabel}
         overlayTitle={settings.heroOverlayTitle}
         overlayDescription={settings.heroOverlayDescription}
+        imageLabel={settings.heroImageLabel}
       />
 
       <Projects
         eyebrow={settings.projectsEyebrow}
         title={settings.projectsTitle}
         lead={settings.projectsLead}
+        filterAllLabel={settings.brandsFilterAllLabel}
+        countSingular={settings.brandsCountSingular}
+        countPlural={settings.brandsCountPlural}
+        cardCtaLabel={settings.brandCardCtaLabel}
+        cardExternalLabel={settings.brandCardExternalLabel}
+        cardMetaPrefix={settings.brandCardMetaPrefix}
+        cardPendingLabel={settings.brandCardPendingLabel}
         projects={projects.map((p) => ({
           slug: p.slug,
           title: p.title,
@@ -149,6 +166,10 @@ export default async function HomePage() {
         eyebrow={settings.blogEyebrow}
         title={settings.blogTitle}
         lead={settings.blogLead}
+        readFullLabel={settings.blogReadFullLabel}
+        readLabel={settings.blogReadLabel}
+        allPostsLabel={settings.blogAllPostsLabel}
+        featuredImageLabel={settings.blogFeaturedImageLabel}
         posts={posts.map((p) => ({
           slug: p.slug,
           tag: p.tag,
@@ -170,6 +191,9 @@ export default async function HomePage() {
         emptyTitle={settings.careersEmptyTitle}
         emptyText={settings.careersEmptyText}
         applyLabel={settings.careersApplyLabel}
+        eyebrow={settings.careersEyebrow}
+        openPositionsLabel={settings.careersOpenPositionsLabel}
+        imageLabel={settings.careersImageLabel}
         jobs={jobs.map((j) => ({
           slug: j.slug,
           title: j.title,
@@ -190,6 +214,25 @@ export default async function HomePage() {
         phone={settings.phone}
         address={settings.address}
         officeHours={settings.officeHours}
+        eyebrow={settings.contactEyebrow}
+        emailLabel={settings.contactEmailLabel}
+        phoneLabel={settings.contactPhoneLabel}
+        officeLabel={settings.contactOfficeLabel}
+        hoursLabel={settings.contactHoursLabel}
+        formTitle={settings.contactFormTitle}
+        nameLabel={settings.contactNameLabel}
+        namePlaceholder={settings.contactNamePlaceholder}
+        emailFieldLabel={settings.contactEmailFieldLabel}
+        emailPlaceholder={settings.contactEmailPlaceholder}
+        companyLabel={settings.contactCompanyLabel}
+        companyPlaceholder={settings.contactCompanyPlaceholder}
+        messageLabel={settings.contactMessageLabel}
+        messagePlaceholder={settings.contactMessagePlaceholder}
+        submitLabel={settings.contactSubmitLabel}
+        sendingLabel={settings.contactSendingLabel}
+        successLabel={settings.contactSuccessLabel}
+        privacyText={settings.contactPrivacyText}
+        subject={settings.contactSubject}
       />
     </>
   );

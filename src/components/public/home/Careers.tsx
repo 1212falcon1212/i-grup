@@ -18,6 +18,9 @@ interface Props {
   emptyTitle?: string | null;
   emptyText?: string | null;
   applyLabel?: string | null;
+  eyebrow?: string | null;
+  openPositionsLabel?: string | null;
+  imageLabel?: string | null;
 }
 
 export function Careers({
@@ -29,7 +32,12 @@ export function Careers({
   emptyTitle,
   emptyText,
   applyLabel,
+  eyebrow,
+  openPositionsLabel,
+  imageLabel,
 }: Props) {
+  const positionsLabel = openPositionsLabel || "açık pozisyon";
+
   return (
     <section
       id="kariyer"
@@ -38,7 +46,7 @@ export function Careers({
     >
       <div className="grid md:grid-cols-[1fr_1.4fr] gap-10 md:gap-14 items-start">
         <div className="md:sticky md:top-[100px]">
-          <div className="eyebrow">Kariyer</div>
+          <div className="eyebrow">{eyebrow || "Kariyer"}</div>
           <h2
             className="h-display mt-3"
             style={{
@@ -52,13 +60,13 @@ export function Careers({
             {lead}
           </p>
           <div className="mt-6">
-            <Shot src={image} aspect="4/3" radius={12} label="ofis" />
+            <Shot src={image} aspect="4/3" radius={12} label={imageLabel || "ofis"} />
           </div>
         </div>
 
         <div>
           <div className="text-[13px] font-medium text-mute mb-3.5">
-            {jobs.length} açık pozisyon
+            {jobs.length} {positionsLabel}
           </div>
           <div
             className="rounded-[14px] overflow-hidden bg-bg"
