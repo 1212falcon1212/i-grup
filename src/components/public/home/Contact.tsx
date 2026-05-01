@@ -5,7 +5,7 @@ import { toast } from "sonner";
 
 interface Props {
   heading: string;
-  highlight: string;
+  highlight?: string | null;
   lead: string;
   email: string | null;
   phone: string | null;
@@ -106,10 +106,10 @@ export function Contact({
     });
   }
 
-  // Split heading around highlight
-  const parts = highlight ? heading.split(highlight) : [heading];
+  const cleanHighlight = highlight?.trim() ?? "";
+  const parts = cleanHighlight ? heading.split(cleanHighlight) : [heading];
   const before = parts[0] ?? heading;
-  const after = parts[1] ?? "";
+  const after = cleanHighlight && parts.length > 1 ? parts.slice(1).join(cleanHighlight) : "";
 
   return (
     <section
@@ -129,7 +129,9 @@ export function Contact({
             }}
           >
             {before}
-            {highlight ? <span className="text-indigo-soft">{highlight}</span> : null}
+            {cleanHighlight ? (
+              <span className="text-indigo-soft">{cleanHighlight}</span>
+            ) : null}
             {after}
           </h2>
           <p

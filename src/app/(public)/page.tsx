@@ -205,7 +205,7 @@ export default async function HomePage() {
 
       <Contact
         heading={settings.contactHeading ?? "Bir proje mi düşünüyorsunuz?"}
-        highlight={settings.contactHighlight ?? "proje"}
+        highlight={settings.contactHighlight ?? ""}
         lead={
           settings.contactLead ??
           "Kısa bir brief bırakın; 24 saat içinde size özel geri dönelim."
